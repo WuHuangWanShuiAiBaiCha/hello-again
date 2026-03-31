@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unicorn Studio Fullscreen</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <section class="scroll-transition" id="scroll-transition">
+    <main class="scene-stage">
+      <div id="unicorn-container" aria-label="Unicorn Studio WebGL Scene"></div>
+      <div class="hello-scroll-hint" id="hello-scroll-hint" aria-hidden="true">
+        <span class="hello-scroll-hint__arrow"></span>
+      </div>
+    </main>
+    <div class="transition-next-scene" id="transition-next-scene" aria-hidden="true">
+      <div
+        class="transition-next-scene__embed"
+        style="width: 1440px; height: 900px"
+        data-us-project="FOGGaWWBJTROrgs0VrUj"
+      ></div>
+    </div>
+  </section>
+
+  <section class="next-page" aria-label="Next Unicorn Scene">
+    <div class="next-scene" aria-label="Second Unicorn Studio WebGL Scene">
+      <div
+        class="next-scene__embed"
+        style="width: 1440px; height: 900px"
+        data-us-project="FOGGaWWBJTROrgs0VrUj"
+      ></div>
+    </div>
+    <div class="device-grid">
+      <button class="pixel-button" id="mac-button" type="button">Mac</button>
+      <button class="pixel-button" type="button">iPod</button>
+      <button class="pixel-button" type="button">iPhone</button>
+      <button class="pixel-button" type="button">iPad</button>
+      <button class="pixel-button" type="button">Apple Watch</button>
+      <button class="pixel-button" type="button">Air Pods</button>
+    </div>
+  </section>
+
+  <section class="series-shell" id="series-shell" aria-hidden="true">
+    <div class="series-track" id="series-track">
+      <div class="series-panel series-panel--sentinel" aria-hidden="true"></div>
+
+      <section class="series-panel series-panel--mac" aria-label="Mac page">
+        <div class="series-panel__scroller" id="mac-page" data-series-scroll>
+          <div class="series-dock series-dock--mac" aria-hidden="true">
+            <span class="series-dock__rail"></span>
+            <div class="series-dock__buttons">
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+            </div>
+          </div>
+          <div class="series-panel__body detail-page__inner detail-page__inner--mac">
+            <div class="mac-stage" id="mac-stage">
+              <div class="detail-scene" aria-label="Mac Unicorn Studio Scene">
+                <div class="detail-scene-frame">
+                  <div id="mac-detail-scene"></div>
+                </div>
+                <button class="mac-scene-hitarea" id="mac-scene-hitarea" type="button" aria-label="Open classic Macintosh system"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="series-panel series-panel--aqua" aria-label="Aqua page">
+        <div class="series-panel__scroller" id="aqua-page" data-series-scroll>
+          <div class="series-dock series-dock--aqua" aria-hidden="true">
+            <span class="series-dock__rail"></span>
+            <div class="series-dock__buttons">
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+              <button class="series-dock__button" type="button" tabindex="-1"></button>
+            </div>
+          </div>
+          <div class="series-panel__body aqua-page-layer__inner"></div>
+        </div>
+      </section>
+
+      <section class="series-panel series-panel--plain" aria-label="Series page three">
+        <div class="series-panel__scroller" id="series-page-three" data-series-scroll>
+          <div class="series-panel__body aqua-page-layer__inner"></div>
+        </div>
+      </section>
+
+      <section class="series-panel series-panel--plain" aria-label="Series page four">
+        <div class="series-panel__scroller" id="series-page-four" data-series-scroll>
+          <div class="series-panel__body aqua-page-layer__inner"></div>
+        </div>
+      </section>
+
+      <section class="series-panel series-panel--plain" aria-label="Series page five">
+        <div class="series-panel__scroller" id="series-page-five" data-series-scroll>
+          <div class="series-panel__body aqua-page-layer__inner"></div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
