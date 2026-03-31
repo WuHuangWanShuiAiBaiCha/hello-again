@@ -16,7 +16,6 @@
   const refs = {
     sceneStage: document.querySelector(".scene-stage"),
     nextScene: document.querySelector(".next-scene"),
-    transitionNextScene: document.getElementById("transition-next-scene"),
     helloScrollHint: document.getElementById("hello-scroll-hint"),
     macButton: document.getElementById("mac-button"),
     seriesShell: document.getElementById("series-shell"),
@@ -109,7 +108,7 @@
   }
 
   function updateScrollTransition() {
-    if (!refs.sceneStage || !refs.nextScene || !refs.transitionNextScene) {
+    if (!refs.sceneStage || !refs.nextScene) {
       return;
     }
 
@@ -118,18 +117,10 @@
     const firstScale = 1 - progress * 0.045;
     const firstBlur = progress * 14;
     const firstOpacity = 1 - progress * 0.985;
-    const nextOpacity = Math.pow(progress, 1.35);
-    const nextTranslate = (1 - progress) * 92;
-    const nextScale = 1.06 - progress * 0.06;
-    const nextBlur = (1 - progress) * 16;
 
     refs.sceneStage.style.opacity = String(firstOpacity);
     refs.sceneStage.style.transform = `scale(${firstScale})`;
     refs.sceneStage.style.filter = `blur(${firstBlur}px) saturate(${1 - progress * 0.22})`;
-
-    refs.transitionNextScene.style.opacity = String(nextOpacity);
-    refs.transitionNextScene.style.transform = `translateY(${nextTranslate}px) scale(${nextScale})`;
-    refs.transitionNextScene.style.filter = `blur(${nextBlur}px) saturate(${0.76 + progress * 0.24})`;
   }
 
   function updateMacSceneScale() {
