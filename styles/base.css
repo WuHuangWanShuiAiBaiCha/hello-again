@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --shared-dock-min-height: 64px;
+  --shared-dock-padding-y: 10px;
+  --shared-dock-padding-x: 16px;
+  --shared-dock-gap: 12px;
+  --shared-dock-button-height: 32px;
+  --shared-dock-visual-height: 70px;
+  --series-dock-button-width: 86px;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  font-family: "Arial Rounded MT Bold", "Trebuchet MS", "Avenir Next", sans-serif;
+  overflow-x: hidden;
+}
