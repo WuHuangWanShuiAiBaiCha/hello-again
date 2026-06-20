@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unicorn Studio Fullscreen</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./styles/base.css">
   <link rel="stylesheet" href="./styles/home.css">
   <link rel="stylesheet" href="./styles/components.css">
-  <link rel="stylesheet" href="./styles/series.css">
 </head>
 <body>
   <section class="scroll-transition" id="scroll-transition">
@@ -28,152 +28,13 @@
         data-us-project="FOGGaWWBJTROrgs0VrUj"
       ></div>
     </div>
-    <div class="device-grid">
-      <button class="pixel-button" id="mac-button" type="button">Mac</button>
-      <button class="pixel-button" type="button">iPod</button>
-      <button class="pixel-button" type="button">iPhone</button>
-      <button class="pixel-button" type="button">iPad</button>
-      <button class="pixel-button" type="button">Apple Watch</button>
-      <button class="pixel-button" type="button">Air Pods</button>
-    </div>
-  </section>
-
-  <section class="series-shell" id="series-shell" aria-hidden="true">
-    <div class="series-track" id="series-track">
-      <div class="series-panel series-panel--sentinel" aria-hidden="true"></div>
-
-      <section class="series-panel series-panel--mac" aria-label="Mac page">
-        <div class="series-panel__scroller" id="mac-page" data-series-scroll>
-          <div class="series-dock series-dock--apple-modern" aria-hidden="true">
-            <span class="series-dock__rail"></span>
-          </div>
-          <div class="series-panel__body detail-page__inner--mac">
-            <div class="mac-stage" id="mac-stage">
-              <div class="detail-scene" aria-label="Mac Unicorn Studio Scene">
-                <div class="detail-scene-frame">
-                  <div id="mac-detail-scene"></div>
-                </div>
-                <button class="mac-scene-hitarea" id="mac-scene-hitarea" type="button" aria-label="Open classic Macintosh system"></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="series-panel series-panel--aqua" aria-label="Aqua page">
-        <div class="series-panel__scroller" id="aqua-page" data-series-scroll>
-          <div class="series-dock series-dock--apple-modern" aria-hidden="true">
-            <span class="series-dock__rail"></span>
-          </div>
-          <div class="series-panel__body aqua-page-layer__inner series-video-page">
-            <div class="series-video-page__stage">
-              <div class="series-video-page__fade series-video-page__fade--top" aria-hidden="true"></div>
-              <video
-                class="series-video-page__video"
-                id="series-page-two-video"
-                playsinline
-                loop
-                preload="auto"
-              >
-                <source src="./assets/videos/series-page-two.mp4" type="video/mp4">
-              </video>
-              <div class="series-video-page__fade series-video-page__fade--bottom" aria-hidden="true"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="series-panel series-panel--plain" aria-label="Series page three">
-        <div class="series-panel__scroller" id="series-page-three" data-series-scroll>
-          <div class="series-dock series-dock--apple-modern" aria-hidden="true">
-            <span class="series-dock__rail"></span>
-          </div>
-          <div class="series-panel__body aqua-page-layer__inner series-video-page">
-            <div class="series-video-page__stage">
-              <div class="series-video-page__fade series-video-page__fade--top" aria-hidden="true"></div>
-              <video
-                class="series-video-page__video"
-                id="series-page-three-video"
-                playsinline
-                loop
-                preload="auto"
-              >
-                <source src="./assets/videos/series-page-three.mp4" type="video/mp4">
-              </video>
-              <div class="series-video-page__fade series-video-page__fade--bottom" aria-hidden="true"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="series-panel series-panel--plain" aria-label="Series page four">
-        <div class="series-panel__scroller" id="series-page-four" data-series-scroll>
-          <div class="series-panel__body sequence-page">
-            <div class="sequence-intro" id="sequence-intro" aria-hidden="true">
-              <video
-                class="sequence-intro__video"
-                id="sequence-intro-video"
-                playsinline
-                preload="auto"
-              >
-                <source src="./assets/videos/sequence-intro.mp4" type="video/mp4">
-              </video>
-              <button
-                class="sequence-intro__play"
-                id="sequence-intro-play"
-                type="button"
-                aria-hidden="true"
-              >
-                Play
-              </button>
-            </div>
-            <div class="series-dock series-dock--apple-modern" aria-hidden="true">
-              <span class="series-dock__rail"></span>
-            </div>
-            <section class="product-sequence" id="product-sequence">
-              <div class="product-sequence__stage" id="product-sequence-stage">
-                <div class="product-sequence__sticky">
-                  <div class="product-sequence__fade product-sequence__fade--top" aria-hidden="true"></div>
-                  <canvas
-                    class="product-sequence__canvas"
-                    id="product-sequence-canvas"
-                    width="1280"
-                    height="720"
-                    aria-label="Apple-style product image sequence animation"
-                  ></canvas>
-                  <video
-                    class="product-sequence__video"
-                    id="product-sequence-video"
-                    playsinline
-                    preload="auto"
-                  >
-                    <source src="./assets/videos/macbook-air-reveal.mp4" type="video/mp4">
-                  </video>
-                  <button
-                    class="product-sequence__trigger"
-                    id="product-sequence-trigger"
-                    type="button"
-                    aria-hidden="true"
-                  >
-                    Continue
-                  </button>
-                  <div class="product-sequence__fade product-sequence__fade--bottom" aria-hidden="true"></div>
-                </div>
-              </div>
-              <div class="product-sequence__tail" aria-hidden="true"></div>
-            </section>
-          </div>
-        </div>
-      </section>
-
-      <section class="series-panel series-panel--plain" aria-label="Series page five">
-        <div class="series-panel__scroller" id="series-page-five" data-series-scroll>
-          <div class="series-dock series-dock--apple-modern" aria-hidden="true">
-            <span class="series-dock__rail"></span>
-          </div>
-          <div class="series-panel__body aqua-page-layer__inner"></div>
-        </div>
-      </section>
+    <div class="device-grid" aria-label="Device pages">
+      <a class="pixel-button" href="./mac/" id="mac-button">Mac</a>
+      <a class="pixel-button" href="./ipod/">iPod</a>
+      <a class="pixel-button" href="./iphone/">iPhone</a>
+      <a class="pixel-button" href="./ipad/">iPad</a>
+      <a class="pixel-button" href="./watch/">Apple Watch</a>
+      <a class="pixel-button" href="./airpods/">Air Pods</a>
     </div>
   </section>
 
@@ -190,8 +51,6 @@
   <script defer src="./scripts/scroll-transition.js"></script>
   <script defer src="./scripts/scenes.js"></script>
   <script defer src="./scripts/scroll-hint.js"></script>
-  <script defer src="./scripts/series-shell.js"></script>
-  <script defer src="./scripts/image-sequence.js"></script>
   <script defer src="./scripts/app.js"></script>
   <script defer src="./scripts/main.js"></script>
 </body>

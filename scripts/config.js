@@ -1,6 +1,12 @@
 (function () {
   window.HelloAgain = window.HelloAgain || {};
 
+  function getAssetBasePath() {
+    const path = window.location.pathname || "/";
+    const isRootPage = path === "/" || path === "/index.html";
+    return isRootPage ? "./assets" : "../assets";
+  }
+
   window.HelloAgain.config = {
     sceneIds: {
       first: "bI8aNzR73fufLl3VQzxS",
@@ -38,7 +44,7 @@
       frameHeight: 720,
       path(frameIndex) {
         const index = String(frameIndex + 1).padStart(3, "0");
-        return `./assets/frames/ezgif-frame-${index}.png`;
+        return `${getAssetBasePath()}/frames/ezgif-frame-${index}.png`;
       },
     },
   };

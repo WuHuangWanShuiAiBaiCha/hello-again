@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPad</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/device-page.css">
+</head>
+<body class="device-page-body device-page-body--light">
+  <div class="device-page device-page--sequence">
+    <div class="device-page__scroll device-page__scroll--sequence" id="series-page-four" data-series-scroll>
+      <div class="sequence-page">
+        <div class="sequence-intro" id="sequence-intro" aria-hidden="true">
+          <video
+            class="sequence-intro__video"
+            id="sequence-intro-video"
+            playsinline
+            preload="auto"
+          >
+            <source src="../assets/videos/sequence-intro.mp4" type="video/mp4">
+          </video>
+          <button
+            class="sequence-intro__play"
+            id="sequence-intro-play"
+            type="button"
+            aria-hidden="true"
+          >
+            Play
+          </button>
+        </div>
+        <div class="series-dock series-dock--apple-modern">
+          <span class="series-dock__rail"></span>
+          <a class="device-page__home" href="../">Home</a>
+        </div>
+        <section class="product-sequence" id="product-sequence">
+          <div class="product-sequence__stage" id="product-sequence-stage">
+            <div class="product-sequence__sticky">
+              <div class="product-sequence__fade product-sequence__fade--top" aria-hidden="true"></div>
+              <canvas
+                class="product-sequence__canvas"
+                id="product-sequence-canvas"
+                width="1280"
+                height="720"
+                aria-label="Apple-style product image sequence animation"
+              ></canvas>
+              <video
+                class="product-sequence__video"
+                id="product-sequence-video"
+                playsinline
+                preload="auto"
+              >
+                <source src="../assets/videos/macbook-air-reveal.mp4" type="video/mp4">
+              </video>
+              <button
+                class="product-sequence__trigger"
+                id="product-sequence-trigger"
+                type="button"
+                aria-hidden="true"
+              >
+                Continue
+              </button>
+              <div class="product-sequence__fade product-sequence__fade--bottom" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="product-sequence__tail" aria-hidden="true"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="../scripts/config.js"></script>
+  <script defer src="../scripts/dom.js"></script>
+  <script defer src="../scripts/utils.js"></script>
+  <script defer src="../scripts/image-sequence.js"></script>
+  <script defer src="../scripts/sequence-page.js"></script>
+</body>
+</html>
