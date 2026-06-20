@@ -193,7 +193,7 @@
   z-index: 3;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  filter: blur(10px);
+  filter: blur(20px);
   mask-image: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0) 0%,
@@ -215,7 +215,7 @@
 }
 
 .series-video-page__fade--top {
-  top: -10px;
+  top: -20px;
   border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
@@ -228,7 +228,7 @@
 }
 
 .series-video-page__fade--bottom {
-  bottom: -10px;
+  bottom: -20px;
   height: clamp(76px, 24%, 220px);
   border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
@@ -303,7 +303,7 @@
   z-index: 2;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  filter: blur(10px);
+  filter: blur(20px);
   mask-image: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0) 0%,
@@ -325,7 +325,7 @@
 }
 
 .sequence-intro__fade--top {
-  top: -10px;
+  top: -20px;
   border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
@@ -337,7 +337,7 @@
 }
 
 .sequence-intro__fade--bottom {
-  bottom: -10px;
+  bottom: -20px;
   height: clamp(76px, 24%, 220px);
   border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
@@ -527,7 +527,7 @@
   will-change: opacity;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  filter: blur(10px);
+  filter: blur(20px);
   mask-image: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0) 0%,
@@ -549,7 +549,7 @@
 }
 
 .product-sequence__fade--top {
-  top: -10px;
+  top: -20px;
   border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
@@ -561,7 +561,7 @@
 }
 
 .product-sequence__fade--bottom {
-  bottom: -10px;
+  bottom: -20px;
   height: clamp(76px, 24%, 220px);
   border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
