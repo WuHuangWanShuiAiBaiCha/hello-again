@@ -73,6 +73,12 @@
       setShellOpen(false);
       activePanel = config.panels.sentinel;
 
+      const returnUrl = refs.seriesShell?.dataset.returnUrl;
+      if (returnUrl) {
+        window.location.href = returnUrl;
+        return;
+      }
+
       requestAnimationFrame(() => {
         if (!refs.seriesTrack) {
           return;
@@ -149,6 +155,7 @@
 
     return {
       openSeriesAtMac,
+      scrollToPanel,
       setMotionController,
       scheduleTrackSettle,
       handleResize,
