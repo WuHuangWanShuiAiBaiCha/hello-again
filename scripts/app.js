@@ -17,6 +17,47 @@
     let activeSeriesVideoToken = 0;
     const seriesVideoFadeOutPauseThreshold = 0.015;
 
+    function getCurrentSeriesPanel() {
+      if (!refs.seriesTrack) {
+        return lastSeriesPanel;
+      }
+
+      return Math.round(refs.seriesTrack.scrollLeft / Math.max(window.innerWidth, 1));
+    }
+
+    function getPanelIndexForScroller(scroller) {
+      if (!scroller) {
+        return null;
+      }
+
+      if (scroller === refs.aquaPage) {
+        return window.HelloAgain.config.panels.aqua;
+      }
+
+      if (scroller === refs.seriesPageThree) {
+        return window.HelloAgain.config.panels.three;
+      }
+
+      return null;
+    }
+
+    function resumeSeriesVideo(video) {
+      if (!video) {
+        return;
+      }
+
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {
+          video.muted = true;
+          const fallbackPlay = video.play();
+          if (fallbackPlay && typeof fallbackPlay.catch === "function") {
+            fallbackPlay.catch(() => {});
+          }
+        });
+      }
+    }
+
     function updateSeriesVideoFade(scroller) {
       if (!scroller) {
         return;
@@ -39,7 +80,22 @@
       if (opacity <= seriesVideoFadeOutPauseThreshold) {
         if (!video.paused) {
           video.pause();
+          video.dataset.fadePaused = "true";
         }
+        return;
+      }
+
+      const panelIndex = getPanelIndexForScroller(scroller);
+      const isCurrentPanel = panelIndex != null && panelIndex === getCurrentSeriesPanel();
+
+      if (
+        isCurrentPanel &&
+        video.dataset.shouldPlay === "true" &&
+        video.paused &&
+        opacity > seriesVideoFadeOutPauseThreshold
+      ) {
+        delete video.dataset.fadePaused;
+        resumeSeriesVideo(video);
       }
     }
 
@@ -49,8 +105,20 @@
         if (!video) {
           return;
         }
+        delete video.dataset.fadePaused;
+        delete video.dataset.shouldPlay;
         video.pause();
       });
+    }
+
+    function resetSeriesVideoPage(scroller) {
+      if (!scroller) {
+        return;
+      }
+
+      if (scroller.scrollTop !== 0) {
+        scroller.scrollTop = 0;
+      }
     }
 
     function playSeriesVideo(video) {
@@ -63,6 +131,8 @@
         video.currentTime = 0;
       } catch (_) {}
 
+      delete video.dataset.fadePaused;
+      video.dataset.shouldPlay = "true";
       video.volume = 0.18;
       video.muted = false;
 
@@ -73,7 +143,17 @@
 
         const playPromise = video.play();
         if (playPromise && typeof playPromise.catch === "function") {
-          playPromise.catch(() => {});
+          playPromise.catch(() => {
+            if (token !== activeSeriesVideoToken) {
+              return;
+            }
+
+            video.muted = true;
+            const fallbackPlay = video.play();
+            if (fallbackPlay && typeof fallbackPlay.catch === "function") {
+              fallbackPlay.catch(() => {});
+            }
+          });
         }
       };
 
@@ -88,15 +168,23 @@
       window.setTimeout(() => {
         attemptPlay();
       }, 120);
+      window.setTimeout(() => {
+        attemptPlay();
+      }, 360);
+      window.setTimeout(() => {
+        attemptPlay();
+      }, 800);
     }
 
     function syncSeriesMediaForPanel(panelIndex) {
       stopSeriesVideos();
 
       if (panelIndex === window.HelloAgain.config.panels.aqua) {
+        resetSeriesVideoPage(refs.aquaPage);
         updateSeriesVideoFade(refs.aquaPage);
         playSeriesVideo(refs.seriesPageTwoVideo);
       } else if (panelIndex === window.HelloAgain.config.panels.three) {
+        resetSeriesVideoPage(refs.seriesPageThree);
         updateSeriesVideoFade(refs.seriesPageThree);
         playSeriesVideo(refs.seriesPageThreeVideo);
       }
