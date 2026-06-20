@@ -186,17 +186,36 @@
 
 .series-video-page__fade {
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: clamp(8px, 1.8vw, 22px);
+  width: calc(100% - (clamp(8px, 1.8vw, 22px) * 2));
   height: var(--fade-mask-height);
   pointer-events: none;
   z-index: 3;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 8%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.55) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 8%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.55) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .series-video-page__fade--top {
   top: 0;
+  border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
     rgba(242, 241, 246, 0.98) 0%,
@@ -210,6 +229,7 @@
 .series-video-page__fade--bottom {
   bottom: 0;
   height: clamp(76px, 24%, 220px);
+  border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
     0deg,
     rgba(242, 241, 246, 0.99) 0%,
@@ -275,17 +295,36 @@
 
 .sequence-intro__fade {
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: clamp(8px, 1.8vw, 22px);
+  width: calc(100% - (clamp(8px, 1.8vw, 22px) * 2));
   height: var(--fade-mask-height);
   pointer-events: none;
   z-index: 2;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 8%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.55) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 8%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.55) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .sequence-intro__fade--top {
   top: 0;
+  border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.92) 0%,
@@ -298,6 +337,7 @@
 .sequence-intro__fade--bottom {
   bottom: 0;
   height: clamp(76px, 24%, 220px);
+  border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0.96) 0%,
@@ -476,8 +516,8 @@
 
 .product-sequence__fade {
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: clamp(8px, 1.8vw, 22px);
+  width: calc(100% - (clamp(8px, 1.8vw, 22px) * 2));
   height: var(--fade-mask-height);
   pointer-events: none;
   z-index: 4;
@@ -485,10 +525,29 @@
   will-change: opacity;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 8%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.55) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 8%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.55) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .product-sequence__fade--top {
   top: 0;
+  border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
     rgba(242, 241, 246, 0.98) 0%,
@@ -501,6 +560,7 @@
 .product-sequence__fade--bottom {
   bottom: 0;
   height: clamp(76px, 24%, 220px);
+  border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
     0deg,
     rgba(242, 241, 246, 0.99) 0%,
