@@ -12,7 +12,9 @@
 <body>
   <section class="scroll-transition" id="scroll-transition">
     <main class="scene-stage">
-      <div id="unicorn-container" aria-label="Unicorn Studio WebGL Scene"></div>
+      <div class="unicorn-shell unicorn-shell--hero">
+        <div id="unicorn-container" aria-label="Unicorn Studio WebGL Scene"></div>
+      </div>
       <div class="hello-scroll-hint" id="hello-scroll-hint" aria-hidden="true">
         <span class="hello-scroll-hint__arrow"></span>
       </div>
@@ -21,12 +23,13 @@
 
   <section class="next-page" aria-label="Next Unicorn Scene">
     <div class="next-scene" aria-label="Second Unicorn Studio WebGL Scene">
-      <div
-        class="next-scene__embed"
-        id="next-scene-embed"
-        style="width: 1440px; height: 900px"
-        data-us-project="FOGGaWWBJTROrgs0VrUj"
-      ></div>
+      <div class="unicorn-shell unicorn-shell--secondary">
+        <div
+          class="next-scene__embed"
+          id="next-scene-embed"
+          data-us-project="FOGGaWWBJTROrgs0VrUj"
+        ></div>
+      </div>
     </div>
     <div class="device-grid" aria-label="Device pages">
       <a class="pixel-button" href="./mac/index.html" id="mac-button">Mac</a>

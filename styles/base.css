@@ -10,6 +10,12 @@
   --shared-dock-button-height: 32px;
   --shared-dock-visual-height: 70px;
   --series-dock-button-width: 86px;
+  --content-aspect-ratio: 1.6;
+  --content-max-width: min(100vw, calc(100svh * var(--content-aspect-ratio)));
+  --content-max-height: min(100svh, calc(100vw / var(--content-aspect-ratio)));
+  --content-docked-height: calc(100svh - var(--shared-dock-visual-height));
+  --content-docked-width: min(100vw, calc(var(--content-docked-height) * var(--content-aspect-ratio)));
+  --fade-mask-height: clamp(88px, 18vh, 168px);
 }
 
 html,

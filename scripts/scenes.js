@@ -92,9 +92,12 @@
         return;
       }
 
-      const widthScale = window.innerWidth / config.macSceneDimensions.width;
-      const heightScale = window.innerHeight / config.macSceneDimensions.height;
-      refs.macStage.style.setProperty("--mac-scene-scale", Math.max(widthScale, heightScale).toFixed(4));
+      const macShell = refs.macStage.querySelector(".unicorn-shell--mac");
+      const hostWidth = macShell?.clientWidth || window.innerWidth;
+      const hostHeight = macShell?.clientHeight || window.innerHeight;
+      const widthScale = hostWidth / config.macSceneDimensions.width;
+      const heightScale = hostHeight / config.macSceneDimensions.height;
+      refs.macStage.style.setProperty("--mac-scene-scale", Math.min(widthScale, heightScale).toFixed(4));
     }
 
     return {
