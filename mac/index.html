@@ -41,17 +41,19 @@
           <div class="series-panel__body aqua-page-layer__inner series-video-page">
             <div class="series-video-page__stage">
               <div class="series-media-shell">
-                <div class="series-video-page__fade series-video-page__fade--top" aria-hidden="true"></div>
-                <video
-                  class="series-video-page__video"
-                  id="series-page-two-video"
-                  playsinline
-                  loop
-                  preload="auto"
-                >
-                  <source src="../assets/videos/series-page-two.mp4" type="video/mp4">
-                </video>
-                <div class="series-video-page__fade series-video-page__fade--bottom" aria-hidden="true"></div>
+                <div class="series-media-frame">
+                  <div class="series-video-page__fade series-video-page__fade--top" aria-hidden="true"></div>
+                  <video
+                    class="series-video-page__video"
+                    id="series-page-two-video"
+                    playsinline
+                    loop
+                    preload="auto"
+                  >
+                    <source src="../assets/videos/series-page-two.mp4" type="video/mp4">
+                  </video>
+                  <div class="series-video-page__fade series-video-page__fade--bottom" aria-hidden="true"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -66,17 +68,19 @@
           <div class="series-panel__body aqua-page-layer__inner series-video-page">
             <div class="series-video-page__stage">
               <div class="series-media-shell">
-                <div class="series-video-page__fade series-video-page__fade--top" aria-hidden="true"></div>
-                <video
-                  class="series-video-page__video"
-                  id="series-page-three-video"
-                  playsinline
-                  loop
-                  preload="auto"
-                >
-                  <source src="../assets/videos/series-page-three.mp4" type="video/mp4">
-                </video>
-                <div class="series-video-page__fade series-video-page__fade--bottom" aria-hidden="true"></div>
+                <div class="series-media-frame">
+                  <div class="series-video-page__fade series-video-page__fade--top" aria-hidden="true"></div>
+                  <video
+                    class="series-video-page__video"
+                    id="series-page-three-video"
+                    playsinline
+                    loop
+                    preload="auto"
+                  >
+                    <source src="../assets/videos/series-page-three.mp4" type="video/mp4">
+                  </video>
+                  <div class="series-video-page__fade series-video-page__fade--bottom" aria-hidden="true"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -88,24 +92,26 @@
           <div class="series-panel__body sequence-page">
             <div class="sequence-intro" id="sequence-intro" aria-hidden="true">
               <div class="sequence-intro__shell">
-                <div class="sequence-intro__fade sequence-intro__fade--top" aria-hidden="true"></div>
-                <video
-                  class="sequence-intro__video"
-                  id="sequence-intro-video"
-                  playsinline
-                  preload="auto"
-                >
-                  <source src="../assets/videos/sequence-intro.mp4" type="video/mp4">
-                </video>
-                <button
-                  class="sequence-intro__play"
-                  id="sequence-intro-play"
-                  type="button"
-                  aria-hidden="true"
-                >
-                  Play
-                </button>
-                <div class="sequence-intro__fade sequence-intro__fade--bottom" aria-hidden="true"></div>
+                <div class="sequence-intro__frame">
+                  <div class="sequence-intro__fade sequence-intro__fade--top" aria-hidden="true"></div>
+                  <video
+                    class="sequence-intro__video"
+                    id="sequence-intro-video"
+                    playsinline
+                    preload="auto"
+                  >
+                    <source src="../assets/videos/sequence-intro.mp4" type="video/mp4">
+                  </video>
+                  <button
+                    class="sequence-intro__play"
+                    id="sequence-intro-play"
+                    type="button"
+                    aria-hidden="true"
+                  >
+                    Play
+                  </button>
+                  <div class="sequence-intro__fade sequence-intro__fade--bottom" aria-hidden="true"></div>
+                </div>
               </div>
             </div>
             <div class="series-dock series-dock--apple-modern" aria-hidden="true">
@@ -115,31 +121,33 @@
               <div class="product-sequence__stage" id="product-sequence-stage">
                 <div class="product-sequence__sticky">
                   <div class="product-sequence__viewport">
-                    <div class="product-sequence__fade product-sequence__fade--top" aria-hidden="true"></div>
-                    <canvas
-                      class="product-sequence__canvas"
-                      id="product-sequence-canvas"
-                      width="1280"
-                      height="720"
-                      aria-label="Apple-style product image sequence animation"
-                    ></canvas>
-                    <video
-                      class="product-sequence__video"
-                      id="product-sequence-video"
-                      playsinline
-                      preload="auto"
-                    >
-                      <source src="../assets/videos/macbook-air-reveal.mp4" type="video/mp4">
-                    </video>
-                    <button
-                      class="product-sequence__trigger"
-                      id="product-sequence-trigger"
-                      type="button"
-                      aria-hidden="true"
-                    >
-                      Continue
-                    </button>
-                    <div class="product-sequence__fade product-sequence__fade--bottom" aria-hidden="true"></div>
+                    <div class="product-sequence__frame">
+                      <div class="product-sequence__fade product-sequence__fade--top" aria-hidden="true"></div>
+                      <canvas
+                        class="product-sequence__canvas"
+                        id="product-sequence-canvas"
+                        width="1280"
+                        height="720"
+                        aria-label="Apple-style product image sequence animation"
+                      ></canvas>
+                      <video
+                        class="product-sequence__video"
+                        id="product-sequence-video"
+                        playsinline
+                        preload="auto"
+                      >
+                        <source src="../assets/videos/macbook-air-reveal.mp4" type="video/mp4">
+                      </video>
+                      <button
+                        class="product-sequence__trigger"
+                        id="product-sequence-trigger"
+                        type="button"
+                        aria-hidden="true"
+                      >
+                        Continue
+                      </button>
+                      <div class="product-sequence__fade product-sequence__fade--bottom" aria-hidden="true"></div>
+                    </div>
                   </div>
                 </div>
               </div>

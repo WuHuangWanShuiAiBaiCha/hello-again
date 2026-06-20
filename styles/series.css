@@ -164,12 +164,23 @@
 }
 
 .series-media-shell {
+  display: grid;
+  place-items: center;
   position: relative;
   width: var(--content-docked-width);
   height: var(--content-docked-height);
   max-width: 100%;
   max-height: 100%;
-  overflow: hidden;
+  overflow: visible;
+  background: rgb(242, 241, 246);
+}
+
+.series-media-frame {
+  position: relative;
+  width: min(100%, calc(var(--content-docked-height) * (16 / 9)));
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+  overflow: visible;
   background: rgb(242, 241, 246);
 }
 
@@ -276,12 +287,23 @@
 }
 
 .sequence-intro__shell {
+  display: grid;
+  place-items: center;
   position: relative;
   width: var(--content-max-width);
   height: var(--content-max-height);
   max-width: 100%;
   max-height: 100%;
-  overflow: hidden;
+  overflow: visible;
+  background: #000;
+}
+
+.sequence-intro__frame {
+  position: relative;
+  width: min(100%, calc(var(--content-max-height) * (16 / 9)));
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+  overflow: visible;
   background: #000;
 }
 
@@ -415,12 +437,23 @@
 }
 
 .product-sequence__viewport {
+  display: grid;
+  place-items: center;
   position: relative;
   width: var(--content-docked-width);
   height: var(--content-docked-height);
   max-width: 100%;
   max-height: 100%;
-  overflow: hidden;
+  overflow: visible;
+  background: rgb(242, 241, 246);
+}
+
+.product-sequence__frame {
+  position: relative;
+  width: min(100%, calc(var(--content-docked-height) * (16 / 9)));
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+  overflow: visible;
   background: rgb(242, 241, 246);
 }
 
