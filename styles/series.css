@@ -197,8 +197,8 @@
 
 .series-video-page__fade {
   position: absolute;
-  left: clamp(8px, 1.8vw, 22px);
-  width: calc(100% - (clamp(8px, 1.8vw, 22px) * 2));
+  left: calc(clamp(6px, 1vw, 14px) * -1);
+  width: calc(100% + (clamp(6px, 1vw, 14px) * 2));
   height: var(--fade-mask-height);
   pointer-events: none;
   z-index: 3;
@@ -226,28 +226,29 @@
 }
 
 .series-video-page__fade--top {
-  top: -20px;
+  top: -28px;
   border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
-    rgba(242, 241, 246, 0.98) 0%,
-    rgba(242, 241, 246, 0.9) 30%,
-    rgba(242, 241, 246, 0.48) 66%,
+    rgba(242, 241, 246, 1) 0%,
+    rgba(242, 241, 246, 0.98) 14%,
+    rgba(242, 241, 246, 0.9) 34%,
+    rgba(242, 241, 246, 0.56) 68%,
     rgba(242, 241, 246, 0) 100%
   );
   opacity: var(--series-video-opacity);
 }
 
 .series-video-page__fade--bottom {
-  bottom: -20px;
+  bottom: -28px;
   height: clamp(76px, 24%, 220px);
   border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
     0deg,
-    rgba(242, 241, 246, 0.99) 0%,
-    rgba(242, 241, 246, 0.95) 12%,
-    rgba(242, 241, 246, 0.78) 24%,
-    rgba(242, 241, 246, 0.46) 48%,
+    rgba(242, 241, 246, 1) 0%,
+    rgba(242, 241, 246, 0.98) 10%,
+    rgba(242, 241, 246, 0.88) 24%,
+    rgba(242, 241, 246, 0.58) 48%,
     rgba(242, 241, 246, 0.18) 76%,
     rgba(242, 241, 246, 0.04) 92%,
     rgba(242, 241, 246, 0) 100%
@@ -318,8 +319,8 @@
 
 .sequence-intro__fade {
   position: absolute;
-  left: clamp(8px, 1.8vw, 22px);
-  width: calc(100% - (clamp(8px, 1.8vw, 22px) * 2));
+  left: calc(clamp(6px, 1vw, 14px) * -1);
+  width: calc(100% + (clamp(6px, 1vw, 14px) * 2));
   height: var(--fade-mask-height);
   pointer-events: none;
   z-index: 2;
@@ -347,27 +348,28 @@
 }
 
 .sequence-intro__fade--top {
-  top: -20px;
+  top: -28px;
   border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.92) 0%,
-    rgba(0, 0, 0, 0.74) 36%,
-    rgba(0, 0, 0, 0.32) 68%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.98) 14%,
+    rgba(0, 0, 0, 0.86) 34%,
+    rgba(0, 0, 0, 0.42) 68%,
     rgba(0, 0, 0, 0) 100%
   );
 }
 
 .sequence-intro__fade--bottom {
-  bottom: -20px;
+  bottom: -28px;
   height: clamp(76px, 24%, 220px);
   border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.96) 0%,
-    rgba(0, 0, 0, 0.9) 12%,
-    rgba(0, 0, 0, 0.7) 24%,
-    rgba(0, 0, 0, 0.36) 48%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.98) 10%,
+    rgba(0, 0, 0, 0.86) 24%,
+    rgba(0, 0, 0, 0.48) 48%,
     rgba(0, 0, 0, 0.14) 76%,
     rgba(0, 0, 0, 0.03) 92%,
     rgba(0, 0, 0, 0) 100%
@@ -551,8 +553,8 @@
 
 .product-sequence__fade {
   position: absolute;
-  left: clamp(8px, 1.8vw, 22px);
-  width: calc(100% - (clamp(8px, 1.8vw, 22px) * 2));
+  left: calc(clamp(6px, 1vw, 14px) * -1);
+  width: calc(100% + (clamp(6px, 1vw, 14px) * 2));
   height: var(--fade-mask-height);
   pointer-events: none;
   z-index: 4;
@@ -582,27 +584,28 @@
 }
 
 .product-sequence__fade--top {
-  top: -20px;
+  top: -28px;
   border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
   background: linear-gradient(
     180deg,
-    rgba(242, 241, 246, 0.98) 0%,
-    rgba(242, 241, 246, 0.92) 30%,
-    rgba(242, 241, 246, 0.52) 66%,
+    rgba(242, 241, 246, 1) 0%,
+    rgba(242, 241, 246, 0.98) 14%,
+    rgba(242, 241, 246, 0.92) 34%,
+    rgba(242, 241, 246, 0.6) 68%,
     rgba(242, 241, 246, 0) 100%
   );
 }
 
 .product-sequence__fade--bottom {
-  bottom: -20px;
+  bottom: -28px;
   height: clamp(76px, 24%, 220px);
   border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
   background: linear-gradient(
     0deg,
-    rgba(242, 241, 246, 0.99) 0%,
-    rgba(242, 241, 246, 0.95) 12%,
-    rgba(242, 241, 246, 0.8) 24%,
-    rgba(242, 241, 246, 0.5) 48%,
+    rgba(242, 241, 246, 1) 0%,
+    rgba(242, 241, 246, 0.98) 10%,
+    rgba(242, 241, 246, 0.9) 24%,
+    rgba(242, 241, 246, 0.62) 48%,
     rgba(242, 241, 246, 0.2) 76%,
     rgba(242, 241, 246, 0.04) 92%,
     rgba(242, 241, 246, 0) 100%
