@@ -15,7 +15,7 @@
   --content-max-height: min(100svh, calc(100vw / var(--content-aspect-ratio)));
   --content-docked-height: calc(100svh - var(--shared-dock-visual-height));
   --content-docked-width: min(100vw, calc(var(--content-docked-height) * var(--content-aspect-ratio)));
-  --fade-mask-height: clamp(88px, 18vh, 168px);
+  --fade-mask-height: clamp(56px, 18%, 168px);
 }
 
 html,
