@@ -78,14 +78,28 @@
 .detail-page__inner--mac {
   position: relative;
   width: 100%;
-  min-height: 230vh;
-  padding-bottom: 90vh;
+  min-height: 100%;
+  padding-bottom: 0;
+  --mac-page-bg: rgb(242, 241, 246);
+}
+
+.mac-story {
+  position: relative;
+  width: 100%;
+  background: var(--mac-page-bg);
 }
 
 .mac-stage {
   position: relative;
   width: 100%;
-  min-height: 230vh;
+  min-height: 170vh;
+  background:
+    linear-gradient(180deg, var(--mac-page-bg) 0%, var(--mac-page-bg) 58%, rgba(242, 241, 246, 0) 100%);
+}
+
+.mac-scene {
+  position: relative;
+  min-height: 100vh;
 }
 
 .detail-scene {
@@ -97,7 +111,7 @@
   height: 100vh;
   padding: 0 clamp(12px, 3vw, 36px);
   overflow: hidden;
-  background: rgb(242, 241, 246);
+  background: var(--mac-page-bg);
 }
 
 .unicorn-shell--mac {
@@ -136,6 +150,897 @@
   background: transparent;
   cursor: pointer;
   touch-action: pan-y;
+}
+
+.mac-transition {
+  position: relative;
+  height: 70vh;
+  margin-top: -14vh;
+  z-index: 2;
+}
+
+.mac-transition__veil {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background:
+    linear-gradient(180deg,
+      rgba(242, 241, 246, 0) 0%,
+      rgba(242, 241, 246, 0.38) 28%,
+      rgba(242, 241, 246, 0.82) 62%,
+      var(--mac-page-bg) 100%);
+  pointer-events: none;
+}
+
+.mac-editorial {
+  position: relative;
+  margin-top: -6vh;
+  padding-bottom: 18vh;
+  background: var(--mac-page-bg);
+  color: #111;
+}
+
+.mac-editorial__dock {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 0 0 14px;
+  background: linear-gradient(180deg, rgba(242, 241, 246, 0.94) 0%, rgba(242, 241, 246, 0.9) 74%, rgba(242, 241, 246, 0) 100%);
+}
+
+.mac-editorial__dock-inner {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  width: min(960px, calc(100% - 48px));
+  margin: 0 auto;
+  border: 1px solid #bdbdbd;
+  background: #efefef;
+}
+
+.mac-editorial__dock-inner a {
+  flex: 1 1 0;
+  padding: 10px 12px 9px;
+  border-right: 1px solid #cfcfcf;
+  color: #1b1b1f;
+  font: 500 12px/1.1 Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  text-decoration: none;
+}
+
+.mac-editorial__dock-inner a:last-child {
+  border-right: 0;
+}
+
+.mac-editorial__page {
+  width: min(980px, calc(100% - 52px));
+  margin: 0 auto;
+  border-top: 1px solid rgba(99, 99, 104, 0.18);
+}
+
+.mac-editorial__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr) minmax(180px, 240px);
+  align-items: center;
+  gap: clamp(22px, 3.5vw, 42px);
+  min-height: 96vh;
+  padding: clamp(44px, 8vh, 72px) 0 clamp(28px, 7vh, 54px);
+  border-bottom: 1px solid rgba(99, 99, 104, 0.18);
+}
+
+.mac-editorial__kicker,
+.mac-editorial__year-label,
+.mac-editorial__tagline,
+.mac-editorial__hero-facts p,
+.mac-editorial__footer label,
+.mac-editorial__footer-links a {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__kicker,
+.mac-editorial__year-label {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.mac-editorial__title {
+  margin: 0;
+  color: #101010;
+  font: 400 clamp(64px, 9vw, 110px)/0.92 Baskerville, Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -0.04em;
+}
+
+.mac-editorial__tagline {
+  margin: 18px 0 20px;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #1a1a1c;
+}
+
+.mac-editorial__lede,
+.mac-editorial__section-copy p,
+.mac-editorial__feature-copy p,
+.mac-editorial__legacy-copy p {
+  margin: 0 0 15px;
+  color: #242428;
+  font: 400 20px/1.65 "Times New Roman", Times, serif;
+}
+
+.mac-editorial__hero-media,
+.mac-editorial__section-media,
+.mac-editorial__feature-media {
+  display: grid;
+  place-items: center;
+}
+
+.mac-editorial__hero-facts {
+  display: grid;
+  gap: 10px;
+  align-self: start;
+  padding-top: 24px;
+}
+
+.mac-editorial__hero-facts p {
+  margin: 0;
+  color: #1e1e22;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.mac-asset {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  border: 1px solid #d6d6d6;
+  background: #fbfbf8;
+  overflow: hidden;
+}
+
+.mac-asset__label {
+  position: relative;
+  color: #666;
+  font: 500 13px/1.2 Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.mac-asset--hero {
+  aspect-ratio: 4 / 3;
+  min-height: 360px;
+}
+
+.mac-asset--screen,
+.mac-asset--archive,
+.mac-asset--detail {
+  aspect-ratio: 4 / 3;
+  min-height: 260px;
+}
+
+.mac-editorial__section {
+  padding: 72px 0;
+  border-bottom: 1px solid rgba(99, 99, 104, 0.18);
+}
+
+.mac-editorial__section--summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.82fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+.mac-editorial__section-copy h2,
+.mac-editorial__section-header h2,
+.mac-editorial__feature-copy h2,
+.mac-editorial__legacy-copy h2 {
+  margin: 0 0 18px;
+  color: #121214;
+  font: 400 clamp(36px, 5vw, 56px)/0.98 "Times New Roman", Times, serif;
+  letter-spacing: -0.03em;
+}
+
+.mac-editorial__feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: center;
+}
+
+.mac-editorial__feature--reverse {
+  grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1fr);
+}
+
+.mac-editorial__feature--reverse .mac-editorial__feature-copy {
+  order: 2;
+}
+
+.mac-editorial__feature--reverse .mac-editorial__feature-media {
+  order: 1;
+}
+
+.mac-editorial__footer {
+  display: grid;
+  gap: 22px;
+  margin-top: 42px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(99, 99, 104, 0.18);
+}
+
+.mac-editorial__footer-search {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.mac-editorial__footer label {
+  color: #333;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mac-editorial__search-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.mac-editorial__search-input,
+.mac-editorial__search-button {
+  border: 1px solid #8e8e8e;
+  background: #fff;
+  color: #111;
+  font: 400 14px/1.1 Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__search-input {
+  width: min(300px, 58vw);
+  height: 34px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.mac-editorial__search-button {
+  height: 34px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  background: #ececec;
+}
+
+.mac-editorial__footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.mac-editorial__footer-links a {
+  color: #204ca8;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* Macintosh editorial override: flat, image-led layout matching the approved mockup */
+.mac-story {
+  background: rgb(242, 241, 246);
+}
+
+.mac-editorial {
+  background: rgb(242, 241, 246);
+}
+
+.mac-editorial__dock {
+  padding: 12px 0 0;
+  background: linear-gradient(180deg, rgba(242, 241, 246, 0.97) 0%, rgba(242, 241, 246, 0.92) 82%, rgba(242, 241, 246, 0) 100%);
+}
+
+.mac-editorial__dock-inner {
+  justify-content: stretch;
+  width: min(980px, calc(100% - 48px));
+  border: 1px solid #9e9e9e;
+  background: linear-gradient(180deg, #f8f8f8 0%, #dadada 45%, #eeeeee 100%);
+}
+
+.mac-editorial__dock-item {
+  flex: 1 1 0;
+  padding: 8px 10px;
+  border-right: 1px solid #a8a8a8;
+  color: #111;
+  font: 400 20px/1.1 Baskerville, Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.mac-editorial__dock-item:last-child {
+  border-right: 0;
+}
+
+.mac-editorial__subdock {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  width: min(980px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 5px 0 4px;
+  border-bottom: 1px solid #9f9f9f;
+  color: #1d1d1d;
+  font: 400 12px/1.1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__page {
+  padding-top: 40px;
+  border-top: 0;
+}
+
+.mac-editorial__hero {
+  grid-template-columns: 120px minmax(0, 1fr) 128px;
+  align-items: stretch;
+  gap: 18px;
+  min-height: 78vh;
+  padding: 24px 0 24px;
+}
+
+.mac-editorial__hero-rail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding: 54px 14px 18px;
+}
+
+.mac-editorial__hero-rail--left,
+.mac-editorial__hero-rail--right {
+  border-left: 1px solid #a9a9a9;
+  border-right: 1px solid #a9a9a9;
+}
+
+.mac-editorial__hero-rail--right {
+  padding-top: 76px;
+}
+
+.mac-editorial__rail-top,
+.mac-editorial__rail-bottom {
+  display: grid;
+  gap: 16px;
+}
+
+.mac-editorial__rail-line {
+  width: 52px;
+  border-top: 1px solid #a9a9a9;
+}
+
+.mac-editorial__rail-copy,
+.mac-editorial__fact,
+.mac-editorial__fact--price {
+  color: #181818;
+  font: 400 12px/1.55 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__rail-apple {
+  color: #295dd8;
+  font: 400 38px/1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__hero-main {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(280px, 360px);
+  gap: 18px;
+  align-items: end;
+}
+
+.mac-editorial__hero-copy {
+  padding-top: 8px;
+}
+
+.mac-editorial__title {
+  color: #0f0f0f;
+  font: 400 clamp(110px, 12vw, 160px)/0.88 Baskerville, Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -0.06em;
+}
+
+.mac-editorial__year-label {
+  margin-top: 8px;
+  color: #111;
+  font: 400 27px/1 Baskerville, Georgia, "Times New Roman", Times, serif;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.mac-editorial__lede {
+  margin-top: 42px;
+  color: #242428;
+  font: 400 16px/1.45 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__hero-media {
+  align-self: end;
+}
+
+.mac-editorial__fact {
+  padding: 18px 0 14px;
+  border-top: 1px solid #b3b3b3;
+}
+
+.mac-editorial__fact:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.mac-editorial__fact--price {
+  padding-top: 18px;
+  border-top: 1px solid #b3b3b3;
+  font-size: 19px;
+}
+
+.mac-asset {
+  display: block;
+  border: 0;
+  background-color: transparent;
+  background-position: center 55%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mac-asset--hero {
+  min-height: 360px;
+  aspect-ratio: auto;
+  background-image: url("../assets/images/macintosh/macintosh-hero.png");
+  background-size: contain;
+  background-position: center 55%;
+}
+
+.mac-asset--story {
+  min-height: 220px;
+  background-image: url("../assets/images/macintosh/macintosh-story.png");
+  background-size: cover;
+  background-position: center 55%;
+}
+
+.mac-asset--detail {
+  min-height: 190px;
+  aspect-ratio: auto;
+  background-image: url("../assets/images/macintosh/macintosh-detail.png");
+  background-size: cover;
+  background-position: center 55%;
+}
+
+.mac-asset--legacy {
+  min-height: 200px;
+  background-image: url("../assets/images/macintosh/macintosh-legacy.png");
+}
+
+.mac-editorial__section {
+  padding: 18px 0;
+}
+
+.mac-editorial__section--summary {
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 26px;
+}
+
+.mac-editorial__story-block--text {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 18px;
+  padding: 10px 0;
+}
+
+.mac-editorial__story-number {
+  color: #0e0e0f;
+  font: 400 41px/1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__story-title {
+  color: #111;
+  font: 400 58px/0.95 Baskerville, Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -0.04em;
+}
+
+.mac-editorial__story-body {
+  margin-top: 18px;
+  color: #242428;
+  font: 400 16px/1.45 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__section--design {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) 320px;
+  gap: 28px;
+  align-items: end;
+}
+
+.mac-editorial__story-block--text-right {
+  padding-left: 12px;
+}
+
+.mac-editorial__section--legacy {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.mac-editorial__story-block--media-legacy {
+  padding-top: 6px;
+}
+
+.mac-editorial__footer {
+  grid-column: 1 / -1;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.mac-editorial__footer-search {
+  gap: 12px;
+}
+
+.mac-editorial__search-bar {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.mac-editorial__footer-link-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  color: #204ca8;
+  font: 400 13px/1.2 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__search-box-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mac-editorial__search-input,
+.mac-editorial__search-button,
+.mac-editorial__search-world {
+  border: 1px solid #9d9d9d;
+  background: #fff;
+  color: #111;
+  font: 400 14px/1.1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__search-input {
+  width: 220px;
+  height: 22px;
+}
+
+.mac-editorial__search-button {
+  height: 22px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  background: #ececec;
+}
+
+.mac-editorial__footer-meta {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+  color: #242428;
+  font: 400 16px/1.45 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-editorial__footer-inline {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mac-editorial__footer-meta span {
+  color: #204ca8;
+  text-decoration: underline;
+}
+
+.mac-editorial__footer-inline-link {
+  color: #204ca8;
+  text-decoration: underline;
+}
+
+.mac-editorial__search-world {
+  width: 140px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: #5b5b5b;
+}
+
+/* Simpler Macintosh page structure */
+.mac-editorial {
+  background: rgb(242, 241, 246);
+}
+
+.mac-dock {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: min(980px, calc(100% - 48px));
+  margin: 250px auto 0;
+  border: 1px solid #9e9e9e;
+  background: linear-gradient(180deg, #f8f8f8 0%, #dadada 45%, #eeeeee 100%);
+}
+
+.mac-dock__main {
+  padding: 8px 10px;
+  border-right: 1px solid #a8a8a8;
+  color: #111;
+  text-align: center;
+  font: 400 20px/1.1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-dock__main:first-child {
+  font-size: 30px;
+  line-height: 1;
+  text-align: center;
+  padding-left: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.mac-dock__main:last-child {
+  border-right: 0;
+}
+
+.mac-dock__sub {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  width: min(980px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 5px 0 4px;
+  border-bottom: 1px solid #9f9f9f;
+  color: #1d1d1d;
+  font: 400 12px/1.1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-page {
+  width: min(980px, calc(100% - 52px));
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.mac-page__top,
+.mac-page__bottom {
+  width: 100%;
+}
+
+.mac-page__top {
+  border-bottom: 1px solid rgba(99, 99, 104, 0.18);
+}
+
+.mac-page__bottom {
+  display: grid;
+  gap: 0;
+}
+
+.mac-hero {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 128px;
+  gap: 18px;
+  min-height: 78vh;
+  padding: 24px 0;
+}
+
+.mac-rail {
+  writing-mode: horizontal-tb;
+  white-space: pre-line;
+  color: #181818;
+  font: 400 12px/1.55 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-rail--left,
+.mac-rail--right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 54px 14px 18px;
+  border-left: 1px solid #a9a9a9;
+  border-right: 1px solid #a9a9a9;
+}
+
+.mac-rail--right {
+  padding-top: 76px;
+}
+
+.mac-main {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) minmax(240px, 320px);
+  gap: 18px;
+  align-items: center;
+}
+
+.mac-main__copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  padding-right: 8px;
+}
+
+.mac-main__title {
+  writing-mode: horizontal-tb;
+  color: #0f0f0f;
+  white-space: nowrap;
+  font: 400 clamp(88px, 10vw, 138px)/0.88 Baskerville, Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -0.06em;
+}
+
+.mac-main__year {
+  margin-top: 8px;
+  color: #111;
+  font: 400 27px/1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-main__text {
+  writing-mode: horizontal-tb;
+  margin-top: 42px;
+  white-space: pre-line;
+  color: #242428;
+  font: 400 16px/1.45 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-image {
+  background-position: center 55%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mac-image--hero {
+  position: relative;
+  min-height: 720px;
+  background-image: url("../assets/images/macintosh/macintosh-hero-cutout.png");
+  margin-left: -42%;
+  margin-top: -60px;
+  width: 130%;
+  background-size: contain;
+  background-position: 30% bottom;
+  transform: none;
+}
+
+.mac-image--story {
+  min-height: 220px;
+  background-image: url("../assets/images/macintosh/macintosh-story.png");
+}
+
+.mac-image--detail {
+  min-height: 270px;
+  background-image: url("../assets/images/macintosh/macintosh-detail-cutout.png");
+  background-size: contain;
+  background-position: center 20%;
+}
+
+.mac-image--legacy {
+  min-height: 285px;
+  background-image: url("../assets/images/macintosh/macintosh-legacy.png");
+  background-size: contain;
+  background-position: center 80%;
+}
+
+.mac-panel {
+  display: grid;
+  gap: 26px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(99, 99, 104, 0.18);
+}
+
+.mac-panel--story {
+  grid-template-columns: 400px minmax(0, 1fr);
+}
+
+.mac-panel--design {
+  grid-template-columns: minmax(0, 1.02fr) 400px;
+  align-items: end;
+}
+
+.mac-panel--legacy {
+  grid-template-columns: 420px minmax(0, 1fr);
+  align-items: start;
+}
+
+.mac-panel__text {
+  display: grid;
+  grid-template-columns: 56px minmax(260px, 1fr);
+  gap: 18px;
+  padding: 10px 0;
+  align-items: start;
+  min-width: 0;
+}
+
+.mac-panel__number {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  color: #0e0e0f;
+  font: 400 41px/1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-panel__title {
+  grid-column: 2;
+  grid-row: 1;
+  writing-mode: horizontal-tb;
+  white-space: pre-line;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  color: #111;
+  font: 400 58px/0.95 Baskerville, Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -0.04em;
+}
+
+.mac-panel__body {
+  grid-column: 2;
+  grid-row: 2;
+  writing-mode: horizontal-tb;
+  margin-top: 18px;
+  white-space: pre-line;
+  word-break: normal;
+  overflow-wrap: break-word;
+  color: #242428;
+  font: 400 16px/1.45 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-footer {
+  writing-mode: horizontal-tb;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  margin-top: 18px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(99, 99, 104, 0.18);
+  text-align: center;
+  color: #242428;
+  font: 400 16px/1.45 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-footer__links {
+  color: #204ca8;
+  font-size: 13px;
+}
+
+.mac-footer__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mac-footer__search-input,
+.mac-footer__search-button,
+.mac-footer__select {
+  border: 1px solid #9d9d9d;
+  background: #fff;
+  color: #111;
+  font: 400 14px/1.1 Baskerville, Georgia, "Times New Roman", Times, serif;
+}
+
+.mac-footer__search-input {
+  width: 220px;
+  height: 22px;
+}
+
+.mac-footer__search-button {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  background: #ececec;
+}
+
+.mac-footer__select {
+  width: 140px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: #5b5b5b;
 }
 
 .aqua-page-layer__inner {
@@ -193,67 +1098,6 @@
   background: rgb(242, 241, 246);
   opacity: var(--series-video-opacity);
   transition: opacity 120ms linear;
-}
-
-.series-video-page__fade {
-  position: absolute;
-  left: calc(clamp(6px, 1vw, 14px) * -1);
-  width: calc(100% + (clamp(6px, 1vw, 14px) * 2));
-  height: var(--fade-mask-height);
-  pointer-events: none;
-  z-index: 3;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  filter: blur(20px);
-  mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.55) 8%,
-    rgba(0, 0, 0, 1) 18%,
-    rgba(0, 0, 0, 1) 82%,
-    rgba(0, 0, 0, 0.55) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.55) 8%,
-    rgba(0, 0, 0, 1) 18%,
-    rgba(0, 0, 0, 1) 82%,
-    rgba(0, 0, 0, 0.55) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.series-video-page__fade--top {
-  top: -28px;
-  border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
-  background: linear-gradient(
-    180deg,
-    rgba(242, 241, 246, 1) 0%,
-    rgba(242, 241, 246, 0.98) 14%,
-    rgba(242, 241, 246, 0.9) 34%,
-    rgba(242, 241, 246, 0.56) 68%,
-    rgba(242, 241, 246, 0) 100%
-  );
-  opacity: var(--series-video-opacity);
-}
-
-.series-video-page__fade--bottom {
-  bottom: -28px;
-  height: clamp(76px, 24%, 220px);
-  border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
-  background: linear-gradient(
-    0deg,
-    rgba(242, 241, 246, 1) 0%,
-    rgba(242, 241, 246, 0.98) 10%,
-    rgba(242, 241, 246, 0.88) 24%,
-    rgba(242, 241, 246, 0.58) 48%,
-    rgba(242, 241, 246, 0.18) 76%,
-    rgba(242, 241, 246, 0.04) 92%,
-    rgba(242, 241, 246, 0) 100%
-  );
-  opacity: var(--series-video-opacity);
 }
 
 .sequence-page {
@@ -315,65 +1159,6 @@
   background: #000;
   opacity: 0;
   transition: opacity 360ms ease;
-}
-
-.sequence-intro__fade {
-  position: absolute;
-  left: calc(clamp(6px, 1vw, 14px) * -1);
-  width: calc(100% + (clamp(6px, 1vw, 14px) * 2));
-  height: var(--fade-mask-height);
-  pointer-events: none;
-  z-index: 2;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  filter: blur(20px);
-  mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.55) 8%,
-    rgba(0, 0, 0, 1) 18%,
-    rgba(0, 0, 0, 1) 82%,
-    rgba(0, 0, 0, 0.55) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.55) 8%,
-    rgba(0, 0, 0, 1) 18%,
-    rgba(0, 0, 0, 1) 82%,
-    rgba(0, 0, 0, 0.55) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.sequence-intro__fade--top {
-  top: -28px;
-  border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.98) 14%,
-    rgba(0, 0, 0, 0.86) 34%,
-    rgba(0, 0, 0, 0.42) 68%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.sequence-intro__fade--bottom {
-  bottom: -28px;
-  height: clamp(76px, 24%, 220px);
-  border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.98) 10%,
-    rgba(0, 0, 0, 0.86) 24%,
-    rgba(0, 0, 0, 0.48) 48%,
-    rgba(0, 0, 0, 0.14) 76%,
-    rgba(0, 0, 0, 0.03) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
 }
 
 .sequence-intro__play {
@@ -551,67 +1336,6 @@
   border: 0;
 }
 
-.product-sequence__fade {
-  position: absolute;
-  left: calc(clamp(6px, 1vw, 14px) * -1);
-  width: calc(100% + (clamp(6px, 1vw, 14px) * 2));
-  height: var(--fade-mask-height);
-  pointer-events: none;
-  z-index: 4;
-  transform: translateZ(0);
-  will-change: opacity;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  filter: blur(20px);
-  mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.55) 8%,
-    rgba(0, 0, 0, 1) 18%,
-    rgba(0, 0, 0, 1) 82%,
-    rgba(0, 0, 0, 0.55) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.55) 8%,
-    rgba(0, 0, 0, 1) 18%,
-    rgba(0, 0, 0, 1) 82%,
-    rgba(0, 0, 0, 0.55) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.product-sequence__fade--top {
-  top: -28px;
-  border-radius: 0 0 clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px);
-  background: linear-gradient(
-    180deg,
-    rgba(242, 241, 246, 1) 0%,
-    rgba(242, 241, 246, 0.98) 14%,
-    rgba(242, 241, 246, 0.92) 34%,
-    rgba(242, 241, 246, 0.6) 68%,
-    rgba(242, 241, 246, 0) 100%
-  );
-}
-
-.product-sequence__fade--bottom {
-  bottom: -28px;
-  height: clamp(76px, 24%, 220px);
-  border-radius: clamp(24px, 5vw, 52px) clamp(24px, 5vw, 52px) 0 0;
-  background: linear-gradient(
-    0deg,
-    rgba(242, 241, 246, 1) 0%,
-    rgba(242, 241, 246, 0.98) 10%,
-    rgba(242, 241, 246, 0.9) 24%,
-    rgba(242, 241, 246, 0.62) 48%,
-    rgba(242, 241, 246, 0.2) 76%,
-    rgba(242, 241, 246, 0.04) 92%,
-    rgba(242, 241, 246, 0) 100%
-  );
-}
-
 .product-sequence__tail {
   width: 100%;
   height: 140vh;
@@ -623,6 +1347,134 @@
   .series-video-page__stage,
   .product-sequence__sticky {
     padding-inline: 0;
+  }
+
+  .mac-stage {
+    min-height: 152vh;
+  }
+
+  .mac-transition {
+    height: 56vh;
+  }
+
+  .mac-editorial__page {
+    width: min(100%, calc(100% - 28px));
+  }
+
+  .mac-editorial__dock-inner {
+    width: min(100%, calc(100% - 20px));
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .mac-editorial__dock-item {
+    flex: 0 0 auto;
+    min-width: 120px;
+  }
+
+  .mac-editorial__subdock {
+    width: min(100%, calc(100% - 20px));
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+
+  .mac-page__bottom {
+    gap: 0;
+  }
+
+  .mac-editorial__hero,
+  .mac-editorial__hero-main,
+  .mac-editorial__section--summary,
+  .mac-editorial__section--design,
+  .mac-editorial__section--legacy {
+    grid-template-columns: 1fr;
+  }
+
+  .mac-editorial__hero {
+    min-height: auto;
+  }
+
+  .mac-editorial__hero-rail {
+    border-right: 0;
+    border-left: 0;
+    padding: 18px 0;
+  }
+
+  .mac-editorial__hero-main {
+    gap: 28px;
+  }
+
+  .mac-asset--hero {
+    min-height: 280px;
+  }
+
+  .mac-asset--story,
+  .mac-asset--detail {
+    min-height: 220px;
+  }
+
+  .mac-asset--legacy {
+    min-height: 180px;
+  }
+
+  .mac-editorial__story-title {
+    font-size: 42px;
+  }
+
+  .mac-hero,
+  .mac-main,
+  .mac-panel--story,
+  .mac-panel--design,
+  .mac-panel--legacy {
+    grid-template-columns: 1fr;
+  }
+
+  .mac-rail--left,
+  .mac-rail--right {
+    padding: 18px 0;
+    border-right: 0;
+    border-left: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .mac-main__copy,
+  .mac-panel__text,
+  .mac-footer,
+  .mac-footer__search,
+  .mac-footer__links,
+  .mac-footer__meta {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .mac-panel__text {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .mac-panel__number,
+  .mac-panel__title,
+  .mac-panel__body {
+    grid-column: 1;
+    text-align: center;
+  }
+
+  .mac-panel__number {
+    grid-row: auto;
+  }
+
+  .mac-panel__title {
+    grid-row: auto;
+  }
+
+  .mac-panel__body {
+    grid-row: auto;
+  }
+
+  .mac-editorial__footer-link-row {
+    flex-wrap: wrap;
   }
 
   .sequence-intro__play {
