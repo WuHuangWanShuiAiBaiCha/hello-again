@@ -28,6 +28,7 @@
       const progress = Math.max(Math.min(scroller.scrollTop / fadeRange(), 1), 0);
       const opacity = 1 - progress;
       stage.style.setProperty("--series-video-opacity", String(opacity));
+      stage.style.setProperty("--series-stage-opacity", String(opacity));
 
       if (opacity <= fadeOutPauseThreshold) {
         if (!video.paused) {

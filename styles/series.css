@@ -925,6 +925,7 @@
   background-image: url("../assets/images/macintosh/macintosh-legacy.png");
   background-size: contain;
   background-position: center 80%;
+  margin-left: 48px;
 }
 
 .mac-panel {
@@ -1066,6 +1067,8 @@
   background: rgb(242, 241, 246);
   isolation: isolate;
   --series-video-opacity: 1;
+  opacity: var(--series-stage-opacity, 1);
+  transition: opacity 120ms linear;
 }
 
 .series-media-shell {
@@ -1099,6 +1102,328 @@
   opacity: var(--series-video-opacity);
   transition: opacity 120ms linear;
 }
+
+.cube-story-page {
+  min-height: 380vh;
+  padding-bottom: 120px;
+}
+
+.cube-sheet {
+  width: min(998px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 0 0 40px;
+  color: #111;
+  font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+}
+
+.cube-sheet__nav {
+  margin-top: 14px;
+}
+
+.cube-sheet__nav-main {
+  display: flex;
+  border-top: 1px solid #d9d9d9;
+  background: linear-gradient(180deg, #f5f5f5 0%, #d9d9d9 44%, #efefef 100%);
+}
+
+.cube-sheet__nav-tab {
+  flex: 1 1 0;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #a6a6a6;
+  border-left: 1px solid #f8f8f8;
+  border-bottom: 1px solid #999;
+  color: #111;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.cube-sheet__nav-tab--apple {
+  color: #2f71d5;
+  font-weight: 600;
+}
+
+.cube-sheet__nav-sub {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 8px 6px;
+  border-bottom: 1px solid #9e9e9e;
+  font-size: 12px;
+  line-height: 1.1;
+}
+
+.cube-sheet__hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  gap: 18px;
+  align-items: center;
+  padding: 26px 36px 20px;
+}
+
+.cube-sheet__hero-copy {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.cube-sheet__brand {
+  color: #000;
+  font-size: clamp(56px, 9vw, 98px);
+  line-height: 0.92;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
+.cube-sheet__title {
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 0.94;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
+.cube-sheet__subtitle {
+  max-width: 10ch;
+  color: #666;
+  font-size: clamp(16px, 2.2vw, 21px);
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+}
+
+.cube-sheet__hero-image {
+  min-height: 360px;
+  background: url("../assets/images/g4-cube/hero-approved.png") center center / contain no-repeat;
+}
+
+.cube-sheet__highlights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  padding: 10px 26px 16px;
+  border-top: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
+}
+
+.cube-sheet__highlight {
+  padding: 8px 12px 0;
+  border-right: 1px solid #d5d5d5;
+  text-align: center;
+}
+
+.cube-sheet__highlight:last-child {
+  border-right: 0;
+}
+
+.cube-sheet__highlight-icon {
+  width: 56px;
+  height: 38px;
+  margin: 0 auto 8px;
+  position: relative;
+}
+
+.cube-sheet__highlight-icon::before,
+.cube-sheet__highlight-icon::after {
+  content: "";
+  position: absolute;
+}
+
+.cube-sheet__highlight-icon--cube::before {
+  inset: 2px 10px 2px 10px;
+  border: 1px solid #b4b4b4;
+  background: linear-gradient(180deg, #fcfcfc 0%, #e7e7e7 100%);
+}
+
+.cube-sheet__highlight-icon--quiet::before {
+  width: 34px;
+  height: 34px;
+  left: 11px;
+  top: 2px;
+  border-radius: 50%;
+  border: 1px solid #b9b9b9;
+  background: radial-gradient(circle at 50% 50%, #666 0 5px, #ececec 6px 14px, #f8f8f8 15px 100%);
+}
+
+.cube-sheet__highlight-icon--lift::before {
+  width: 22px;
+  height: 24px;
+  left: 17px;
+  top: 3px;
+  border: 1px solid #b6b6b6;
+  background: #efefef;
+}
+
+.cube-sheet__highlight-icon--lift::after {
+  width: 28px;
+  height: 12px;
+  left: 14px;
+  bottom: 3px;
+  border: 1px solid #d3d3d3;
+  background: #fafafa;
+}
+
+.cube-sheet__highlight-icon--system::before {
+  width: 26px;
+  height: 20px;
+  left: 6px;
+  top: 7px;
+  border: 1px solid #b6b6b6;
+  background: linear-gradient(180deg, #86b5f5 0%, #d8e9ff 100%);
+}
+
+.cube-sheet__highlight-icon--system::after {
+  width: 16px;
+  height: 16px;
+  right: 6px;
+  top: 10px;
+  border-radius: 50%;
+  border: 1px solid #b7b7b7;
+  background: radial-gradient(circle at 50% 50%, #666 0 3px, #ececec 4px 100%);
+}
+
+.cube-sheet__highlight-title {
+  margin-bottom: 6px;
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.cube-sheet__highlight-text {
+  color: #303030;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.cube-sheet__featurebar {
+  display: flex;
+  margin: 12px 40px 18px;
+  border: 1px solid #9e9e9e;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f2f2f2 0%, #cfcfcf 100%);
+}
+
+.cube-sheet__featurebar > div {
+  flex: 1 1 0;
+  padding: 8px 10px;
+  border-right: 1px solid #aaa;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cube-sheet__featurebar > div:last-child {
+  border-right: 0;
+}
+
+.cube-sheet__content {
+  display: grid;
+  grid-template-columns: 0.76fr 1.42fr 0.88fr;
+  gap: 18px 22px;
+  padding: 6px 42px 0;
+  align-items: start;
+}
+
+.cube-sheet__inset,
+.cube-sheet__maincopy,
+.cube-sheet__sidenotes,
+.cube-sheet__widecopy,
+.cube-sheet__closing {
+  font-size: 13px;
+  line-height: 1.48;
+}
+
+.cube-sheet__inset {
+  padding: 10px 12px;
+  border: 1px solid #bcbcbc;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #f8f8f8 0%, #ececec 100%);
+}
+
+.cube-sheet__inset-title,
+.cube-sheet__copy-title,
+.cube-sheet__sidenote-title {
+  margin-bottom: 8px;
+  color: #111;
+  font-size: 16px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cube-sheet__inset-item {
+  padding: 10px 0;
+  border-top: 1px solid #d7d7d7;
+}
+
+.cube-sheet__inset-item:first-of-type {
+  border-top: 0;
+  padding-top: 4px;
+}
+
+.cube-sheet__inset-label {
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.cube-sheet__inset-value,
+.cube-sheet__copy-text,
+.cube-sheet__sidenote-text {
+  color: #222;
+}
+
+.cube-sheet__maincopy {
+  display: grid;
+  gap: 12px;
+}
+
+.cube-sheet__sidenotes {
+  display: grid;
+  gap: 16px;
+}
+
+.cube-sheet__widecopy {
+  grid-column: 1 / span 2;
+  display: grid;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #d1d1d1;
+}
+
+.cube-sheet__widecopy--left {
+  grid-column: 2 / span 1;
+}
+
+.cube-sheet__image {
+  min-height: 172px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cube-sheet__image--unit {
+  background-image: url("../assets/images/g4-cube/unit-approved.png");
+}
+
+.cube-sheet__image--lift {
+  background-image: url("../assets/images/g4-cube/lift-approved.png");
+}
+
+.cube-sheet__sidenotes--lower {
+  padding-top: 8px;
+  border-top: 1px solid #d1d1d1;
+}
+
+.cube-sheet__closing {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+  padding: 10px 0 0;
+  border-top: 1px solid #cfcfcf;
+}
+
 
 .sequence-page {
   min-height: 360vh;
@@ -1381,6 +1706,88 @@
 
   .mac-page__bottom {
     gap: 0;
+  }
+
+  .cube-story-page {
+    min-height: auto;
+  }
+
+  .cube-sheet {
+    width: min(100%, calc(100% - 16px));
+  }
+
+  .cube-sheet__nav-main,
+  .cube-sheet__nav-sub,
+  .cube-sheet__featurebar {
+    overflow-x: auto;
+  }
+
+  .cube-sheet__nav-tab {
+    flex: 0 0 118px;
+  }
+
+  .cube-sheet__nav-sub {
+    justify-content: flex-start;
+    gap: 18px;
+    white-space: nowrap;
+  }
+
+  .cube-sheet__hero {
+    grid-template-columns: 1fr;
+    padding: 18px 14px 16px;
+    gap: 12px;
+  }
+
+  .cube-sheet__hero-copy {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .cube-sheet__subtitle {
+    max-width: 100%;
+  }
+
+  .cube-sheet__hero-image {
+    min-height: 220px;
+  }
+
+  .cube-sheet__highlights {
+    grid-template-columns: 1fr 1fr;
+    padding: 6px 10px 10px;
+  }
+
+  .cube-sheet__highlight {
+    border-right: 0;
+    border-bottom: 1px solid #d5d5d5;
+  }
+
+  .cube-sheet__highlight:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .cube-sheet__featurebar {
+    margin: 10px 12px 14px;
+  }
+
+  .cube-sheet__featurebar > div {
+    flex: 0 0 auto;
+    min-width: 104px;
+  }
+
+  .cube-sheet__content {
+    grid-template-columns: 1fr;
+    padding: 6px 14px 0;
+    gap: 16px;
+  }
+
+  .cube-sheet__widecopy,
+  .cube-sheet__widecopy--left,
+  .cube-sheet__closing {
+    grid-column: auto;
+  }
+
+  .cube-sheet__image {
+    min-height: 160px;
   }
 
   .mac-editorial__hero,

@@ -1,6 +1,13 @@
 (function () {
   function boot() {
     const refs = window.HelloAgain.createRefs();
+    const initialPanel = Math.min(
+      Math.max(
+        Number(refs.seriesShell?.dataset.initialPanel) || window.HelloAgain.config.panels.mac,
+        window.HelloAgain.config.panels.mac
+      ),
+      window.HelloAgain.config.panelLast
+    );
     const motion = window.HelloAgain.createMotionController
       ? window.HelloAgain.createMotionController(refs)
       : null;
@@ -69,6 +76,7 @@
       const progress = Math.max(Math.min(scroller.scrollTop / seriesFadeScrollRange, 1), 0);
       const opacity = 1 - progress;
       stage.style.setProperty("--series-video-opacity", String(opacity));
+      stage.style.setProperty("--series-stage-opacity", String(opacity));
 
       if (!video) {
         return;
@@ -257,7 +265,13 @@
     scenes.ensureMacScene();
     updateSeriesVideoFade(refs.aquaPage);
     updateSeriesVideoFade(refs.seriesPageThree);
-    syncSeriesMediaForPanel(window.HelloAgain.config.panels.mac);
+    syncSeriesMediaForPanel(initialPanel);
+
+    if (initialPanel === window.HelloAgain.config.panels.sequence) {
+      imageSequence?.handlePanelEnter?.();
+    }
+
+    lastSeriesPanel = initialPanel;
   }
 
   if (document.readyState === "loading") {
