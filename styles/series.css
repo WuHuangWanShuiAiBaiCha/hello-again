@@ -1069,6 +1069,7 @@
   --series-video-opacity: 1;
   opacity: var(--series-stage-opacity, 1);
   transition: opacity 120ms linear;
+  pointer-events: none;
 }
 
 .series-media-shell {
@@ -1101,6 +1102,7 @@
   background: rgb(242, 241, 246);
   opacity: var(--series-video-opacity);
   transition: opacity 120ms linear;
+  pointer-events: none;
 }
 
 .cube-story-page {
@@ -1465,6 +1467,7 @@
   font-size: 12px;
   line-height: 1;
   background: transparent;
+  color: #111;
   text-decoration: none;
 }
 
