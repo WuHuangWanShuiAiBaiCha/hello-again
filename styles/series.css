@@ -1138,6 +1138,7 @@
   font-size: 14px;
   line-height: 1;
   background: #f2f2f2;
+  text-decoration: none;
 }
 
 .cube-sheet__nav-tab--apple {
@@ -1464,6 +1465,7 @@
   font-size: 12px;
   line-height: 1;
   background: transparent;
+  text-decoration: none;
 }
 
 .imac-sheet__nav-tab--apple {
@@ -1513,9 +1515,11 @@
 }
 
 .imac-sheet__apple {
+  display: inline-block;
   color: #2b5fc4;
   font-size: 16px;
   line-height: 1.25;
+  text-decoration: none;
 }
 
 .imac-sheet__apple span {
