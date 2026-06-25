@@ -1432,6 +1432,10 @@
   background-image: url("../assets/images/g4-cube/lift-approved.png");
 }
 
+.cube-sheet__image--mouse {
+  background-image: url("../assets/images/g4-cube/user-approved-crops/mouse-front.png");
+}
+
 .cube-sheet__column--compact {
   min-height: 100%;
 }
