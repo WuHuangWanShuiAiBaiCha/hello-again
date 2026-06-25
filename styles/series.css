@@ -1157,8 +1157,8 @@
 
 .cube-sheet__hero {
   display: grid;
-  grid-template-columns: minmax(240px, 0.58fr) minmax(0, 1.42fr);
-  gap: 10px;
+  grid-template-columns: minmax(230px, 0.52fr) minmax(0, 1.48fr);
+  gap: 18px;
   align-items: end;
   padding: 16px 52px 12px;
 }
@@ -1185,7 +1185,7 @@
 }
 
 .cube-sheet__subtitle {
-  max-width: 11ch;
+  max-width: 13ch;
   color: #3f3f3f;
   font-size: clamp(14px, 1.8vw, 19px);
   line-height: 1.4;
@@ -1193,9 +1193,9 @@
 }
 
 .cube-sheet__hero-image {
-  min-height: 430px;
+  min-height: 395px;
   align-self: end;
-  background: url("../assets/images/g4-cube/hero-approved.png") right 6px bottom 0 / contain no-repeat;
+  background: url("../assets/images/g4-cube/user-approved-crops/system-full-transparent.png") center bottom / contain no-repeat;
 }
 
 .cube-sheet__highlights {
@@ -1425,7 +1425,7 @@
 }
 
 .cube-sheet__image--unit {
-  background-image: url("../assets/images/g4-cube/unit-approved.png");
+  background-image: url("../assets/images/g4-cube/user-approved-crops/cube-main.png");
 }
 
 .cube-sheet__image--lift {
