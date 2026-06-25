@@ -1613,11 +1613,6 @@
   letter-spacing: -0.06em;
 }
 
-.imac-sheet__title-line {
-  display: block;
-  white-space: nowrap;
-}
-
 .imac-sheet__duo-text,
 .imac-sheet__section-text {
   color: #383838;
