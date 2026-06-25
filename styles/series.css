@@ -1668,7 +1668,7 @@
 }
 
 .imac-sheet__system-image {
-  min-height: 246px;
+  min-height: 340px;
   background: url("../assets/images/imac-g3/system-bottom.png") center bottom / contain no-repeat;
 }
 
