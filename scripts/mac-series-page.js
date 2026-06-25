@@ -22,6 +22,10 @@
     const seriesVideoFadeOutPauseThreshold = 0.015;
     const deferredArchiveShells = Array.from(document.querySelectorAll("[data-archive-panel]"));
 
+    function isResponsiveMacViewport() {
+      return window.matchMedia("(max-width: 1024px)").matches;
+    }
+
     function getCurrentSeriesPanel() {
       if (!refs.seriesTrack) {
         return lastSeriesPanel;
@@ -71,6 +75,19 @@
       const stage = scroller.querySelector(".series-video-page__stage");
       const video = scroller.querySelector(".series-video-page__video");
       if (!stage) {
+        return;
+      }
+
+      if (isResponsiveMacViewport()) {
+        stage.style.setProperty("--series-video-opacity", "1");
+        stage.style.setProperty("--series-stage-opacity", "1");
+        if (video) {
+          const panelIndex = getPanelIndexForScroller(scroller);
+          const isCurrentPanel = panelIndex != null && panelIndex === getCurrentSeriesPanel();
+          if (isCurrentPanel && video.dataset.shouldPlay === "true" && video.paused) {
+            resumeSeriesVideo(video);
+          }
+        }
         return;
       }
 
@@ -139,8 +156,10 @@
 
       delete video.dataset.fadePaused;
       video.dataset.shouldPlay = "true";
-      video.volume = 0.18;
-      video.muted = false;
+      video.playsInline = true;
+      video.muted = isResponsiveMacViewport();
+      video.defaultMuted = video.muted;
+      video.volume = video.muted ? 0 : 0.18;
 
       const attemptPlay = () => {
         if (token !== activeSeriesVideoToken) {
@@ -688,6 +707,126 @@
               height: 160px;
             }
           }
+
+          @media (max-width: 1024px) {
+            .mbp-cn {
+              overflow-x: hidden;
+            }
+
+            .mbp-cn__hero {
+              min-height: auto;
+              padding: clamp(44px, 8vw, 72px) clamp(18px, 5vw, 48px) 42px;
+            }
+
+            .mbp-cn__headline,
+            .mbp-cn__section-title,
+            .mbp-cn__essay-title,
+            .mbp-cn__closing h2 {
+              overflow-wrap: break-word;
+            }
+
+            .mbp-cn__media {
+              width: min(100%, 760px);
+            }
+
+            .mbp-cn__specs,
+            .mbp-cn__timeline-grid,
+            .mbp-cn__split-notes,
+            .mbp-cn__gallery,
+            .mbp-cn__gallery--ai,
+            .mbp-cn__visual-story,
+            .mbp-cn__visual-story--reverse,
+            .mbp-cn__gallery-item--wide,
+            .mbp-cn__feature,
+            .mbp-cn__feature:nth-of-type(2n) {
+              grid-template-columns: minmax(0, 1fr);
+            }
+
+            .mbp-cn__visual-story--reverse .mbp-cn__visual-copy,
+            .mbp-cn__feature:nth-of-type(2n) .mbp-cn__feature-copy {
+              order: 0;
+            }
+
+            .mbp-cn__visual-story,
+            .mbp-cn__feature {
+              min-height: auto;
+              padding: clamp(58px, 8vw, 92px) clamp(18px, 5vw, 54px);
+              text-align: center;
+            }
+
+            .mbp-cn__visual-copy,
+            .mbp-cn__feature-copy,
+            .mbp-cn__essay-copy,
+            .mbp-cn__gallery-caption {
+              max-width: min(100%, 620px);
+              margin-left: auto;
+              margin-right: auto;
+            }
+
+            .mbp-cn__visual-media img,
+            .mbp-cn__feature-media img {
+              max-height: min(58vw, 520px);
+            }
+
+            .mbp-cn__timeline-card,
+            .mbp-cn__note,
+            .mbp-cn__gallery-item {
+              min-height: auto;
+            }
+          }
+
+          @media (max-width: 560px) {
+            .mbp-cn__hero {
+              padding: 38px 18px 34px;
+            }
+
+            .mbp-cn__eyebrow {
+              font-size: clamp(22px, 7vw, 28px);
+            }
+
+            .mbp-cn__headline {
+              font-size: clamp(40px, 13vw, 58px);
+            }
+
+            .mbp-cn__intro,
+            .mbp-cn__feature-text,
+            .mbp-cn__visual-text,
+            .mbp-cn__essay-copy,
+            .mbp-cn__note p,
+            .mbp-cn__closing p {
+              font-size: 16px;
+              line-height: 1.52;
+            }
+
+            .mbp-cn__feature-title,
+            .mbp-cn__visual-title,
+            .mbp-cn__section-title,
+            .mbp-cn__essay-title,
+            .mbp-cn__closing h2 {
+              font-size: clamp(32px, 10vw, 46px);
+              line-height: 1.05;
+            }
+
+            .mbp-cn__spec {
+              min-height: 112px;
+              padding: 22px 18px;
+            }
+
+            .mbp-cn__feature,
+            .mbp-cn__visual-story,
+            .mbp-cn__timeline,
+            .mbp-cn__essay,
+            .mbp-cn__closing {
+              padding-left: 18px;
+              padding-right: 18px;
+            }
+
+            .mbp-cn__gallery-item,
+            .mbp-cn__timeline-card,
+            .mbp-cn__note {
+              padding: 24px 18px;
+            }
+          }
         </style>
         <article class="mbp-cn" aria-label="13 英寸 MacBook Pro">
           <section class="mbp-cn__hero">
@@ -1012,6 +1151,7 @@
       seriesShell,
       defaultLastPanel: window.HelloAgain.config.panelLast,
       startPanel: initialPanel,
+      dragFollowsTouch: true,
     });
 
     refs.macSceneHitarea?.addEventListener("click", () => {
@@ -1068,6 +1208,8 @@
       motion?.handleResize();
       seriesShell.handleResize();
       imageSequence?.handleResize();
+      updateSeriesVideoFade(refs.aquaPage);
+      updateSeriesVideoFade(refs.seriesPageThree);
     });
 
     window.addEventListener("keydown", (event) => {

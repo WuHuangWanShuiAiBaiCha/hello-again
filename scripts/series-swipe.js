@@ -14,6 +14,7 @@
     const onPanelChange = options.onPanelChange || null;
     const onBeforePanelChange = options.onBeforePanelChange || null;
     const onAfterPanelChange = options.onAfterPanelChange || null;
+    const dragFollowsTouch = options.dragFollowsTouch === true;
 
     const getWidth = () => window.HelloAgain.utils.viewportWidth();
     const getLastPanel = () => {
@@ -25,6 +26,10 @@
     let wheelLockTimer = 0;
     let touchStartX = 0;
     let touchStartY = 0;
+    let touchStartScrollLeft = 0;
+    let touchStartPanel = startPanel;
+    let previousTrackScrollBehavior = "";
+    let previousTrackScrollSnapType = "";
     let touchMode = "";
 
     function getCurrentPanel() {
@@ -105,6 +110,10 @@
 
       touchStartX = touch.clientX;
       touchStartY = touch.clientY;
+      touchStartScrollLeft = refs.seriesTrack?.scrollLeft || 0;
+      touchStartPanel = getCurrentPanel();
+      previousTrackScrollBehavior = refs.seriesTrack?.style.scrollBehavior || "";
+      previousTrackScrollSnapType = refs.seriesTrack?.style.scrollSnapType || "";
       touchMode = "";
     }
 
@@ -122,6 +131,11 @@
 
       if (touchMode === "x") {
         event.preventDefault();
+        if (dragFollowsTouch && refs.seriesTrack) {
+          refs.seriesTrack.style.scrollBehavior = "auto";
+          refs.seriesTrack.style.scrollSnapType = "none";
+          refs.seriesTrack.scrollLeft = touchStartScrollLeft - deltaX;
+        }
       }
     }
 
@@ -133,7 +147,24 @@
 
       const deltaX = touch.clientX - touchStartX;
       const deltaY = touch.clientY - touchStartY;
+      if (dragFollowsTouch && refs.seriesTrack) {
+        refs.seriesTrack.style.scrollBehavior = previousTrackScrollBehavior;
+        refs.seriesTrack.style.scrollSnapType = previousTrackScrollSnapType;
+      }
+
+      if (touchMode !== "x") {
+        return;
+      }
+
       if (Math.abs(deltaX) < 58 || Math.abs(deltaX) < Math.abs(deltaY) * 1.18) {
+        if (dragFollowsTouch) {
+          goToPanel(touchStartPanel);
+        }
+        return;
+      }
+
+      if (dragFollowsTouch) {
+        goToPanel(touchStartPanel + (deltaX < 0 ? 1 : -1));
         return;
       }
 
