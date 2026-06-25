@@ -16,3 +16,10 @@
 
 - Every modification version must be saved in git.
 - Do not skip git checkpoints after changes in this project.
+
+## Page Two Image Command
+
+- The four small images on page two must not be hand-drawn in CSS.
+- If small images are needed, use real source images first.
+- If generation is necessary, use `Image2 / AMH2` to create realistic images.
+- Do not invent visual icons by drawing them manually.
