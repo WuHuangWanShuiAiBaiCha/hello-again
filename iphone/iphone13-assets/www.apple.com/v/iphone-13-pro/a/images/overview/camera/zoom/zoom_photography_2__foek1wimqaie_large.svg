@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1a2e"/><stop offset="100%" stop-color="#050510"/></linearGradient></defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <text x="400" y="200" text-anchor="middle" fill="#fff" font-size="48" font-weight="200" font-family="sans-serif">3x</text>
+  <text x="400" y="250" text-anchor="middle" fill="#ffffff80" font-size="20" font-family="sans-serif">光学变焦</text>
+  <text x="400" y="320" text-anchor="middle" fill="#ffffff60" font-size="14" font-family="sans-serif">77mm 焦距 · 长焦镜头</text>
+</svg>

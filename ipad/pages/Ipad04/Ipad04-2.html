@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPad Pro 2021 - Apple 博物馆</title>
+    <link rel="stylesheet" href="../../ipad-nav.css">
+    <script defer src="../../ipad-nav.js"></script>
+    <style>
+        /* ================= 2021 Modern Apple Style 重置 ================= */
+        :root {
+            --apple-text: #1d1d1f;
+            --apple-gray-bg: #f5f5f7;
+            --apple-blue: #0066cc;
+            --apple-blue-hover: #0077ed;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #ffffff; 
+            color: var(--apple-text);
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        a { text-decoration: none; color: var(--apple-blue); transition: color 0.2s; }
+        a:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 1200px; /* 屏幕利用率更高，主体宽度放大 */
+            width: 100%; margin: 0 auto; padding: 0 20px; box-sizing: border-box;
+        }
+
+        img { max-width: 100%; height: auto; display: block; object-fit: contain; }
+
+        /* ================= 1. 顶部全局黑导航 ================= */
+        .global-nav {
+            width: 100%; height: 44px; background: rgba(0, 0, 0, 0.8); 
+            backdrop-filter: saturate(180%) blur(20px); /* 2021年标志性的毛玻璃效果 */
+            position: fixed; top: 0; z-index: 9999;
+        }
+        .global-nav .container { display: flex; justify-content: space-between; align-items: center; height: 100%; max-width: 1000px; }
+        .global-nav-links { display: flex; gap: 30px; }
+        .global-nav a { color: #f5f5f7; font-size: 12px; font-weight: 400; opacity: 0.8; transition: opacity 0.2s; }
+        .global-nav a:hover { opacity: 1; text-decoration: none; }
+
+        /* ================= 2. 图标级次导航 (Chapternav) ================= */
+        .chapternav {
+            margin-top: 44px; /* 避开固定导航栏 */
+            padding: 15px 0; background-color: #fff;
+            border-bottom: 1px solid #d2d2d7;
+            overflow-x: auto; white-space: nowrap;
+        }
+        .chapternav-items {
+            display: flex; justify-content: center; gap: 35px; min-width: 800px;
+        }
+        .chapter-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; color: var(--apple-text); }
+        .chapter-icon { width: 35px; height: 35px; margin-bottom: 5px; opacity: 0.8; transition: opacity 0.3s; }
+        .chapter-item:hover .chapter-icon { opacity: 1; }
+        .chapter-text { font-size: 11px; font-weight: 400; }
+        .chapter-new { color: #bf4800; font-size: 10px; margin-top: 2px; }
+
+        /* 顶部促销横幅 */
+        .ribbon {
+            background-color: var(--apple-gray-bg); padding: 12px 20px; text-align: center;
+            font-size: 14px; color: var(--apple-text);
+        }
+        .ribbon a { font-size: 14px; }
+        .ribbon a::after { content: ' >'; }
+
+        /* ================= 3. 充满张力的首屏 Hero 区 ================= */
+        .hero-section {
+            padding: 60px 0 0 0;
+            background-color: #ffffff;
+            text-align: left; /* 2021 年开始流行图文左右分离的排版 */
+            overflow: hidden;
+        }
+        .hero-split {
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .hero-text-box {
+            flex: 0 0 40%;
+            padding-right: 40px;
+        }
+        .hero-tag { font-size: 14px; color: #bf4800; font-weight: 600; margin-bottom: 10px; }
+        .hero-title {
+            font-size: 64px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.05; margin: 0 0 15px 0;
+        }
+        .hero-subtitle {
+            font-size: 28px; font-weight: 600; line-height: 1.2; margin: 0 0 20px 0;
+        }
+        .hero-price { font-size: 17px; color: #515154; margin-bottom: 25px; }
+        
+        .buy-btn-large {
+            display: inline-block; background-color: var(--apple-blue); color: #fff !important;
+            padding: 12px 22px; border-radius: 20px; font-size: 17px; font-weight: 400; margin-bottom: 15px;
+        }
+        .buy-btn-large:hover { background-color: var(--apple-blue-hover); text-decoration: none; }
+        
+        .hero-links { display: flex; gap: 20px; font-size: 17px; font-weight: 400; }
+        .hero-links a::after { content: ' >'; font-size: 14px; }
+
+        .hero-img-box {
+            flex: 0 0 60%;
+            display: flex; justify-content: flex-end;
+        }
+        /* 让主图贴满右侧边缘 */
+        .hero-img-box img { width: 110%; max-width: 900px; margin-right: -10%; }
+
+        /* ================= 4. 机型对比区 (Which iPad is right for you) ================= */
+        .compare-section { padding: 100px 0; background: #fff; text-align: center; }
+        .compare-title { font-size: 48px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 60px; }
+        
+        .compare-grid { display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid #d2d2d7; padding-bottom: 40px; }
+        .compare-item { flex: 1; display: flex; flex-direction: column; align-items: center; }
+        .compare-img { height: 200px; display: flex; align-items: flex-end; margin-bottom: 30px; }
+        .compare-img img { max-height: 100%; }
+        
+        /* 颜色小圆点 */
+        .swatches { display: flex; gap: 6px; margin-bottom: 20px; }
+        .swatch { width: 12px; height: 12px; border-radius: 50%; box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); }
+        
+        .compare-name { font-size: 24px; font-weight: 600; margin: 5px 0; }
+        .compare-desc { font-size: 14px; color: #1d1d1f; line-height: 1.4; height: 40px; margin-bottom: 10px; }
+        .compare-price { font-size: 14px; color: #515154; margin-bottom: 15px; }
+        .buy-btn-small { background-color: var(--apple-blue); color: #fff !important; padding: 6px 14px; border-radius: 15px; font-size: 12px; margin-bottom: 15px; }
+        .compare-link { font-size: 14px; }
+        .compare-link::after { content: ' >'; }
+
+        /* ================= 5. 核心重构：2021 Bento Box (模块化大圆角卡片) ================= */
+        .bento-section { padding: 40px 0 80px 0; background-color: #fff; }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 两列网格 */
+            gap: 24px; /* 标志性的卡片间隙 */
+        }
+
+        .bento-card {
+            background-color: var(--apple-gray-bg);
+            border-radius: 24px; /* 2021年经典大圆角 */
+            padding: 50px 40px 0 40px;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            overflow: hidden; box-sizing: border-box; position: relative;
+            min-height: 480px;
+        }
+
+        /* 纯黑卡片与纯红卡片变体 */
+        .bento-dark { background-color: #000000; color: #f5f5f7; }
+        .bento-dark h3, .bento-dark p { color: #f5f5f7; }
+        .bento-red { background-color: #e30000; color: #fff; }
+        .bento-red h3, .bento-red p { color: #fff; }
+        .bento-dark a, .bento-red a { color: #2997ff; } /* 暗色背景下链接用亮蓝色 */
+
+        /* 全宽卡片 */
+        .bento-full { grid-column: 1 / -1; }
+
+        .bento-card h3 { font-size: 40px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 10px 0; line-height: 1.1; }
+        .bento-card p { font-size: 19px; line-height: 1.4; color: #515154; margin: 0 0 20px 0; max-width: 400px; }
+        .bento-links { display: flex; gap: 15px; font-size: 17px; margin-bottom: 40px; }
+        .bento-links a::after { content: ' >'; font-size: 14px; }
+
+        /* 图片沉底无边框溢出 */
+        .bento-img-box {
+            margin-top: auto; width: 100%; display: flex; justify-content: center; align-items: flex-end;
+        }
+        /* 针对不同卡片的图片自适应微调 */
+        .img-scale-up img { width: 110%; max-width: none; margin-bottom: -5%; }
+        .img-flush-bottom img { margin-bottom: 0; }
+
+        /* ================= 6. 页脚 ================= */
+        .apple-footer { background-color: #f5f5f7; padding: 40px 0; color: #86868b; font-size: 12px; line-height: 1.6; }
+        .footer-footnotes { border-bottom: 1px solid #d2d2d7; padding-bottom: 20px; margin-bottom: 20px; }
+        .footer-footnotes p { margin: 0 0 10px 0; }
+
+        /* ================= 媒体查询 (自适应响应式) ================= */
+        @media (max-width: 980px) {
+            .hero-split { flex-direction: column; text-align: center; }
+            .hero-text-box { padding-right: 0; margin-bottom: 40px; }
+            .hero-img-box img { width: 100%; margin-right: 0; }
+            .hero-links { justify-content: center; }
+            .bento-card h3 { font-size: 32px; }
+            .bento-card p { font-size: 17px; }
+        }
+        @media (max-width: 768px) {
+            .compare-grid { overflow-x: auto; justify-content: flex-start; }
+            .compare-item { min-width: 200px; flex-shrink: 0; }
+            .bento-grid { grid-template-columns: 1fr; /* 手机端全部变成单列 */ }
+            .bento-card { min-height: 400px; padding: 40px 20px 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="global-nav">
+        <div class="container">
+            <div class="global-nav-links">
+                <a href="#" style="font-size: 16px;"></a> 
+                <a href="#">Store</a>
+                <a href="#">Mac</a>
+                <a href="#">iPad</a>
+                <a href="#">iPhone</a>
+                <a href="#">Watch</a>
+                <a href="#">AirPods</a>
+                <a href="#">TV & Home</a>
+                <a href="#">Only on Apple</a>
+                <a href="#">Accessories</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="search-box">🔍</div>
+        </div>
+    </nav>
+
+    <div class="chapternav">
+        <div class="chapternav-items">
+            <div class="chapter-item">
+                <img src="ipadpro201.png" alt="Pro" class="chapter-icon" style="background:#ccc; border-radius:4px;">
+                <span class="chapter-text">iPad Pro</span>
+                <span class="chapter-new">New</span>
+            </div>
+            <div class="chapter-item">
+                <img src="ipadpro202.png" alt="Air" class="chapter-icon" style="background:#ccc; border-radius:4px;">
+                <span class="chapter-text">iPad Air</span>
+            </div>
+            <div class="chapter-item">
+                <img src="ipadpro203.png" alt="iPad" class="chapter-icon" style="background:#ccc; border-radius:4px;">
+                <span class="chapter-text">iPad</span>
+            </div>
+            <div class="chapter-item">
+                <img src="ipadpro204.png" alt="mini" class="chapter-icon" style="background:#ccc; border-radius:4px;">
+                <span class="chapter-text">iPad mini</span>
+            </div>
+            <div class="chapter-item">
+                <img src="ipadpro205.png" alt="Compare" class="chapter-icon" style="background:#ccc; border-radius:4px;">
+                <span class="chapter-text">Compare</span>
+            </div>
+            <div class="chapter-item">
+                <img src="ipadpro206.png" alt="Pencil" class="chapter-icon" style="background:#ccc; border-radius:4px;">
+                <span class="chapter-text">Apple Pencil</span>
+            </div>
+            <div class="chapter-item">
+                <img src="ipadpro207.png" alt="Keyboards" class="chapter-icon" style="background:#ccc; border-radius:4px;">
+                <span class="chapter-text">Keyboards</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="ribbon">
+        Save 6% on iPad with a new Apple Card — all March long. Exclusions and terms apply. <a href="#">Learn more</a>
+    </div>
+
+    <header class="hero-section">
+        <div class="container hero-split">
+            <div class="hero-text-box">
+                <div class="hero-tag">New</div>
+                <h1 class="hero-title">iPad Pro</h1>
+                <p class="hero-subtitle">M1 芯片，内力大飞跃。<br>XDR 屏幕，观感大震撼。</p>
+                <p class="hero-price">From $799</p>
+                
+                <a href="#" class="buy-btn-large">Buy</a>
+                <div class="hero-links">
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+            
+            <div class="hero-img-box">
+                <img src="ipadpro208.png" alt="iPad Pro 2021 主图">
+            </div>
+        </div>
+    </header>
+
+    <section class="compare-section container">
+        <h2 class="compare-title">Which iPad is right for you?</h2>
+        <div class="compare-grid">
+            <div class="compare-item">
+                <div class="compare-img"><img src="ipadpro209.png" alt="iPad Pro" style="height: 180px;"></div>
+                <div class="swatches">
+                    <div class="swatch" style="background: #b1b3b6;"></div>
+                    <div class="swatch" style="background: #7b7b7c;"></div>
+                </div>
+                <h3 class="compare-name">iPad Pro</h3>
+                <p class="compare-desc">The ultimate<br>iPad experience.</p>
+                <p class="compare-price">From $799</p>
+                <a href="#" class="buy-btn-small">Buy</a>
+                <a href="#" class="compare-link">Learn more</a>
+            </div>
+            <div class="compare-item">
+                <div class="compare-img"><img src="ipadpro210.png" alt="iPad Air" style="height: 160px;"></div>
+                <div class="swatches">
+                    <div class="swatch" style="background: #7b7b7c;"></div>
+                    <div class="swatch" style="background: #e8d0ce;"></div>
+                    <div class="swatch" style="background: #d1d8e1;"></div>
+                    <div class="swatch" style="background: #c3ced9;"></div>
+                </div>
+                <h3 class="compare-name">iPad Air</h3>
+                <p class="compare-desc">Powerful. Colorful.<br>Wonderful.</p>
+                <p class="compare-price">From $599</p>
+                <a href="#" class="buy-btn-small">Buy</a>
+                <a href="#" class="compare-link">Learn more</a>
+            </div>
+            <div class="compare-item">
+                <div class="compare-img"><img src="ipadpro211.png" alt="iPad" style="height: 150px;"></div>
+                <div class="swatches">
+                    <div class="swatch" style="background: #b1b3b6;"></div>
+                    <div class="swatch" style="background: #7b7b7c;"></div>
+                </div>
+                <h3 class="compare-name">iPad</h3>
+                <p class="compare-desc">Delightfully capable.<br>Surprisingly affordable.</p>
+                <p class="compare-price">From $329</p>
+                <a href="#" class="buy-btn-small">Buy</a>
+                <a href="#" class="compare-link">Learn more</a>
+            </div>
+            <div class="compare-item">
+                <div class="compare-img"><img src="ipadpro212.png" alt="iPad mini" style="height: 130px;"></div>
+                <div class="swatches">
+                    <div class="swatch" style="background: #b1b3b6;"></div>
+                    <div class="swatch" style="background: #e8d0ce;"></div>
+                    <div class="swatch" style="background: #e1d3e8;"></div>
+                </div>
+                <h3 class="compare-name">iPad mini</h3>
+                <p class="compare-desc">Mega power.<br>Mini sized.</p>
+                <p class="compare-price">From $499</p>
+                <a href="#" class="buy-btn-small">Buy</a>
+                <a href="#" class="compare-link">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bento-section container">
+        <div class="bento-grid">
+            
+            <div class="bento-card">
+                <h3>Get 3% Daily Cash<br>back with Apple Card.</h3>
+                <p>And pay over time, interest-free when you choose to check out with Apple Card Monthly Installments.*</p>
+                <div class="bento-links"><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-scale-up">
+                    <img src="ipadpro213.png" alt="Apple Card">
+                </div>
+            </div>
+
+            <div class="bento-card">
+                <h3>Trade in your current<br>iPad and get credit<br>toward a new one.</h3>
+                <p>With Apple Trade In, just give us your eligible iPad and get credit for a new one. It's good for you and the planet.**</p>
+                <div class="bento-links"><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-scale-up">
+                    <img src="ipadpro214.png" alt="Trade in iPad">
+                </div>
+            </div>
+
+            <div class="bento-card bento-full">
+                <h3>iPadOS 15</h3>
+                <p>Work wonders. With ease.</p>
+                <div class="bento-links"><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-flush-bottom" style="gap: 20px;">
+                    <img src="ipadpro215.png" alt="iPadOS UI" style="width:30%;">
+                    <img src="ipadpro216.png" alt="iPadOS UI" style="width:35%;">
+                    <img src="ipadpro217.png" alt="iPadOS UI" style="width:30%;">
+                </div>
+            </div>
+
+            <div class="bento-card bento-dark">
+                <h3>tv+</h3>
+                <p>Get 3 months of Apple TV+ free<br>when you buy an iPad.</p>
+                <div class="bento-links"><a href="#">Try it free</a><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-flush-bottom">
+                    <img src="ipadpro218.png" alt="Apple TV+">
+                </div>
+            </div>
+
+            <div class="bento-card">
+                <h3>Music</h3>
+                <p>Over 90 million songs.<br>Start listening for free today.</p>
+                <div class="bento-links"><a href="#">Try it free</a><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-scale-up">
+                    <img src="ipadpro219.png" alt="Apple Music">
+                </div>
+            </div>
+
+            <div class="bento-card bento-red">
+                <h3>News+</h3>
+                <p>Hundreds of magazines and<br>leading newspapers. One subscription.</p>
+                <div class="bento-links"><a href="#" style="color:#fff;">Try it free</a><a href="#" style="color:#fff;">Learn more</a></div>
+                <div class="bento-img-box img-flush-bottom">
+                    <img src="ipadpro220.png" alt="Apple News+">
+                </div>
+            </div>
+
+            <div class="bento-card bento-dark">
+                <h3 style="margin-top: 60px;">Apple at Work</h3>
+                <p style="display:none;"></p>
+                <div class="bento-links"><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-flush-bottom">
+                    <img src="ipadpro208.png" alt="Apple at Work">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="apple-footer container">
+        <div class="footer-footnotes">
+            <p>* Apple Card Monthly Installments (ACMI) is a 0% APR payment option available to select at checkout for certain Apple products purchased at Apple Store locations, apple.com, the Apple Store app, or by calling 1-800-MY-APPLE.</p>
+            <p>** Trade-in values will vary based on the condition, year, and configuration of your eligible trade-in device. Not all devices are eligible for credit.</p>
+            <p>1. The displays have rounded corners. When measured diagonally as a rectangle, the iPad Pro 12.9-inch screen is 12.9 inches, the iPad Pro 11-inch screen is 11 inches...</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -4,13 +4,22 @@
   const { config, utils } = window.HelloAgain;
 
   window.HelloAgain.createSeriesShellController = function createSeriesShellController(refs) {
+    function getLastPanel() {
+      const rawValue = Number(refs.seriesShell?.dataset.panelLast);
+      if (!Number.isFinite(rawValue)) {
+        return config.panelLast;
+      }
+
+      return Math.max(config.panels.mac, Math.round(rawValue));
+    }
+
     function getInitialPanel() {
       const rawValue = Number(refs.seriesShell?.dataset.initialPanel);
       if (!Number.isFinite(rawValue)) {
         return config.panels.mac;
       }
 
-      return utils.clamp(Math.round(rawValue), config.panels.mac, config.panelLast);
+      return utils.clamp(Math.round(rawValue), config.panels.mac, getLastPanel());
     }
 
     let activePanel = getInitialPanel();
@@ -49,7 +58,7 @@
       }
 
       const panelIndex = Math.round(refs.seriesTrack.scrollLeft / utils.viewportWidth());
-      activePanel = utils.clamp(panelIndex, config.panels.sentinel, config.panelLast);
+      activePanel = utils.clamp(panelIndex, config.panels.sentinel, getLastPanel());
     }
 
     function scrollToPanel(panelIndex, behavior) {
@@ -57,21 +66,21 @@
         return;
       }
 
-      activePanel = panelIndex;
+      activePanel = utils.clamp(Math.round(panelIndex), config.panels.sentinel, getLastPanel());
 
       if (behavior === "auto") {
-        refs.seriesTrack.scrollLeft = getPanelLeft(panelIndex);
+        refs.seriesTrack.scrollLeft = getPanelLeft(activePanel);
         motionController?.updateSeriesTrackEffects();
         return;
       }
 
       if (motionController?.tweenSeriesTo) {
-        motionController.tweenSeriesTo(panelIndex);
+        motionController.tweenSeriesTo(activePanel);
         return;
       }
 
       refs.seriesTrack.scrollTo({
-        left: getPanelLeft(panelIndex),
+        left: getPanelLeft(activePanel),
         top: 0,
         behavior: behavior || "smooth",
       });
@@ -148,7 +157,7 @@
       } else if (
         event.key === "ArrowRight" &&
         activePanel >= config.panels.mac &&
-        activePanel < config.panelLast
+        activePanel < getLastPanel()
       ) {
         scrollToPanel(activePanel + 1);
       }

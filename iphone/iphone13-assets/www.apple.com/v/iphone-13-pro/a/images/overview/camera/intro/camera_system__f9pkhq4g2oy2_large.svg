@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1a1a"/><stop offset="100%" stop-color="#000"/></linearGradient></defs>
+  <rect width="600" height="400" fill="url(#g)"/>
+  <rect x="150" y="120" width="300" height="180" rx="30" fill="#111" stroke="#333" stroke-width="2"/>
+  <circle cx="250" cy="180" r="35" fill="none" stroke="#444" stroke-width="2"/><circle cx="250" cy="180" r="15" fill="#222" stroke="#555" stroke-width="1"/>
+  <circle cx="350" cy="180" r="30" fill="none" stroke="#444" stroke-width="2"/><circle cx="350" cy="180" r="12" fill="#222" stroke="#555" stroke-width="1"/>
+  <circle cx="300" cy="250" r="28" fill="none" stroke="#444" stroke-width="2"/><circle cx="300" cy="250" r="10" fill="#222" stroke="#555" stroke-width="1"/>
+  <text x="300" y="350" text-anchor="middle" fill="#ffffff50" font-size="14" font-family="sans-serif">全新三摄系统</text>
+</svg>

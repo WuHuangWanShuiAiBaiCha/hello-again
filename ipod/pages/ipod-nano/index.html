@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=1024">
+    <title>Apple - nano-chromatic</title>
+    <style type="text/css" media="screen">
+        * { margin: 0; padding: 0; }
+        body {
+            min-width: 1024px;
+            background: #fff;
+            color: #555;
+            font: 11px/1.45 "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+            text-align: center;
+        }
+        a { color: #2b82bf; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        img { border: 0; }
+        ul, li { list-style: none; }
+
+        #page {
+            width: 980px;
+            margin: 21px auto 0;
+            text-align: left;
+        }
+
+        #globalheader {
+            position: relative;
+            width: 878px;
+            height: 38px;
+            margin: 0 auto 30px;
+            border-radius: 4px;
+            background: #8d8d8d;
+            background: linear-gradient(#c7c7c7 0%, #9b9b9b 48%, #767676 49%, #5e5e5e 100%);
+            box-shadow: 0 1px 2px rgba(0,0,0,.25);
+            overflow: hidden;
+        }
+        #globalnav li {
+            float: left;
+            height: 38px;
+            border-left: 1px solid rgba(255,255,255,.26);
+            border-right: 1px solid rgba(0,0,0,.23);
+        }
+        #globalnav li:first-child { border-left: 0; }
+        #globalnav a {
+            display: block;
+            min-width: 86px;
+            height: 38px;
+            line-height: 38px;
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255,255,255,.35);
+        }
+        #globalnav a:hover {
+            background: rgba(255,255,255,.13);
+            text-decoration: none;
+        }
+        #gn-apple a {
+            min-width: 102px;
+            text-indent: -9999px;
+            background-image: url(data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2020'%3E%3Cpath%20fill='%23eeeeee'%20d='M12.5%203.5C11.7%204.5%2010.3%205.2%209%205%208.8%203.6%209.8%202.2%2011%201.4%2012.2.6%2013.7.3%2014%202c-1.2%200-1.8.7-1.5%201.5zM14%206.5c-1.2-.1-2.5.7-3.2.7-.7%200-1.7-.7-2.8-.65-1.4%200-2.8.85-3.5%202.1-1.5%202.6-.4%206.5%201.1%208.6.7%201%201.5%202.2%202.7%202.15%201-.05%201.4-.65%202.7-.65%201.3%200%201.6.65%202.8.6%201.15-.05%201.85-1.05%202.55-2.05.8-1.15%201.1-2.3%201.15-2.35-.05-.05-2.2-.85-2.2-3.25%200-2.05%201.7-3%201.75-3.05-.95-1.4-2.45-1.55-2.95-1.55z'/%3E%3C/svg%3E);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 17px 21px;
+        }
+        #globalsearch {
+            position: absolute;
+            right: 10px;
+            top: 9px;
+            width: 128px;
+            height: 18px;
+            background: #f7f7f7;
+            border: 1px solid #5d5d5d;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,.42);
+        }
+
+        #hero {
+            position: relative;
+            min-height: 520px;
+            text-align: center;
+        }
+        #hero .hero-image {
+            display: block;
+            width: 878px;
+            height: 389px;
+            margin: 0 auto;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        #hotnews {
+            width: 878px;
+            height: 24px;
+            margin: 0 auto 12px;
+            border: 1px solid #e1e1e1;
+            border-radius: 2px;
+            background: linear-gradient(#fbfbfb,#f4f4f4);
+            color: #777;
+            line-height: 24px;
+        }
+        #hotnews strong {
+            float: left;
+            width: 136px;
+            border-right: 1px solid #e0e0e0;
+            color: #555;
+            font-weight: bold;
+            text-align: center;
+        }
+        #hotnews span {
+            display: block;
+            margin-left: 154px;
+            text-align: left;
+        }
+
+        #promos {
+            width: 878px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+        #promos li {
+            box-sizing: border-box;
+            flex: 0 0 212px;
+            height: 128px;
+            border: 1px solid #d7d7d7;
+            border-radius: 5px;
+            background: linear-gradient(#fff,#f8f8f8);
+            text-align: center;
+            overflow: hidden;
+        }
+        #promos li.last { margin-right: 0; }
+        #promos h2 {
+            margin-top: 9px;
+            color: #333;
+            font-size: 15px;
+            line-height: 17px;
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            font-weight: 600;
+        }
+        #promos p {
+            color: #8a8a8a;
+            line-height: 13px;
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        }
+        .promo-art {
+            display: block;
+            margin: 8px auto 0;
+            max-width: 168px;
+            height: 67px;
+            object-fit: contain;
+        }
+        .promo-art.update { width: 72px; }
+        .promo-art.iphone { width: 154px; }
+        .promo-art.touch { width: 156px; object-position: top center; }
+        .promo-art.itunes { width: 154px; }
+
+        #footer {
+            width: 878px;
+            margin: 63px auto 0;
+            padding: 12px 0 35px;
+            border-top: 1px solid #e5e5e5;
+            color: #888;
+            font-size: 10px;
+            text-align: center;
+        }
+        #footer .shop { float: left; }
+        #footer .links { float: right; }
+        #footer .links a { padding: 0 5px; border-right: 1px solid #ccc; }
+        #footer .links a.last { border-right: 0; }
+        #footer .legal {
+            clear: both;
+            padding-top: 30px;
+            line-height: 19px;
+        }
+        #country {
+            display: inline-block;
+            width: 220px;
+            margin-top: 11px;
+            padding: 3px 28px 3px 34px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background: linear-gradient(#fff,#f1f1f1);
+            color: #888;
+            text-align: left;
+            position: relative;
+        }
+        #country:before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 4px;
+            width: 19px;
+            height: 13px;
+            border-radius: 1px;
+            border: 1px solid #ccc;
+            background: linear-gradient(#b22234 0 14%,#fff 14% 28%,#b22234 28% 42%,#fff 42% 56%,#b22234 56% 70%,#fff 70% 84%,#b22234 84%);
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div id="globalheader">
+            <ul id="globalnav">
+                <li id="gn-apple"><a href="#">Apple</a></li>
+                <li><a href="#">Store</a></li>
+                <li><a href="#">Mac</a></li>
+                <li><a href="#">iPod + iTunes</a></li>
+                <li><a href="#">iPhone</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <div id="globalsearch"></div>
+        </div>
+
+        <div id="hero">
+            <img class="hero-image" src="assets-nano/hero-nano-chromatic.jpg" alt="nano-chromatic iPod nano lineup">
+        </div>
+
+        <div id="hotnews"><strong>热点新闻标题</strong><span>阅读来自苹果公司的最新新闻和信息。</span></div>
+
+        <ul id="promos">
+            <li>
+                <h2>iPhone 2.1 软件更新</h2>
+                <p>减少通话中断，修复错误。<br>进一步提升电池续航。</p>
+                <img class="promo-art update" src="assets-nano/promo-iphone-21.jpg" alt="iPhone 2.1 software update">
+            </li>
+            <li>
+                <h2>购买 iPhone 3G 的最快方式</h2>
+                <p>在线开始选购，然后前往<br>Apple 零售店完成购买。</p>
+                <img class="promo-art iphone" src="assets-nano/promo-iphone-3g.jpg" alt="iPhone 3G">
+            </li>
+            <li>
+                <h2>最好玩的 iPod 登场。</h2>
+                <p>全新 iPod touch，售价 $229 起。</p>
+                <img class="promo-art touch" src="assets-nano/promo-ipod-touch.jpg" alt="iPod touch">
+            </li>
+            <li class="last">
+                <h2>iTunes 8 全新登场</h2>
+                <p>Genius、高清电视节目，以及更多精彩内容。</p>
+                <img class="promo-art itunes" src="assets-nano/promo-itunes-8.jpg" alt="iTunes 8">
+            </li>
+        </ul>
+
+        <div id="footer">
+            <p class="shop">您可以前往<a href="#">Apple 在线商店</a> (1-800-MY-APPLE)、<a href="#">Apple 零售店</a>或寻找<a href="#">经销商</a>。</p>
+            <p class="links"><a href="#">网站地图</a><a href="#">热点新闻</a><a href="#">RSS订阅</a><a href="#">媒体信息</a><a href="#">环境</a><a href="#">工作机会</a><a class="last" href="#">联系我们</a></p>
+            <div class="legal">
+                <p>版权所有 &copy; 2008 Apple Inc. 保留所有权利。 <a href="#">使用条款</a>　<a href="#">隐私政策</a></p>
+                <p>Kanye West <a href="#"><i>Graduation</i></a> 专辑封面 &copy; 2007 Takashi Murakami / Kaikai Kiki Co., Ltd. / Kanye West / Mascotte Holdings, LLC. 保留所有权利。</p>
+                <p>部分应用并非在所有地区都可用。应用可用性和价格可能会有所变动。</p>
+                <span id="country">Apple.com Worldwide</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

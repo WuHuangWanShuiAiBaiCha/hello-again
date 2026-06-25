@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1628"/><stop offset="100%" stop-color="#020810"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <rect x="100" y="80" width="600" height="350" rx="30" fill="#0d1a30" stroke="#1a2a4a" stroke-width="2"/>
+  <text x="400" y="250" text-anchor="middle" fill="#fff" font-size="40" font-weight="200" font-family="sans-serif">ProMotion</text>
+  <text x="400" y="300" text-anchor="middle" fill="#ffffff80" font-size="18" font-family="sans-serif">120Hz 自适应刷新率</text>
+  <text x="400" y="500" text-anchor="middle" fill="#ffffff40" font-size="14" font-family="sans-serif">超视网膜 XDR 显示屏</text>
+</svg>

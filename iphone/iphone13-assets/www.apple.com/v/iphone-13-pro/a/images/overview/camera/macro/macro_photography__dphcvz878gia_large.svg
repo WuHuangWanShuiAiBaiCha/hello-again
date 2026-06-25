@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d5016"/><stop offset="100%" stop-color="#0a1a04"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <circle cx="400" cy="250" r="120" fill="none" stroke="#ffffff15" stroke-width="1"/>
+  <circle cx="400" cy="250" r="80" fill="none" stroke="#ffffff20" stroke-width="1"/>
+  <circle cx="400" cy="250" r="40" fill="#ffffff08"/>
+  <text x="400" y="420" text-anchor="middle" fill="#fff" font-size="36" font-weight="200" font-family="sans-serif">微距摄影</text>
+  <text x="400" y="460" text-anchor="middle" fill="#ffffff60" font-size="16" font-family="sans-serif">2 厘米对焦 · 微观之美</text>
+</svg>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPad Pro 2017 - 个人数字博物馆</title>
+    <link rel="stylesheet" href="../../ipad-nav.css">
+    <script defer src="../../ipad-nav.js"></script>
+    <style>
+        /* ================= 核心重置与排版规范 ================= */
+        :root {
+            --text-color-dark: #1d1d1f;
+            --text-color-light: #f5f5f7;
+            --link-color: #0070c9;
+            --bg-white: #ffffff;
+            --bg-gray: #f2f2f2;
+            --bg-black: #000000;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased; background-color: var(--bg-white); color: var(--text-color-dark);
+        }
+
+        a { text-decoration: none; color: var(--link-color); }
+        a:hover { text-decoration: underline; }
+
+        .section-content { max-width: 980px; margin: 0 auto; padding: 0 22px; box-sizing: border-box; }
+        img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+        /* ================= 苹果官方字体排印层级 ================= */
+        .typography-headline { font-size: 56px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.05; margin: 0; }
+        .typography-intro { font-size: 28px; font-weight: 400; line-height: 1.3; margin-top: 14px; }
+        .typography-body { font-size: 19px; font-weight: 400; line-height: 1.6; }
+        .typography-subhead { font-size: 40px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; margin: 0 0 20px 0; }
+
+        /* ================= 导航 ================= */
+        .ac-nav { width: 100%; height: 44px; background: #333; position: relative; z-index: 10; }
+        .ac-nav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; max-width: 980px; margin: 0 auto; padding: 0 22px; }
+        .ac-nav a { color: #ccc; font-size: 14px; }
+        
+        .ac-localnav { width: 100%; height: 52px; border-bottom: 1px solid #d2d2d7; background: rgba(255,255,255,0.95); position: sticky; top: 0; z-index: 9; }
+        .ac-localnav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; max-width: 980px; margin: 0 auto; padding: 0 22px; }
+        .ac-localnav-title { font-size: 21px; font-weight: 600; color: #1d1d1f; }
+        .ac-localnav-links { display: flex; gap: 24px; font-size: 12px; align-items: center; }
+        .ac-localnav-links a { color: #515154; }
+        .ac-button { background: #0070c9; color: #fff !important; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+
+        /* ================= 1. Hero 主视觉区 ================= */
+        .section-hero { text-align: center; padding-top: 85px; background-color: var(--bg-white); }
+        .hero-links { margin-top: 25px; margin-bottom: 60px; font-size: 19px; display: flex; justify-content: center; gap: 30px; }
+        .hero-links a::after { content: " 〉"; font-size: 14px; }
+        .hero-image-wrapper { width: 100%; max-width: 1060px; margin: 0 auto; transform: scale(1.05); transform-origin: bottom; }
+        
+        /* ================= 2. 概述与网格区 ================= */
+        .section-overview { padding: 90px 0 110px; background-color: var(--bg-white); text-align: center; }
+        .overview-copy { max-width: 800px; margin: 0 auto 90px; text-align: left; }
+        
+        .feature-grid { display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 800px; margin: 0 auto; text-align: left; }
+        .grid-item { flex: 0 0 calc(50% - 30px); margin-bottom: 60px; position: relative; padding-top: 20px; }
+        
+        .gradient-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; }
+        .line-pink-purple { background: linear-gradient(90deg, #f0899c, #e2acc4); }
+        .line-purple-blue { background: linear-gradient(90deg, #e47791, #9a73b7); }
+        .line-orange-pink { background: linear-gradient(90deg, #e47791, #f2a67e); }
+        .line-purple-pink { background: linear-gradient(90deg, #9a73b7, #e47791); }
+
+        .grid-item h3 { font-size: 26px; font-weight: 600; line-height: 1.3; margin: 0; color: var(--text-color-dark); }
+
+        /* ================= 3. 黑底硬件展示区 (屏幕与多任务) ================= */
+        .section-dark { background-color: var(--bg-black); color: var(--text-color-light); padding: 130px 0 110px; }
+        .hardware-headline { font-size: 48px; font-weight: 600; margin-bottom: 90px; text-align: left; }
+
+        .stats-grid { display: flex; justify-content: space-between; gap: 40px; margin-bottom: 110px; }
+        .stat-item { flex: 1; position: relative; padding-top: 30px; }
+        
+        .line-blue-purple { background: linear-gradient(90deg, #4158d0, #c850c0); }
+        .line-orange-red { background: linear-gradient(90deg, #ff8a00, #e52e71); }
+        .line-yellow-orange { background: linear-gradient(90deg, #f9d423, #ff4e50); }
+
+        .stat-number { font-size: 72px; font-weight: 600; line-height: 1; margin-bottom: 8px; }
+        .stat-label { font-size: 17px; color: #a1a1a6; margin-bottom: 15px; }
+        .stat-desc { font-size: 17px; line-height: 1.6; color: var(--text-color-light); }
+
+        .hardware-image-wrapper { max-width: 1000px; margin: 0 auto 90px; }
+
+        .multitasking-split { display: flex; justify-content: space-between; gap: 60px; max-width: 1000px; margin: 0 auto; align-items: flex-start; }
+        .multitasking-title { flex: 0 0 45%; font-size: 40px; font-weight: 600; line-height: 1.15; margin: 0; }
+        .multitasking-body { flex: 1; font-size: 17px; line-height: 1.6; }
+        .multitasking-body a { display: block; margin-top: 20px; font-size: 17px; }
+
+        /* ================= 4. A10X 芯片与 Pencil (图文左右交替) ================= */
+        .section-feature-split { padding: 120px 0; background-color: var(--bg-white); border-bottom: 1px solid #e5e5e5; }
+        .feature-split-inner { display: flex; align-items: center; justify-content: space-between; gap: 80px; }
+        .split-reverse { flex-direction: row-reverse; }
+        
+        .feature-text { flex: 0 0 40%; }
+        .feature-image { flex: 0 0 50%; }
+        .feature-text p { font-size: 19px; line-height: 1.6; color: #333; margin-bottom: 25px; }
+        .feature-text a { font-size: 19px; }
+        .feature-text a::after { content: " 〉"; font-size: 14px; }
+
+        /* ================= 5. 底栏 4 格 Promo 矩阵 (恢复你最初截图的设计) ================= */
+        .promo-section { width: 100%; margin: 0; padding: 0; background-color: var(--bg-gray); }
+        .promo-grid { display: flex; width: 100%; box-sizing: border-box; border-top: 1px solid #d2d2d7; }
+        .promo-card {
+            flex: 1; background-color: var
+(--bg-gray); 
+    padding: 40px 15px 20px 15px; /* 核心修改 1：底部增加了 20px 的内边距，不让图片贴死边缘 */
+    display: flex; flex-direction: column; align-items: center; text-align
+: center; 
+    min-height: 380px; /* 核心修改 2：把死板的 height 换成了 min-height，高度调大以自适应你的长文案 */
+    box-sizing
+: border-box;
+    border-right: 1px solid #e2e2e7
+;
+        }
+        .promo-card:last-child { border-right: none; }
+        .promo-card h3 { font-size: 17px; font-weight: 600; margin: 0 0 6px 0; color: var(--text-color-dark); }
+        .promo-card p { font-size: 13px; color: #515154; margin: 0 0 8px 0; max-width: 220px; line-height: 1.4; }
+        .promo-card a { font-size: 13px; }
+        
+        .promo-img-wrapper { margin-top: auto; width: 100%; height: 120px; display: flex; align-items: flex-end; justify-content: center; }
+        .promo-img-wrapper img { max-height: 100%; object-fit: contain; }
+
+        /* ================= 响应式调整 ================= */
+        @media (max-width: 850px) {
+            .feature-grid { flex-direction: column; }
+            .grid-item { flex: 1 1 100%; margin-bottom: 40px; }
+            .stats-grid { flex-direction: column; gap: 60px; }
+            .multitasking-split { flex-direction: column; }
+            .feature-split-inner, .split-reverse { flex-direction: column; text-align: center; gap: 40px; }
+            .promo-grid { flex-wrap: wrap; }
+            .promo-card { flex: 1 1 50%; border-bottom: 1px solid #e2e2e7; }
+            .promo-card:nth-child(2) { border-right: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="ac-nav"><div class="ac-nav-inner"><a href="#" style="font-size: 18px;"></a><a href="#">Mac</a><a href="#">iPad</a><a href="#">iPhone</a><a href="#">Watch</a><a href="#">Music</a><a href="#">技术支持</a></div></nav>
+    <nav class="ac-localnav">
+        <div class="ac-localnav-inner">
+            <div class="ac-localnav-title">馆藏编号：#017-IPP2</div>
+            <div class="ac-localnav-links"><a href="#">概述</a><a href="#">iOS 11</a><a href="#">技术规格</a><a href="#" class="ac-button">购买</a></div>
+        </div>
+    </nav>
+
+    <section class="section-hero">
+        <div class="section-content">
+            <h1 class="typography-headline">iPad Pro 2017</h1>
+            <h2 class="typography-intro">“让数字墨水如真实笔触般流淌，让屏幕的响应终于赶上了人类的直觉。”</h2>
+            <div class="hero-links"><a href="#">视效先驱</a><a href="#">性能怪兽</a><a href="#">10.5英寸形态重塑</a></div>
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="ipadpro107.png" alt="iPad Pro 2017 主视觉图">
+        </div>
+    </section>
+
+    <section class="section-overview">
+        <div class="section-content">
+            <p class="typography-body overview-copy">
+                在 2017 年的 WWDC（苹果全球开发者大会）上，苹果推出了第二代 iPad Pro 家族，包含全新的 10.5 英寸版本以及更新后的 12.9 英寸版本。<br>
+如果说第一代 iPad Pro 2015向世界宣告了苹果进军“生产力工具”的野心，那么 2017 款的 iPad Pro 则是在底层技术上真正补齐了“Pro”的体验。它不再仅仅是屏幕变大、加上了手写笔，而是从人机交互最核心的视觉反馈层面，彻底拉开了与普通平板电脑的差距。
+            </p>
+            <div class="feature-grid">
+                <div class="grid-item"><div class="gradient-line line-pink-purple"></div><h3>屏幕：10.5 英寸 / 12.9 英寸 Retina 显示屏（首发 ProMotion 技术）</h3></div>
+                <div class="grid-item"><div class="gradient-line line-purple-blue"></div><h3>处理器：Apple A10X Fusion 芯片</h3></div>
+                <div class="grid-item"><div class="gradient-line line-orange-pink"></div><h3>重量：469 克 (10.5 英寸) / 677 克 (12.9 英寸)</h3></div>
+                <div class="grid-item"><div class="gradient-line line-purple-pink"></div><h3>厚度：6.1 毫米 (10.5 英寸) / 6.9 毫米 (12.9 英寸)</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="section-content">
+            <h2 class="hardware-headline">屏幕显示：ProMotion 自适应刷新率的开端</h2>
+            <div class="stats-grid">
+                <div class="stat-item"><div class="gradient-line line-blue-purple"></div><div class="stat-number">600 尼特</div><div class="stat-label">亮度</div><div class="stat-desc">技术突破：最高 120Hz 动态刷新率、原彩显示 (True Tone)、P3 广色域。</div></div>
+                <div class="stat-item"><div class="gradient-line line-orange-red"></div><div class="stat-number">P3</div><div class="stat-label">广色域显示</div><div class="stat-desc">这是整台设备最耀眼的“主角”。2017 款 iPad Pro 首次引入了 ProMotion 技术，让屏幕刷新率从传统的 60Hz 跃升至 120Hz。这意味着无论是在网页上快速滑动，还是游玩三维游戏，画面都如丝般顺滑。</div></div>
+                <div class="stat-item"><div class="gradient-line line-yellow-orange"></div><div class="stat-number">1.8%</div><div class="stat-label">反射率</div><div class="stat-desc">更重要的是，这项技术是“自适应”的。当你看静态图片时，它会自动降至极低的刷新率以节省电量。得益于 120Hz 的超高响应，第一代 Apple Pencil 的书写延迟被硬生生压缩到了 20 毫秒，创造了当时无限接近真实纸笔的书写体验。</div></div>
+            </div>
+            
+            <div class="hardware-image-wrapper">
+                <img src="ipadpro108.png" alt="iPad Pro 视网膜显示屏效果">
+            </div>
+
+            <div class="multitasking-split">
+                <h2 class="multitasking-title">硬件规格：A10X Fusion 芯片（6 核中央处理器 + 12 核图形处理器）。</h2>
+                <div class="multitasking-body">
+                    这是一颗在当时被称为“性能怪兽”的芯片。它是苹果首款采用 10 纳米工艺制程的 A 系列处理器。相比上一代 iPad Pro，其 CPU 性能提升了 30%，GPU 性能则大幅飙升了 40%。即便是用来进行 4K 视频的实时剪辑，或是渲染复杂的三维模型，A10X 依然游刃有余。正是这种前瞻性的算力储备，让这款设备在发布多年后，依然能够流畅运行后续的多个 iPadOS 重大更新版本。
+                    <img src="ipadpro109.png" alt="多任务处理演示" style="margin-top:40px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-feature-split">
+        <div class="section-content feature-split-inner">
+            <div class="feature-image">
+                <img src="ipadpro110.png" alt="A10X Fusion 芯片">
+            </div>
+            <div class="feature-text">
+                <h2 class="typography-subhead">影像系统：借用 iPhone 7 的旗舰配置</h2>
+                <p>1200 万像素后置摄像头（光学防抖，ƒ/1.8 光圈），700 万像素 FaceTime HD 前置摄像头。通常平板电脑的摄像头总是落后于同期的手机，但 2017 款 iPad Pro 是个例外。</p>
+                <a href="#">进一步了解性能表现</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-feature-split">
+        <div class="section-content feature-split-inner split-reverse">
+            <div class="feature-image">
+                <img src="ipadpro105.png" alt="Apple Pencil 触控笔">
+            </div>
+            <div class="feature-text">
+                <h2 class="typography-subhead">Apple Pencil。<br>更有灵感，更自然。</h2>
+                <p>全新 iPad Pro 提升了屏幕的刷新率，这让 Apple Pencil 的响应速度达到了前所未有的迅捷级别。它拥有先进的感应器，不仅能测量力度，还能感知倾斜角度，书写、绘画、作图的感觉就像使用传统铅笔在纸上一样自然。</p>
+                <a href="#">非常棒</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-section">
+        <div class="promo-grid">
+            <div class="promo-card">
+                <h3>Smart Connector 的“隐形”连接</h3>
+                <p>机身侧面的三个金属触点，实现了供电与数据的即时传输。它省去了蓝牙配对的繁琐，让键盘真正成为设备的一部分，体现了苹果对“极简连接”的工业追求。</p>
+                <a href="#">了解更多 〉</a>
+                <div class="promo-img-wrapper"><img src="ipadpro111.png" alt="iPhone 6s"></div>
+            </div>
+            <div class="promo-card">
+                <h3>重量与平衡的极限演练</h3>
+                <p>通过将边框缩窄 40%，苹果在 10.5 英寸机型上实现了显示面积与重量的完美平衡。这种严丝合缝的尺寸控制，让用户即便单手握持也依然轻便自然。</p>
+                <a href="#">立即换购 〉</a>
+                <div class="promo-img-wrapper"><img src="ipadpro112.png" alt="Trade up"></div>
+            </div>
+            <div class="promo-card">
+                <h3>原彩显示 (True Tone) 的进化</h3>
+                <p>通过四通道环境光传感器，屏幕能随环境光自动调节色温与对比度。无论身处何种光线，视觉感受都如同真实的纸质印刷品般自然且护眼。</p>
+                <a href="#">了解更多 〉</a>
+                <div class="promo-img-wrapper"><img src="ipadpro113.png" alt="ResearchKit"></div>
+            </div>
+            <div class="promo-card">
+                <h3>从“保守”到“补能”的细节优化</h3>
+                <p>该机型首次引入了快充支持。这一改进让“性能怪兽”能够在短时间内补足电力，解决了专业用户在户外创作时最核心的续航焦虑。</p>
+                <a href="#">立即选购 〉</a>
+                <div class="promo-img-wrapper"><img src="ipadpro114.png" alt="Accessories"></div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

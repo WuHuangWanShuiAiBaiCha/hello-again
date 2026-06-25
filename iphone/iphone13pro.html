@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iPhone 13 Pro</title>
+  <link rel="stylesheet" href="./iphone-nav.css">
+  <script async src="./iphone-nav.js"></script>
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --muted: #86868b;
+      --soft: #f5f5f7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    img {
+      display: block;
+      max-width: none;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .page {
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .scene {
+      position: relative;
+      width: 100vw;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .scene-one {
+      aspect-ratio: 2140 / 1280;
+    }
+
+    .eyebrow {
+      position: absolute;
+      top: 6.1%;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      text-align: center;
+      font-size: clamp(10px, 0.86vw, 18px);
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .hero-title {
+      position: absolute;
+      top: 9.5%;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      text-align: center;
+      font-size: clamp(30px, 2.55vw, 55px);
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .hero-phone {
+      position: absolute;
+      left: 32.2%;
+      bottom: -0.2%;
+      width: 31.8%;
+      height: auto;
+    }
+
+    .scene-two {
+      aspect-ratio: 2278 / 1204;
+      background: var(--soft);
+    }
+
+    .pro-copy {
+      position: absolute;
+      top: 7.3%;
+      left: 33.15%;
+      width: 34.9%;
+      margin: 0;
+      font-size: clamp(23px, 2.46vw, 56px);
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .pro-copy .muted {
+      color: var(--muted);
+    }
+
+    .pro-copy .dark {
+      color: var(--ink);
+    }
+
+    .camera-system {
+      position: absolute;
+      left: 18.8%;
+      bottom: 0;
+      width: 81.2%;
+      height: auto;
+    }
+
+    .scene-three {
+      aspect-ratio: 2248 / 1218;
+      background: #fff;
+    }
+
+    .macro-flower {
+      position: absolute;
+      top: 7.1%;
+      left: 24.38%;
+      width: 41.37%;
+      height: auto;
+    }
+
+    .whoa {
+      position: absolute;
+      top: 69.1%;
+      left: 30.2%;
+      margin: 0;
+      font-size: clamp(42px, 4vw, 90px);
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .macro-text {
+      position: absolute;
+      top: 69.45%;
+      left: 47.6%;
+      width: 16.9%;
+      color: var(--ink);
+    }
+
+    .macro-text h2 {
+      margin: 0 0 4.6% 0;
+      font-size: clamp(18px, 1.42vw, 32px);
+      line-height: 1.13;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .macro-text p {
+      margin: 0;
+      font-size: clamp(8px, 0.7vw, 16px);
+      line-height: 1.34;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .scene-four {
+      aspect-ratio: 2148 / 1280;
+      background: #fff;
+    }
+
+    .zoom-title {
+      position: absolute;
+      top: 9.2%;
+      left: 49.35%;
+      margin: 0;
+      font-size: clamp(44px, 4.35vw, 94px);
+      line-height: 0.94;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .zoom-copy {
+      position: absolute;
+      top: 46.7%;
+      left: 31.45%;
+      width: 12.1%;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(8px, 0.74vw, 16px);
+      line-height: 1.26;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .telephoto-portrait {
+      position: absolute;
+      top: 32.8%;
+      left: 44.92%;
+      width: 28.4%;
+      height: auto;
+      z-index: 1;
+    }
+
+    .zoom-feature {
+      position: absolute;
+      left: 50.45%;
+      color: var(--ink);
+      z-index: 2;
+    }
+
+    .zoom-feature.one {
+      top: 70.35%;
+    }
+
+    .zoom-feature.two {
+      top: 86.2%;
+    }
+
+    .zoom-feature h2 {
+      margin: 0;
+      font-size: clamp(25px, 2.18vw, 47px);
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .zoom-feature p {
+      margin: 2.5% 0 0 0;
+      color: var(--muted);
+      font-size: clamp(8px, 0.72vw, 15px);
+      line-height: 1.24;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .scene-five {
+      aspect-ratio: 2211 / 1276;
+      background: #000;
+      border-top: 18px solid #f5f5f7;
+      border-bottom: 48px solid #fff;
+    }
+
+    .snapshot-title {
+      position: absolute;
+      top: 9.15%;
+      left: 30.55%;
+      margin: 0;
+      color: #f5f5f7;
+      font-size: clamp(46px, 4vw, 88px);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .snapshot-phone {
+      position: absolute;
+      top: 28.9%;
+      left: 43.42%;
+      width: 41.15%;
+      height: auto;
+    }
+
+    @media (max-width: 720px) {
+      .scene {
+        min-width: 980px;
+      }
+
+      .page {
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="scene scene-one" aria-label="iPhone 13 Pro">
+      <p class="eyebrow">iPhone 13 Pro</p>
+      <h1 class="hero-title">Oh. So. Pro.</h1>
+      <img class="hero-phone" src="iphone13pro-page-assets/hero-phone.jpg" alt="iPhone 13 Pro 天峰蓝背面和侧边">
+    </section>
+
+    <section class="scene scene-two" aria-label="专业级摄像头系统">
+      <p class="pro-copy">
+        <span class="muted">我们的 </span><span class="dark">专业级摄像头系统</span><span class="muted"> 迎</span><br>
+        <span class="muted">来了迄今最大升级。 凭借可</span><br>
+        <span class="muted">捕捉更多细节的 </span><span class="dark">新一代硬</span><br>
+        <span class="dark">件、 </span><span class="muted">带来全新拍照与电影级</span><br>
+        <span class="muted">拍摄手法的 </span><span class="dark">超智能软件，</span><span class="muted">以</span><br>
+        <span class="muted">及让这一切成为可能的 </span><span class="dark">惊人</span><br>
+        <span class="dark">高速芯片。 它将改变你的拍</span><br>
+        <span class="dark">摄方式。</span>
+      </p>
+      <img class="camera-system" src="iphone13pro-page-assets/camera-system.jpg" alt="iPhone 13 Pro 摄像头系统横向特写">
+    </section>
+
+    <section class="scene scene-three" aria-label="微距摄影">
+      <img class="macro-flower" src="iphone13pro-page-assets/macro-flower.jpg" alt="红色花朵微距摄影样张">
+      <h2 class="whoa">Whoa.</h2>
+      <div class="macro-text">
+        <h2>微距摄影来到<br>iPhone。</h2>
+        <p>凭借重新设计的镜头和强大的自动对焦系统，全新超广角摄像头最近可在 2 厘米处对焦，让最细微的细节也能呈现震撼效果。把一片叶子拍成抽象艺术，记录毛毛虫的绒毛，放大一滴露珠。微观之美，等你发现。</p>
+      </div>
+    </section>
+
+    <section class="scene scene-four" aria-label="长焦变焦">
+      <h2 class="zoom-title">More<br>zoom?<br>Boom.</h2>
+      <p class="zoom-copy">全新长焦摄像头具备 77 毫米焦距和 3 倍光学变焦，无论是经典人像，还是远距离拍摄更清晰的照片和视频，都非常出色。</p>
+      <img class="telephoto-portrait" src="iphone13pro-page-assets/telephoto-portrait.jpg" alt="黑白长焦人像摄影样张">
+      <div class="zoom-feature one">
+        <h2>长焦支持 3 倍<br>光学变焦</h2>
+        <p>近景特写更进一步</p>
+      </div>
+      <div class="zoom-feature two">
+        <h2>全系统 6 倍光<br>学变焦范围</h2>
+        <p>构图选择前所未有地丰富</p>
+      </div>
+    </section>
+
+    <section class="scene scene-five" aria-label="三颗摄像头">
+      <h2 class="snapshot-title">A snapshot of<br>each camera.</h2>
+      <img class="snapshot-phone" src="iphone13pro-page-assets/camera-snapshot-phone.jpg" alt="iPhone 13 Pro 三颗摄像头特写">
+    </section>
+  </main>
+</body>
+</html>

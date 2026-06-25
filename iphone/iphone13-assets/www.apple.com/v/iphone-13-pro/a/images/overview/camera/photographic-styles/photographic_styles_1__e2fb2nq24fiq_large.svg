@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4e2d1b"/><stop offset="100%" stop-color="#1a0d05"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <text x="400" y="260" text-anchor="middle" fill="#fff" font-size="24" font-weight="200" font-family="sans-serif">鲜明 · 浓郁对比 · 暖色 · 冷色</text>
+  <text x="400" y="310" text-anchor="middle" fill="#ffffff60" font-size="14" font-family="sans-serif">Apple 预设风格，保留天空与肤色自然表现</text>
+</svg>

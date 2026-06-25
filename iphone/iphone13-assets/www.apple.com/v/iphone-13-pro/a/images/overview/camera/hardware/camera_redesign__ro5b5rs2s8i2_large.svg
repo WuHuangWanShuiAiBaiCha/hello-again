@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0a0a"/><stop offset="100%" stop-color="#1a1a1a"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <circle cx="300" cy="200" r="60" fill="none" stroke="#333" stroke-width="3"/>
+  <circle cx="300" cy="200" r="30" fill="#111" stroke="#444" stroke-width="2"/>
+  <circle cx="460" cy="200" r="50" fill="none" stroke="#333" stroke-width="3"/>
+  <circle cx="460" cy="200" r="25" fill="#111" stroke="#444" stroke-width="2"/>
+  <circle cx="590" cy="200" r="55" fill="none" stroke="#333" stroke-width="3"/>
+  <circle cx="590" cy="200" r="28" fill="#111" stroke="#444" stroke-width="2"/>
+  <text x="400" y="380" text-anchor="middle" fill="#ffffff60" font-size="20" font-family="sans-serif">三摄系统 · 全新设计</text>
+  <rect x="200" y="450" width="400" height="80" rx="20" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="400" y="500" text-anchor="middle" fill="#ffffff40" font-size="14" font-family="sans-serif">iPhone 13 Pro 摄像头模组</text>
+</svg>

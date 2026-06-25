@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPad Pro 2021 - 个人数字博物馆</title>
+    <link rel="stylesheet" href="../../ipad-nav.css">
+    <script defer src="../../ipad-nav.js"></script>
+    <style>
+        /* ================= 1. 2021 Modern Apple Style 全局样式 ================= */
+        :root {
+            --apple-text: #1d1d1f;
+            --apple-gray-bg: #f5f5f7;
+            --apple-blue: #0066cc;
+            --apple-blue-hover: #0077ed;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #ffffff; 
+            color: var(--apple-text);
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        a { text-decoration: none; color: var(--apple-blue); transition: color 0.2s; }
+        a:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 1200px; 
+            width: 100%; margin: 0 auto; padding: 0 20px; box-sizing: border-box;
+        }
+
+        img { max-width: 100%; height: auto; display: block; object-fit: contain; }
+
+        /* ================= 2. 顶部全局黑导航 ================= */
+        .global-nav {
+            width: 100%; height: 44px; background: rgba(0, 0, 0, 0.8); 
+            backdrop-filter: saturate(180%) blur(20px); 
+            position: fixed; top: 0; z-index: 9999;
+        }
+        .global-nav .container { display: flex; justify-content: space-between; align-items: center; height: 100%; max-width: 1000px; }
+        .global-nav-links { display: flex; gap: 30px; }
+        .global-nav a { color: #f5f5f7; font-size: 12px; font-weight: 400; opacity: 0.8; transition: opacity 0.2s; }
+        .global-nav a:hover { opacity: 1; text-decoration: none; }
+        .search-box { color: #cccccc; font-size: 14px; cursor: pointer; }
+
+        /* ================= 3. 图标级次导航 ================= */
+        .chapternav {
+            margin-top: 44px; 
+            padding: 15px 0; background-color: #fff;
+            border-bottom: 1px solid #d2d2d7;
+            overflow-x: auto; white-space: nowrap;
+        }
+        .chapternav-items {
+            display: flex; justify-content: center; gap: 35px; min-width: 800px;
+        }
+        .chapter-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; color: var(--apple-text); }
+        .chapter-icon { width: 45px; height: 45px; margin-bottom: 5px; opacity: 0.8; transition: opacity 0.3s; }
+        .chapter-item:hover .chapter-icon { opacity: 1; }
+        .chapter-text { font-size: 11px; font-weight: 400; }
+        .chapter-new { color: #bf4800; font-size: 10px; margin-top: 2px; }
+
+        .ribbon {
+            background-color: var(--apple-gray-bg); padding: 12px 20px; text-align: center;
+            font-size: 14px; color: var(--apple-text);
+        }
+        .ribbon a { font-size: 14px; }
+        .ribbon a::after { content: ' >'; }
+
+        /* ================= 4. 首屏大张力 Hero 区 ================= */
+        .hero-section {
+            padding: 60px 0 0 0; background-color: #ffffff; text-align: left; overflow: hidden;
+        }
+        .hero-split { display: flex; align-items: center; justify-content: space-between; }
+        .hero-text-box { flex: 0 0 45%; padding-right: 40px; }
+        .hero-tag { font-size: 15px; color: #bf4800; font-weight: 600; margin-bottom: 12px; }
+        .hero-title { font-size: 64px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.05; margin: 0 0 20px 0; }
+        .hero-subtitle { font-size: 24px; font-weight: 600; line-height: 1.4; margin: 0 0 20px 0; }
+        .hero-quote { font-size: 17px; color: #515154; margin-bottom: 30px; font-style: italic; }
+        
+        .buy-btn-large {
+            display: inline-block; background-color: var(--apple-blue); color: #fff !important;
+            padding: 12px 26px; border-radius: 24px; font-size: 18px; font-weight: 600; margin-bottom: 15px;
+        }
+        .buy-btn-large:hover { background-color: var(--apple-blue-hover); text-decoration: none; }
+        .hero-links { display: flex; gap: 20px; font-size: 17px; font-weight: 400; }
+        .hero-links a::after { content: ' >'; font-size: 14px; }
+
+        .hero-img-box { flex: 0 0 55%; display: flex; justify-content: flex-end; }
+        .hero-img-box img { width: 110%; max-width: 900px; margin-right: -10%; }
+
+        .section-headline {
+            text-align: center; font-size: 48px; font-weight: 700; letter-spacing: -0.01em; margin: 100px 0 60px; color: #1d1d1f;
+        }
+
+        /* ================= 5. 四列场景展示区 ================= */
+        .compare-section { padding: 0 0 100px 0; background: #fff; text-align: center; }
+        .compare-grid { display: flex; justify-content: space-between; gap: 30px; }
+        .compare-item { flex: 1; display: flex; flex-direction: column; align-items: center; }
+        
+        .compare-img { height: 160px; display: flex; align-items: flex-end; margin-bottom: 30px; }
+        .compare-img img { 
+            max-height: 100%; 
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1)); 
+            transition: transform 0.3s ease; 
+        }
+        .compare-img img:hover { transform: scale(1.05); }
+        
+        .swatches { display: flex; gap: 6px; margin-bottom: 20px; }
+        .swatch { width: 12px; height: 12px; border-radius: 50%; box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); }
+        
+        .compare-name { font-size: 20px; font-weight: 600; margin: 0 0 12px 0; }
+        .compare-subtitle { font-size: 12px; color: #515154; margin-bottom: 15px; text-align: left; width: 100%; line-height: 1.5; }
+        .compare-desc { font-size: 13px; color: #1d1d1f; line-height: 1.7; margin-bottom: 25px; text-align: left; width: 100%; box-sizing: border-box; }
+        
+        .buy-btn-small { background-color: var(--apple-blue); color: #fff !important; padding: 6px 18px; border-radius: 15px; font-size: 13px; font-weight: bold; margin-top: auto; margin-bottom: 15px; }
+        .buy-btn-small:hover { text-decoration: none; background-color: var(--apple-blue-hover); }
+        .compare-link { font-size: 13px; }
+        .compare-link::after { content: ' >'; }
+
+        /* ================= 6. Bento Box 模块区 ================= */
+        .bento-section { padding: 20px 0 80px 0; background-color: #fff; }
+        .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+        .bento-card {
+            background-color: var(--apple-gray-bg); border-radius: 24px; padding: 50px 40px 40px 40px;
+            display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; box-sizing: border-box; position: relative;
+        }
+
+        .bento-dark { background-color: #000000; color: #f5f5f7; }
+        .bento-dark h3 { color: #f5f5f7; }
+        .bento-dark a { color: #2997ff; } 
+        
+        .bento-red { background-color: #e84a5f; color: #ffffff; }
+        .bento-red h3 { color: #ffffff; }
+        .bento-red a { color: #ffffff; }
+
+        .bento-full { grid-column: 1 / -1; }
+        .bento-card h3 { font-size: 36px; font-weight: 600; letter-spacing: -0.010em; margin: 0 0 20px 0; line-height: 1.2; width: 100%; }
+        
+        .bento-card p { font-size: 15px; line-height: 1.7; color: #515154; margin: 0 0 20px 0; width: 100%; max-width: 700px; text-align: left; }
+        .bento-dark p, .bento-red p { color: rgba(255,255,255,0.85); }
+
+        .bento-links { display: flex; gap: 15px; font-size: 16px; margin-bottom: 30px; width: 100%; justify-content: center; }
+        .bento-links a::after { content: ' >'; font-size: 13px; }
+
+        .bento-img-box { margin-top: auto; width: 100%; display: flex; justify-content: center; align-items: flex-end; }
+        .img-scale-up img { width: 100%; max-width: none; }
+
+        .two-pics { gap: 15px; }
+        .two-pics img { flex: 1; min-width: 0; max-width: 100%; height: 100%; object-fit: contain; }
+
+        /* ================= 7. 底部官方灰色点击进入触发区 ================= */
+        .apple-footer { 
+            background-color: #f5f5f7; padding: 60px 0 50px 0; color: #86868b; font-size: 12px; line-height: 1.6; 
+            cursor: pointer; transition: background-color 0.3s ease; position: relative; z-index: 10;
+        }
+        .apple-footer:hover { background-color: #ebebeb; }
+        .footer-footnotes { max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; border-bottom: 1px solid #d2d2d7; padding-bottom: 20px; margin-bottom: 20px; }
+        .footer-footnotes p { margin: 0 0 10px 0; }
+        
+        .footer-tip-bar {
+            text-align: center; font-size: 13px; font-weight: bold; color: #0066cc; margin-top: 15px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+
+        /* ================= 8. 【核心修改】第二个全屏宽荧幕结语页面 ================= */
+        #ending-page {
+            display: none; 
+            position: fixed; inset: 0; background: #ffffff; 
+            z-index: 20000; 
+            overflow-y: auto; 
+            /* 左右留白调小为 5%，让内容更能铺开 */
+            padding: 120px 5%; 
+            box-sizing: border-box;
+        }
+        
+        .ending-content-wrapper { 
+            max-width: 1400px; /* 大幅放开宽度限制，适配大屏幕 */
+            margin: 0 auto; 
+            text-align: left; 
+        }
+        
+        .ending-headline { 
+            font-size: 56px; /* 标题大幅增强压迫感 */
+            font-weight: 700; color: #1d1d1f; margin-bottom: 50px; line-height: 1.15; letter-spacing: -0.02em; 
+        }
+        
+        .ending-paragraph { 
+            font-size: 21px; /* 文本字号调大，与大画幅匹配 */
+            line-height: 1.7; color: #333333; margin-bottom: 35px; text-align: left; 
+            max-width: 1100px; /* 文本不需要撑满 1400 那么宽，否则眼睛扫视太累，1100px 刚好是苹果的阅读极限 */
+        }
+        
+        /* 瀑布照片流全新现代栅格排版 */
+        #photo-grid {
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); /* 强制一行放 4 张大图 */
+            gap: 30px; /* 拉大图片之间的间隙 */
+            margin-top: 80px; 
+        }
+        
+        #photo-grid img {
+            width: 100%; 
+            aspect-ratio: 4 / 3; /* 核心魔法：不论原图尺寸，全部裁剪成极具艺术感的 4:3 比例 */
+            object-fit: cover; /* 保证填满框且不变形 */
+            border-radius: 18px; /* 大圆角更显现代 */
+            background-color: #f5f5f7;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* 高级微柔和阴影 */
+        }
+        
+        .back-to-museum-btn {
+            position: fixed; top: 30px; right: 40px; background-color: rgba(0,0,0,0.05); color: #333;
+            padding: 8px 20px; border-radius: 18px; font-size: 14px; font-weight: 600; cursor: pointer;
+            transition: background 0.2s; z-index: 20001;
+        }
+        .back-to-museum-btn:hover { background-color: rgba(0,0,0,0.1); }
+
+        /* 响应式调整 */
+        @media (max-width: 1024px) {
+            #photo-grid { grid-template-columns: repeat(3, 1fr); }
+            .ending-headline { font-size: 42px; }
+            .ending-paragraph { font-size: 18px; }
+        }
+        @media (max-width: 768px) {
+            #photo-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="global-nav">
+        <div class="container">
+            <div class="global-nav-links">
+                <a href="#" style="font-size: 16px;"></a> 
+                <a href="#">Store</a>
+                <a href="#">Mac</a>
+                <a href="#">iPad</a>
+                <a href="#">iPhone</a>
+                <a href="#">Watch</a>
+                <a href="#">AirPods</a>
+                <a href="#">TV & Home</a>
+                <a href="#">Only on Apple</a>
+                <a href="#">Accessories</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="search-box">🔍</div>
+        </div>
+    </nav>
+
+    <div class="chapternav">
+        <div class="chapternav-items">
+            <div class="chapter-item"><img src="ipadpro201.png" alt="iPad Pro" class="chapter-icon"><span class="chapter-text">iPad Pro</span><span class="chapter-new">New</span></div>
+            <div class="chapter-item"><img src="ipadpro202.png" alt="iPad Air" class="chapter-icon"><span class="chapter-text">iPad Air</span></div>
+            <div class="chapter-item"><img src="ipadpro203.png" alt="iPad" class="chapter-icon"><span class="chapter-text">iPad</span></div>
+            <div class="chapter-item"><img src="ipadpro204.png" alt="iPad mini" class="chapter-icon"><span class="chapter-text">iPad mini</span></div>
+            <div class="chapter-item"><img src="ipadpro205.png" alt="Compare" class="chapter-icon"><span class="chapter-text">Compare</span></div>
+            <div class="chapter-item"><img src="ipadpro206.png" alt="Apple Pencil" class="chapter-icon"><span class="chapter-text">Apple Pencil</span></div>
+            <div class="chapter-item"><img src="ipadpro207.png" alt="Keyboards" class="chapter-icon"><span class="chapter-text">Keyboards</span></div>
+        </div>
+    </div>
+
+    <div class="ribbon">
+        Save 6% on iPad with a new Apple Card — all March long. Exclusions and terms apply. <a href="#">Learn more</a>
+    </div>
+
+    <header class="hero-section">
+        <div class="container hero-split">
+            <div class="hero-text-box">
+                <div class="hero-tag">馆藏编号：#021-IPP5</div>
+                <h1 class="hero-title">iPad Pro 2021</h1>
+                <p class="hero-subtitle">如果说此前的 iPad Pro 是在努力追赶个人电脑的脚步，那么 2021 款 iPad Pro 则是直接换上了与桌面端 Mac 完全相同的心脏——Apple M1 芯片。</p>
+                <p class="hero-quote">“以桌面级的心脏，驱动移动端的数字创意。”</p>
+                <a href="#" class="buy-btn-large">棒</a>
+                <div class="hero-links"><a href="#">Learn more</a></div>
+            </div>
+            <div class="hero-img-box">
+                <img src="ipadpro208.png" alt="iPad Pro 2021 主图">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-headline">可以用这款 iPad 做些什么</h2>
+    </div>
+
+    <section class="compare-section container">
+        <div class="compare-grid">
+            <div class="compare-item">
+                <div class="compare-img"><img src="ipadpro209.png" alt="Core Gaming"></div>
+                <div class="swatches"><div class="swatch" style="background: #e2e8f0;"></div><div class="swatch" style="background: #fcd34d;"></div></div>
+                <h3 class="compare-name">Core Gaming</h3>
+                <p class="compare-subtitle">如《原神》（60/120帧模式）、《生化危机：村庄》、《绝区零》、Apple Arcade 独占 3D 大作。</p>
+                <p class="compare-desc">在 M1 芯片的加持下，iPad Pro 能够以满帧率、极高画质流畅运行各类重度 3D 游戏，彻底告别了因发热而导致的画面卡顿和降亮度问题。配合 120Hz ProMotion 自适应刷新率，动作游戏中的每一刀挥砍、每一次分镜转换都丝滑无比。</p>
+                <a href="#" class="buy-btn-small">爽</a>
+                <a href="#" class="compare-link">Learn more</a>
+            </div>
+            <div class="compare-item">
+                <div class="compare-img"><img src="ipadpro210.png" alt="HDR Cinema"></div>
+                <div class="swatches"><div class="swatch" style="background: #fca5a5;"></div><div class="swatch" style="background: #d4d4d8;"></div><div class="swatch" style="background: #a1a1aa;"></div><div class="swatch" style="background: #78716c;"></div></div>
+                <h3 class="compare-name">HDR Cinema Experience</h3>
+                <p class="compare-subtitle">代表应用：Apple TV+（HDR 内容）、Netflix（4K 杜比视界专区）、哔哩哔哩（4K 120帧/杜比音效视频）</p>
+                <p class="compare-desc">这得益于 12.9 英寸版本首发的 mini-LED 背光技术。它拥有 2596 个独立局部调光区，实现了 1,000,000:1 的惊人对比度和高达 1600 尼特的峰值亮度，完美对标苹果价值数万元的专业参考级监视器 Pro Display XDR。再配合机身四周的四个扬声器系统，支持杜比全景声，能够营造出声场开阔、定位精准的沉浸式视听空间。</p>
+                <a href="#" class="buy-btn-small">爽</a>
+                <a href="#" class="compare-link">Learn more</a>
+            </div>
+            <div class="compare-item">
+                <div class="compare-img"><img src="ipadpro211.png" alt="Cloud Gaming"></div>
+                <div class="swatches"><div class="swatch" style="background: #bbf7d0;"></div><div class="swatch" style="background: #e9d5ff;"></div></div>
+                <h3 class="compare-name">Cloud Gaming & Ultra-HD Streaming</h3>
+                <p class="compare-subtitle">代表应用：Xbox Cloud Gaming、GeForce NOW、Twitch/YouTube Live (4K)</p>
+                <p class="compare-desc">这一场景依赖于 2021 款 iPad Pro 内部网络硬件的巨大升级——它首次加入了对 5G 蜂窝网络的支持，并配备了 Wi-Fi 6。超高带宽与极低时延的无线网络连接，确保了在没有 Wi-Fi 的户外环境下，依然能够稳定接收大流量的高清云游戏画面和 4K 高码率直播流。</p>
+                <a href="#" class="buy-btn-small">爽</a>
+                <a href="#" class="compare-link">Learn more</a>
+            </div>
+            <div class="compare-item">
+                <div class="compare-img"><img src="ipadpro212.png" alt="Interactive Media"></div>
+                <div class="swatches"><div class="swatch" style="background: #bae6fd;"></div><div class="swatch" style="background: #fed7aa;"></div><div class="swatch" style="background: #bfdbfe;"></div><div class="swatch" style="background: #ddd6fe;"></div></div>
+                <h3 class="compare-name">Interactive Media & Digital Reading</h3>
+                <p class="compare-subtitle">如 Wired 互动版、ComiXology、哔哩哔哩漫画、Apple Books</p>
+                <p class="compare-desc">无论是阅读画面色彩浓郁的美式英雄漫画，还是翻阅包含大量高精度摄影图片的设计、国家地理类电子杂志，双页并排显示时，文字锐利如印刷品，图片的色彩转折极其温柔，翻页动态流畅自然。</p>
+                <a href="#" class="buy-btn-small">爽</a>
+                <a href="#" class="compare-link">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bento-section container">
+        <div class="bento-grid">
+            <div class="bento-card">
+                <h3>核心芯片：<br>降维打击的 M1</h3>
+                <p>将原本用于 MacBook Pro 的 M1 芯片放入无风扇的平板电脑，是当年最震撼的工程学壮举。这使得它的 CPU 性能提升了 50%，GPU 性能提升了 40%。这种庞大的算力冗余，意味着它不再局限于基础的图文处理或草图绘制。无论是处理动辄成百上千个图层的复杂 UI 交互设计项目，还是进行具有大量粒子效果的生成式艺术运算，甚至是进行轻量级的三维场景概念渲染，它都能提供如同桌面级工作站般稳定的支持。</p>
+                <div class="bento-links"><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-scale-up"><img src="ipadpro216.png" alt="M1 芯片"></div>
+            </div>
+            <div class="bento-card">
+                <h3>支持雷劈 3 和 USB 4<br>（最高达 40Gb/s 带宽）</h3>
+                <p>外观上它依然是一个 Type-C 形状的接口，但内在的带宽却实现了成倍的跨越。雷劈接口的引入，是解决“大文件吞吐”痛点的关键。用户可以瞬间将包含高清材质贴图、巨型空间数据的工程文件传输到设备中，或者直接外接 Pro Display XDR 级别的专业显示器进行分屏工作，极大地扩展了平板电脑的物理边界。</p>
+                <div class="bento-links"><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-scale-up"><img src="ipadpro215.png" alt="雷电接口"></div>
+            </div>
+            <div class="bento-card bento-full">
+                <h3>显示屏幕：精准还原每一种色彩语言</h3>
+                <p>硬件规格：12.9 英寸专属 Liquid 视网膜 XDR 显示屏（采用 mini-LED 背光，2596 个全阵列局部调光区）<br><br>这块屏幕的全屏亮度达到了 1000 尼特，峰值亮度更是高达 1600 尼特，对比度达到了惊人的 1,000,000:1。对于从事视觉表达的人而言，它带来了真正的“所见即所得”。当屏幕显示深邃的黑色时，对应的背光区会完全关闭，黑得如同关机一般；而当它显示复杂的艺术作品时，能够极其精准地还原最微妙的色彩过渡——无论是低饱和度的莫兰迪色系搭配，还是极其细腻柔和的水彩纹理，都能在这块屏幕上呈现出最纯粹的视觉质感。</p>
+                <div class="bento-links"><a href="#">Learn more</a></div>
+                <div class="bento-img-box two-pics"><img src="ipadpro213.png" alt="调光"><img src="ipadpro214.png" alt="色彩"></div>
+            </div>
+            <div class="bento-card bento-dark">
+                <h3>Apple Pencil (第二代)：<br>无缝衔接的数字画笔</h3>
+                <p>第二代 Apple Pencil 修正了初代产品备受争议的“插拔式”充电设计。它通过机身侧面的磁吸触点，实现了收纳与充电的完美统一，真正做到了“提笔即用”。</p>
+                <div class="bento-links"><a href="#">Try it free</a><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-scale-up"><img src="ipadpro217.png" alt="Apple Pencil"></div>
+            </div>
+            <div class="bento-card">
+                <h3>妙控键盘：悬浮的生产力支点</h3>
+                <p>具历史意义的是，它首次为 iPad 引入了触控板。这块触控板专门为 iPadOS 重新设计了光标逻辑（光标会自动吸附到屏幕按钮上）。这种高精度的点按交互，让 iPad Pro 能够真正胜任严谨的 UI 设计排版工作。</p>
+                <div class="bento-links"><a href="#">Try it free</a><a href="#">Learn more</a></div>
+                <div class="bento-img-box img-scale-up"><img src="ipadpro218.png" alt="妙控键盘"></div>
+            </div>
+            <div class="bento-card bento-red">
+                <h3>智能双面夹：极简主义的防护</h3>
+                <p>与传统厚重的全包围保护壳不同，智能双面夹生动诠释了苹果“做减法”的保护壳设计理念。它完全抛弃了卡扣和边框，仅依靠背部的强力磁铁与 iPad 贴合，最大程度保留了设备原有的方正轻薄手感。</p>
+                <div class="bento-links"><a href="#" style="color:#fff;">Try it free</a><a href="#" style="color:#fff;">Learn more</a></div>
+                <div class="bento-img-box"><img src="ipadpro219.png" alt="智能双面夹"></div>
+            </div>
+            <div class="bento-card bento-dark">
+                <h3>通用控制：跨越设备的单一键鼠</h3>
+                <p>这是苹果生态融合的巅峰之作。用户只需将 iPad Pro 放置在 Mac 电脑旁边，无需任何线缆连接，就可以使用同一套鼠标和键盘，让光标直接“穿透”两块屏幕的物理边界。你可以直接用鼠标将 Mac 上的图片文件拖拽到 iPad 的画板应用中，这种魔法般的体验，彻底模糊了桌面设备与移动设备之间的界限。</p>
+                <div class="bento-links"><a href="#">Learn more</a></div>
+                <div class="bento-img-box"><img src="ipadpro220.png" alt="通用控制"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="apple-footer" id="museum-footer-trigger">
+        <div class="footer-footnotes">
+            <p>iPad展区结语<br><br><br>
+                “当科技达到极致，它便悄然隐退，只为你留下一片纯粹的画布。”<br><br>
+从最初略显厚重的探索，到如今薄如蝉翼的轻盈，iPad 的进化史，就是一场不断褪去物理边界的漫长告别。十余年来，工程师们做着最严苛的“减法”——削薄边框、隐去按键、压缩厚度，只为将所有的巅峰算力，毫无保留地藏进这块剔透的屏幕背后。<br><br>
+它早已超越了机器的定义，成为了连接人类直觉与数字世界的温柔桥梁。对于无数穿梭在逻辑与美学之间的创作者而言，这块屏幕是将复古未来主义的无边想象拉入现实的基石。它是能让数字墨水晕染出细腻水彩纹理、精准还原每一抹低饱和度色彩的专属调色盘；更是指尖轻触间，构筑灵动交互界面的起点。<br><br>
+在这个展区的尽头，我们看到的不再是冰冷的金属与芯片。它是一扇打破了科技与艺术隔阂的窗。当你指尖落下的瞬间，所有关于未来的宏大构想与此刻的细腻情感，便在这块没有边界的玻璃上，永远鲜活地流淌。</p></p>
+        
+        </div>
+        <div class="footer-tip-bar"> 点击此灰色页脚任意区域 —— 跨入展览尾声与终向结语 </div>
+    </footer>
+
+
+    <div id="ending-page">
+        <div class="back-to-museum-btn" onclick="closeEndingPage()">✕ 返回前厅</div>
+        
+        <div class="ending-content-wrapper">
+            <h2 class="ending-headline">“当科技达到极致，它便悄然隐退，只为你留下一片纯粹的画布。”</h2>
+            
+            <p class="ending-paragraph">
+                从最初略显厚重的探索，到如今薄如蝉翼的轻盈，iPad 的进化史，就是一场不断褪去物理边界的漫长告别。十余年来，工程师们做着最严苛的“减法”——削薄边框、隐去按键、压缩厚度，只为将所有的巅峰算力，毫无保留地藏进这块剔透的屏幕背后。
+                <br><br>
+                它早已超越了机器的定义，成为了连接人类直觉与数字世界的温柔桥梁。对于无数穿梭在逻辑与美学之间的创作者而言，这块屏幕是将复古未来主义的无边想象拉入现实的基石。它是能让数字墨水晕染出细腻水彩纹理、精准还原每一抹低饱和度色彩的专属调色盘；更是指尖轻触间，构筑灵动交互界面的起点。
+                <br><br>
+                在这个展区的尽头，我们看到的不再是冰冷的金属与芯片。它是一扇打破了科技与艺术隔阂的窗。当你指尖落下的瞬间，所有关于未来的宏大构想与此刻的细腻情感，便在这块没有边界的玻璃上，永远鲜活地流淌。
+            </p>
+
+            <div id="photo-grid"></div>
+        </div>
+    </div>
+
+
+    <script>
+        const footerTrigger = document.getElementById('museum-footer-trigger');
+        const endingPageElement = document.getElementById('ending-page');
+        const photoGridContainer = document.getElementById('photo-grid');
+        let isPhotoLoaded = false; 
+
+        footerTrigger.addEventListener('click', function() {
+            endingPageElement.style.display = 'block';
+            endingPageElement.scrollTop = 0;
+            
+            if (!isPhotoLoaded) {
+                isPhotoLoaded = true;
+                triggerInfinitePhotoStream();
+            }
+        });
+
+        function closeEndingPage() {
+            endingPageElement.style.display = 'none';
+        }
+
+        function triggerInfinitePhotoStream() {
+            for (let i = 111; i <= 133; i++) {
+                const imgElement = document.createElement('img');
+                
+                imgElement.src = (i === 117 || i === 118 ? 'iPad' : 'ipad') + i + '.png'; 
+                imgElement.alt = 'iPad 历史进阶展品图 ipad' + i;
+                
+                imgElement.style.opacity = '0';
+                imgElement.style.transition = 'opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+                imgElement.style.transform = 'translateY(15px)'; 
+
+                photoGridContainer.appendChild(imgElement);
+
+                const staggeredDelay = (i - 111) * 200; 
+
+                setTimeout(() => {
+                    imgElement.style.opacity = '1';
+                    imgElement.style.transform = 'translateY(0)';
+                }, staggeredDelay);
+            }
+        }
+    </script>
+</body>
+</html>

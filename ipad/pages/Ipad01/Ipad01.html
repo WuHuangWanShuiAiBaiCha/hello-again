@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPad mini 1- Apple 博物馆</title>
+    <link rel="stylesheet" href="../../ipad-nav.css">
+    <script defer src="../../ipad-nav.js"></script>
+    <style>
+        /* ================= 基础重置与经典字体 ================= */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+            background-color: #ededed; 
+            color: #333333;
+            overflow-x: hidden; 
+        }
+
+        a { text-decoration: none; color: #08c; }
+        a:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 980px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            box-sizing: border-box;
+            padding: 0 20px;
+        }
+
+        /* ================= 针对首屏大图的专属比例设定 ================= */
+        .hero-visual img { width: 100%; height: auto; display: block; padding: 0; border-radius: 5px; box-sizing: border-box; }
+
+        /* ================= 1. 顶部经典水晶黑导航 ================= */
+        .global-nav {
+            width: 100%; height: 40px;
+            background: linear-gradient(to bottom, #5f5f5f 0%, #444444 49%, #303030 50%, #1a1a1a 100%);
+            border-bottom: 1px solid #000; box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+        }
+        .global-nav .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .global-nav-links { display: flex; gap: 25px; }
+        .global-nav a { color: #d6d6d6; font-size: 13px; text-shadow: 0 -1px 0 rgba(0,0,0,0.9); font-weight: bold; }
+        .search-box { width: 120px; height: 20px; background: #ffffff; border-radius: 10px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); border: 1px solid #111; display: flex; align-items: center; padding: 0 10px; color: #999; font-size: 12px; }
+
+        /* ================= 2. 次级灰色金属产品导航 ================= */
+        .sub-nav {
+            width: 100%; min-height: 50px;
+            background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+            border-top: 1px solid #fff; border-bottom: 1px solid #a5a5a5; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .sub-nav .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+        .product-title { font-size: 24px; color: #333; font-weight: bold; text-shadow: 0 1px 0 rgba(255,255,255,0.9); }
+        .sub-nav-links { display: flex; gap: 15px; font-size: 12px; align-items: center; font-weight: bold;}
+        .sub-nav-links a { color: #555; text-shadow: 0 1px 0 rgba(255,255,255,0.8); }
+        
+        .buy-btn {
+            background: linear-gradient(to bottom, #8bbef3 0%, #4492ed 49%, #267be5 50%, #1562c5 100%);
+            color: white !important; padding: 6px 18px; border-radius: 15px; border: 1px solid #0f4183;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.3); 
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.5); font-weight: bold;
+        }
+
+        /* ================= 3. 经典左右分栏的 Hero 区 ================= */
+        .hero-wrapper {
+            width: 100%; background: radial-gradient(ellipse at center, #ffffff 0%, #dbdbdb 100%);
+            border-bottom: 1px solid #b5b5b5; box-shadow: 0 1px 0 #fff; 
+        }
+        .hero-split { display: flex; align-items: center; padding: 70px 0; }
+        .hero-text-box { flex: 1; padding-right: 40px; }
+        .hero-title { font-size: 52px; font-weight: bold; letter-spacing: -2px; line-height: 1.1; margin: 0 0 20px 0; color: #111; text-shadow: 0 1px 1px rgba(255,255,255,0.8); }
+        .hero-subtitle { font-size: 15px; line-height: 1.8; color: #444; margin-bottom: 30px; text-shadow: 0 1px 1px rgba(255,255,255,0.8); }
+        .hero-visual { flex: 1.6; background: #ffffff; border: 1px solid #c0c0c0; border-radius: 4px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 2px 5px rgba(0,0,0,0.1); }
+        .hero-visual img { width: 100%; height: auto; display: block; }
+
+        /* ================= 核心排版：绝对定位广告栏 ================= */
+        .cards-section { padding: 50px 0; }
+        
+        .content-with-sidebar {
+            position: relative; /* 将父级设为相对定位，作为广告栏的锚点 */
+            width: 100%;
+        }
+        
+        .main-left-cards {
+            width: 100%; /* 恢复 100% 宽度，绝不挤压四张主卡片 */
+        }
+
+        /* ================= 4. 白底灰边框的“卡片式”网格区 ================= */
+        .card-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+        
+        .card {
+            flex: 1 1 calc(50% - 10px); 
+            background: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 100%);
+            border: 1px solid #cdcdcd; border-bottom-color: #aaa; border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08), inset 0 1px 0 #fff;
+            display: flex; align-items: center; padding: 25px 20px; box-sizing: border-box; position: relative; overflow: hidden; 
+        }
+
+        .card-text { flex: 1; padding-right: 15px; }
+        .card h3 { font-size: 18px; font-weight: bold; margin: 0 0 8px 0; color: #222; text-shadow: 0 1px 0 #fff; }
+        .card p { font-size: 12px; line-height: 1.6; color: #555; margin-bottom: 10px; }
+        
+        .card-real-img-portrait, .card-real-img-square {
+            background-color: #fff; border: 1px solid #ddd; padding: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+        }
+        .card-real-img-portrait { width: 150px; height: 200px; }
+        .card-real-img-square { width: 150px; height: 150px; }
+        .card-real-img-portrait img, .card-real-img-square img { width: 100%; height: 100%; object-fit: contain; }
+
+        .orange-ribbon {
+            position: absolute; top: 22px; left: -42px; background: linear-gradient(to bottom, #fcae2b 0%, #f17415 100%);
+            color: #fff; padding: 4px 45px; font-size: 11px; font-weight: bold; text-align: center; transform: rotate(-45deg); 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); border: 1px solid #c95605; text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+        }
+        .orange-ribbon + .card-text { margin-top: 35px; }
+
+        /* ================= 侧边广告栏：完全平面化 + 外挂定位 ================= */
+        .sidebar-right {
+            position: absolute;
+            top: 0;
+            right: -150px; 
+            width: 130px; 
+        }
+
+        .social-widget-box {
+            background-color: #eaf4fc; 
+            border: 1px solid #bce8f1; 
+            border-radius: 0px; 
+            box-shadow: none; 
+            padding: 10px;
+        }
+
+        .social-item {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px dashed #bce8f1; 
+            box-shadow: none;
+        }
+        .social-item:last-child {
+            border-bottom: none;
+        }
+
+        .social-title {
+            font-size: 12px; font-weight: bold; color: #31708f; 
+            text-shadow: none; margin-bottom: 12px;
+        }
+
+        .social-content {
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+        }
+
+        .social-content .app-icon {
+            width: 45px; height: 45px; border-radius: 8px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
+            object-fit: contain; background: #fff;
+        }
+
+        .social-text-area { width: 100%; }
+        .social-text-area p { font-size: 11px; color: #555; line-height: 1.4; margin: 0 0 10px 0; }
+        .social-text-area a.twitter-link { color: #31708f; text-decoration: underline; }
+
+        .social-action { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        
+        .like-btn {
+            background: #ffffff; border: 1px solid #cccccc; border-radius: 2px; padding: 2px 8px;
+            font-size: 11px; color: #333; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 4px;
+        }
+
+        .count-bubble {
+            background: #fff; border: 1px solid #cccccc; border-radius: 2px; padding: 2px 6px;
+            font-size: 11px; color: #d00; position: relative;
+        }
+
+        /* ================= 5. 底部深色凹槽区 ================= */
+        .dark-groove-section { 
+            background-color: #d5d5d5; background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+            border-top: 1px solid #999; border-bottom: 1px solid #999; box-shadow: inset 0 8px 15px rgba(0,0,0,0.15); padding: 40px 0 60px; margin-top: 20px; 
+        }
+        .groove-header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #bebebe; padding-bottom: 10px; margin-bottom: 25px; box-shadow: 0 1px 0 rgba(255,255,255,0.7); }
+        .groove-header h2 { margin: 0; font-size: 20px; font-weight: bold; color: #333; text-shadow: 0 1px 0 #fff; }
+        .groove-grid { display: flex; gap: 20px; }
+        .groove-col { flex: 1; }
+        .groove-col-title { font-size: 13px; color: #555; font-weight: bold; margin-bottom: 15px; text-shadow: 0 1px 0 #fff; }
+        
+        .groove-item-placeholder { 
+            width: 100%; height: 180px; background-color: #fdfdfd; border: 1px solid #bbb; border-radius: 4px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1), inset 0 1px 0 #fff; display: flex; align-items: center; justify-content: center; color: #999; text-align: center; padding: 10px; 
+            box-sizing: border-box; /* 核心修复：确保内边距不会增加盒子的总高度 */
+        }
+
+        /* 核心修复 1：单张图片的完美自适应 */
+        .groove-item-placeholder > img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* 保证图片等比缩放，绝不变形 */
+        }
+
+        /* 核心修复 2：两张图片并排的完美自适应 */
+        .two-pics {
+            gap: 15px;
+        }
+        .two-pics img {
+            flex: 1;
+            min-width: 0; /* 这是 Flex 布局的神奇代码：防止内部巨大的原图撑破盒子 */
+            max-width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* ================= 媒体查询 (响应式) ================= */
+        @media (max-width: 1200px) {
+            .sidebar-right { position: relative; right: 0; width: 100%; margin-top: 20px; }
+            .social-widget-box { display: flex; justify-content: space-around; flex-wrap: wrap; padding: 10px; }
+            .social-item { border-bottom: none; border-right: 1px dashed #bce8f1; padding: 10px 20px; flex: 1; }
+            .social-item:last-child { border-right: none; }
+        }
+        @media (max-width: 768px) {
+            .hero-split { flex-direction: column; text-align: center; padding: 40px 0; }
+            .hero-text-box { padding-right: 0; margin-bottom: 30px; }
+            .hero-visual { width: 100%; }
+            .card { flex: 1 1 100%; flex-direction: column; } 
+            .card-text { padding-right: 0; margin-bottom: 15px; }
+            .card-real-img-portrait, .card-real-img-square { width: 100%; height: 200px; margin-top: 20px;}
+            .groove-grid { flex-direction: column; }
+            .sub-nav .container { flex-direction: column; gap: 10px; }
+            .sub-nav-links { justify-content: center; }
+            .social-widget-box { flex-direction: column; }
+            .social-item { border-right: none; border-bottom: 1px dashed #bce8f1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="global-nav">
+        <div class="container">
+            <div class="global-nav-links">
+                <a href="#" style="font-size: 18px;"></a> 
+                <a href="#">Store</a>
+                <a href="#">Mac</a>
+                <a href="#">iPod</a>
+                <a href="#">iPhone</a>
+                <a href="#">iPad</a>
+                <a href="#">iTunes</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="search-box">🔍</div>
+        </div>
+    </nav>
+
+    <nav class="sub-nav">
+        <div class="container">
+            <div class="product-title">馆藏编号：#012-IPM1</div>
+            <div class="sub-nav-links">
+                <a href="#">特征</a>
+                <a href="#">设计</a>
+                <a href="#">内置应用</a>
+                <a href="#">技术规格</a>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-wrapper">
+        <header class="hero-split container">
+            <div class="hero-text-box">
+                <h1 class="hero-title">iPad mini (第一代)</h1>
+                <p class="hero-subtitle">
+                    Every inch an iPad. <br>这是苹果首款打破 9.7 英寸传统的平板电脑。它将 iPad 2 的完整生态浓缩至 7.9 英寸的紧凑机身中，厚度仅 7.2 毫米，重量减半至 308 克，首次实现了单手轻松握持。<br>
+该机型率先采用了超窄边框设计，并首次引入底层软件防误触算法，这一软硬件结合的方案直接奠定了后续历代 iPad 的外形设计语言。它不仅开拓了小尺寸便携平板市场，也是苹果闪电（Lightning）接口普及初期的代表性硬件。
+                </p>
+                <a href="#" class="buy-btn" style="font-size: 14px; padding: 8px 24px;">免费了解 ▸</a>
+            </div>
+            <div class="hero-visual">
+                <img src="ipadmini02.jpg" alt="iPad mini 1代">
+            </div>
+        </header>
+    </div>
+
+    <section class="cards-section container">
+        <div class="content-with-sidebar">
+            
+            <div class="main-left-cards">
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="orange-ribbon">New Feature</div>
+                        <div class="card-text">
+                            <h3>7.9 英寸显示屏。</h3>
+                            <p>硬件规格：7.9 英寸 LED 背光多点触控显示屏，IPS 技术。<br>
+核心数据：分辨率为 1024 × 768 像素，像素密度 163 ppi。<br>
+展品解析：当时市面上的小尺寸平板多采用 16:9 的宽屏比例，而 iPad mini 坚持了与历代 iPad 相同的 4:3 比例。这种比例在阅读电子书、浏览网页时能够显示更多的横向内容。<br>
+从技术发展史来看，第一代 iPad mini 并没有配备当时最新的 Retina显示屏，这是出于对机身厚度、电池续航以及成本的妥协。</p>
+                            <a href="#">了解更多 ▸</a>
+                        </div>
+                        <div class="card-real-img-portrait">
+                            <img src="ipadmini03.png" alt="7.9英寸显示屏细节图">
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-text">
+                            <h3>A5 芯片强劲动力。</h3>
+                            <p>硬件规格：Apple A5 芯片（双核处理器）。<br>
+展品解析：第一代 iPad mini 在发布时，并没有采用当时最顶尖的 A6X 芯片，而是沿用了 iPad 2 上那颗成熟的 A5 芯片。<br>
+在博物馆的视角下，这是一个极具实用主义的工程决定。A5 芯片的发热量相对较小，这使得它可以在不增加额外散热结构、保持 7.2 毫米极薄机身的情况下稳定运行；同时保证了生态完美兼容。</p>
+                            <a href="#">了解更多 ▸</a>
+                        </div>
+                        <div class="card-real-img-portrait">
+                            <img src="ipadmini06.png" alt="A5芯片">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-text">
+                            <h3>iSight 摄像头。</h3>
+                            <p>后置iSight：500 万像素，支持 1080p HD 高清视频拍摄。<br>
+前置FaceTime：120 万像素，支持 720p HD 高清视频。<br>
+展品解析：在 iPad mini 之前，举着 9.7 英寸的大屏幕平板拍照显得非常笨拙。而 iPad mini 轻巧的机身尺寸，首次让“用平板电脑拍照”成为一种自然的操作。第一代 iPad mini 的影像系统实现了质的飞跃。</p>
+                            <a href="#">了解更多 ▸</a>
+                        </div>
+                        <div class="card-real-img-square">
+                            <img src="ipadmini04.png" alt="iSight摄像头">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-text">
+                            <h3>长达 10 小时续航。</h3>
+                            <p>内置 16.3 瓦时锂聚合物充电电池，使用无线网络浏览网页时间长达 10 小时。电池体积通常是限制移动设备做薄的最大障碍。<br>
+第一代 iPad mini 的内部空间比全尺寸 iPad 缩减了将近一半，尽管电池容量大幅减小，但得益于非视网膜屏幕较低的功耗以及 A5 芯片的能效控制，依然死死守住了“10小时续航”金标准。</p>
+                            <a href="#">了解更多 ▸</a>
+                        </div>
+                        <div class="card-real-img-portrait">
+                            <img src="ipadmini05.png" alt="电池图标">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="sidebar-right">
+                <div class="social-widget-box">
+                    
+                    <div class="social-item">
+                        <div class="social-title">iTunes on FB</div>
+                        <div class="social-content">
+                            <img src="itunes-app.png" alt="iTunes" class="app-icon" style="background:#b366ff;">
+                            <div class="social-text-area">
+                                <p>请点赞专页以享受独家内容优惠。</p>
+                                <div class="social-action">
+                                    <div class="like-btn"><span>f</span> 喜欢</div>
+                                    <div class="count-bubble">23K</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-item">
+                        <div class="social-title">App Store FB</div>
+                        <div class="social-content">
+                            <img src="appstore-app.png" alt="App Store" class="app-icon" style="background:#2b88d8;">
+                            <div class="social-text-area">
+                                <p>发现新应用，与朋友分享最爱。</p>
+                                <div class="social-action">
+                                    <div class="like-btn"><span>f</span> 喜欢</div>
+                                    <div class="count-bubble">6K</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-item">
+                        <div class="social-title">On Twitter</div>
+                        <div class="social-content">
+                            <img src="twitter-app.png" alt="Twitter" class="app-icon" style="background:#55acee;">
+                            <div class="social-text-area">
+                                <p><a href="#" class="twitter-link">关注 @iTunes</a><br>获取最新鲜的音乐推荐和播客资讯。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <section class="dark-groove-section">
+        <div class="container">
+            <div class="groove-header">
+                <h2>Apps for iPad mini</h2>
+                <a href="#">查看所有精选 App ▸</a>
+            </div>
+            <div class="groove-grid">
+                <div class="groove-col">
+                    <div class="groove-col-title">生产力 + 办公</div>
+                    <div class="groove-item-placeholder two-pics">
+                        <img src="ipadmini07.jpg" alt="生产力App">
+                        <img src="ipadmini10.png" alt="生产力App">
+                    </div>
+                </div>
+                <div class="groove-col">
+                    <div class="groove-col-title">游戏 + 娱乐</div>
+                    <div class="groove-item-placeholder two-pics">
+                        <img src="ipadmini08.jpg" alt="游戏App">
+                        <img src="ipadmini11.png" alt="游戏App">
+                    </div>
+                </div>
+                <div class="groove-col">
+                    <div class="groove-col-title">阅读 + 新闻</div>
+                    <div class="groove-item-placeholder">
+                        <img src="ipadmini09.png" alt="阅读App">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

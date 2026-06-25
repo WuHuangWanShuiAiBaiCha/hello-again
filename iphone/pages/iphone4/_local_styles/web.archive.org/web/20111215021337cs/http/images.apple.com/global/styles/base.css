@@ -1,0 +1,222 @@
+/* ============================================================
+   Apple 2011 Global Base CSS (base.css)
+   原始来源: http://images.apple.com/global/styles/base.css
+   ============================================================ */
+
+/* === Reset & Base === */
+* { margin: 0; padding: 0; }
+body {
+    font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+    color: #333;
+    background: #fff;
+    text-align: center;
+    min-width: 1024px;
+}
+a { color: #08c; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:active { outline: none; }
+img { border: none; display: block; }
+ul, ol, li { list-style: none; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+/* === Layout === */
+#main {
+    width: 100%;
+}
+#content {
+    width: 980px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* === Billboard / Hero === */
+#billboard {
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+#billboard::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.grid2col .hero.left {
+    float: left;
+}
+.grid2col .column.last {
+    float: right;
+    width: 390px;
+}
+.selfclear::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* === Videos === */
+.videos {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+.videos li {
+    margin-bottom: 12px;
+}
+.video-thumb {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+}
+.video-thumb .image {
+    float: left;
+    width: 90px;
+    height: 57px;
+    position: relative;
+    margin-right: 12px;
+}
+.video-thumb .image img {
+    border-radius: 4px;
+}
+.video-thumb .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+}
+.video-thumb .play::after {
+    content: '\25B6';
+    color: #fff;
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+.video-thumb .link {
+    float: left;
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+.video-thumb .link .nowrap {
+    white-space: nowrap;
+    color: #333;
+}
+.video-thumb .link .more {
+    color: #08c;
+    display: block;
+}
+
+/* === Promos === */
+.promos {
+    width: 980px;
+    margin: 30px auto 0;
+}
+.promos ul {
+    display: flex;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.promos li {
+    width: 231px;
+}
+
+/* === Footer === */
+#homefooter {
+    width: 980px;
+    margin: 40px auto 0;
+    padding: 15px 0;
+    border-top: 1px solid #ccc;
+    font-size: 10px;
+    color: #888;
+}
+#links::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+#links .left {
+    float: left;
+}
+#links .right {
+    float: right;
+}
+.piped li {
+    display: inline;
+    padding: 0 8px;
+    border-right: 1px solid #ddd;
+}
+.piped li:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+.piped li:first-child {
+    padding-left: 0;
+}
+
+/* === Sosumi === */
+.sosumi {
+    width: 980px;
+    margin: 15px auto;
+    text-align: left;
+    font-size: 9px;
+    color: #999;
+    line-height: 1.6;
+}
+.sosumi::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.copyright {
+    float: left;
+}
+.sosumi .piped {
+    float: left;
+    margin-left: 15px;
+}
+
+/* === Worldwide === */
+#worldwide {
+    clear: both;
+    padding-top: 10px;
+}
+#worldwide span {
+    display: inline-block;
+    cursor: pointer;
+}
+#worldwide img {
+    display: inline;
+    vertical-align: middle;
+}
+#worldwide .more {
+    color: #08c;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+/* === More link === */
+.more {
+    color: #08c;
+    text-decoration: none;
+}
+.more:hover {
+    text-decoration: underline;
+}
+.block {
+    display: block;
+    cursor: pointer;
+}
+
+/* === Clearfix === */
+.left { float: left; }
+.right { float: right; }
+.column { float: left; }
+.last { float: right; }

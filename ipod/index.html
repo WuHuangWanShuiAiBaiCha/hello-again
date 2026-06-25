@@ -6,30 +6,69 @@
   <title>iPod</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../styles/base.css">
-  <link rel="stylesheet" href="../styles/device-page.css">
-</head>
-<body class="device-page-body device-page-body--light">
-  <div class="device-page device-page--video">
-    <div class="device-page__scroll device-page__scroll--video" data-video-scroll>
-      <div class="series-dock series-dock--apple-modern">
-        <span class="series-dock__rail"></span>
-        <a class="device-page__home" href="../index.html">Home</a>
-      </div>
-      <div class="aqua-page-layer__inner series-video-page">
-        <div class="series-video-page__stage">
-          <video
-            class="series-video-page__video"
-            playsinline
-            loop
-            preload="auto"
-          >
-            <source src="../assets/videos/series-page-two.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
+  <link rel="stylesheet" href="../styles/series.css">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      overflow: hidden;
+    }
 
-  <script defer src="../scripts/video-page.js"></script>
+    .ipod-series-shell .series-track {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      touch-action: pan-x pan-y;
+    }
+
+    .ipod-series-page,
+    .ipod-frame-shell,
+    .ipod-frame {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+    }
+
+    .ipod-series-page,
+    .ipod-frame-shell {
+      overflow: hidden;
+    }
+
+    .ipod-frame {
+      display: block;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <section class="series-shell ipod-series-shell is-open" id="series-shell" aria-hidden="false" data-return-url="../index.html" data-initial-panel="1" data-panel-last="2">
+    <div class="series-track" id="series-track">
+      <div class="series-panel series-panel--sentinel" aria-hidden="true"></div>
+
+      <section class="series-panel series-panel--plain" aria-label="iPod nano">
+        <div class="ipod-series-page" data-series-scroll>
+          <div class="ipod-frame-shell">
+            <iframe class="ipod-frame" src="./pages/ipod-nano/index.html" title="iPod nano" sandbox="allow-same-origin"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="series-panel series-panel--plain" aria-label="Apple homepage 2004">
+        <div class="ipod-series-page" data-series-scroll>
+          <div class="ipod-frame-shell">
+            <iframe class="ipod-frame" src="./pages/apple-homepage-2004/index.html" title="Apple homepage 2004" sandbox="allow-same-origin"></iframe>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <script defer src="../scripts/config.js"></script>
+  <script defer src="../scripts/dom.js"></script>
+  <script defer src="../scripts/utils.js"></script>
+  <script defer src="../scripts/series-shell.js"></script>
+  <script defer src="../scripts/ipod-series-page.js"></script>
 </body>
 </html>

@@ -1,0 +1,67 @@
+/* ============================================================
+   Apple 2011 Home Page CSS (home.css)
+   原始来源: http://images.apple.com/home/styles/home.css
+   ============================================================ */
+
+/* === Home Page Specific === */
+body#home {
+    text-align: center;
+}
+.home #main {
+    width: 100%;
+}
+.home #content {
+    width: 980px;
+    margin: 0 auto;
+}
+
+/* === Billboard / Hero === */
+.home #billboard {
+    background: #f7f7f7;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+.home #billboard .hero img {
+    border-radius: 6px 0 0 6px;
+}
+
+/* === Video thumbnails === */
+.home .videos {
+    margin-top: 15px;
+}
+.home .videos .video-thumb {
+    padding: 8px;
+    border-radius: 6px;
+}
+.home .videos .video-thumb:hover {
+    background: #eee;
+}
+
+/* === Promos === */
+.home .promos {
+    margin: 25px auto 30px;
+}
+
+/* === Footer === */
+.home #homefooter {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+/* === Accessibility === */
+.visuallyhidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* === Print === */
+@media print {
+    #globalheader, #globalsearch, #homefooter {
+        display: none;
+    }
+}

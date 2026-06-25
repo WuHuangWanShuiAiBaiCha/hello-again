@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3a1a2a"/><stop offset="100%" stop-color="#1a2a3a"/></linearGradient></defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <rect x="250" y="120" width="300" height="200" rx="15" fill="#ffffff10" stroke="#ffffff20" stroke-width="1"/>
+  <text x="400" y="350" text-anchor="middle" fill="#fff" font-size="28" font-weight="200" font-family="sans-serif">摄影风格</text>
+  <text x="400" y="390" text-anchor="middle" fill="#ffffff60" font-size="14" font-family="sans-serif">自定义你的相机</text>
+</svg>

@@ -1,3 +1,5 @@
 .DS_Store
+.server-*.log
+.server-*.pid
 vendor/
 playgrounds/remotion-skill-sandbox/node_modules/

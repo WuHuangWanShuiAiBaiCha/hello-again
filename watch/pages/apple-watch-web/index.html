@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Watch 展示页</title>
+  <style>
+    :root {
+      --page-bg: #ffffff;
+      --text: #111111;
+      --section-gap: 40px;
+      --max-width: 1820px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    .page {
+      width: min(calc(100vw - 48px), var(--max-width));
+      margin: 20px auto 40px;
+    }
+
+    .section {
+      margin: 0 0 var(--section-gap);
+      background: #ffffff;
+    }
+
+    .section img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        width: min(calc(100vw - 24px), var(--max-width));
+        margin: 12px auto 24px;
+      }
+
+      .section {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="section">
+      <img src="section-1.png" alt="Apple Watch Series 6">
+    </section>
+
+    <section class="section">
+      <img src="section-2.png" alt="Apple Watch SE">
+    </section>
+
+    <section class="section">
+      <img src="section-3.png" alt="为什么选择 Apple Watch">
+    </section>
+
+    <section class="section">
+      <img src="section-4.png" alt="watchOS 7">
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d1b4e"/><stop offset="100%" stop-color="#0d051a"/></linearGradient></defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <text x="400" y="240" text-anchor="middle" fill="#fff" font-size="30" font-weight="200" font-family="sans-serif">摄影风格</text>
+  <text x="400" y="290" text-anchor="middle" fill="#ffffff60" font-size="14" font-family="sans-serif">色调与冷暖，随你而定</text>
+</svg>

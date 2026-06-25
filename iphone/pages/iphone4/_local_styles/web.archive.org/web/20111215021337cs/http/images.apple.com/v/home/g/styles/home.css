@@ -1,0 +1,52 @@
+/* ============================================================
+   Apple 2011 Home Page Grid CSS (home.css - g)
+   原始来源: http://images.apple.com/v/home/g/styles/home.css
+   ============================================================ */
+
+/* === Grid System === */
+.row::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.grid2col {
+    display: block;
+    width: 100%;
+}
+.grid2col::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* === Billboard specific === */
+#billboard {
+    margin-top: 10px;
+    background: #f7f7f7;
+    border-radius: 4px;
+    overflow: hidden;
+}
+#billboard .hero.left {
+    width: 579px;
+}
+#billboard .column.last {
+    width: 391px;
+    padding: 20px 10px 20px 0;
+}
+#billboard h1 {
+    margin-bottom: 20px;
+}
+#billboard h1 img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* === Responsive helpers === */
+@media screen and (max-width: 980px) {
+    #billboard .hero.left {
+        width: 50%;
+    }
+    #billboard .column.last {
+        width: 45%;
+    }
+}
