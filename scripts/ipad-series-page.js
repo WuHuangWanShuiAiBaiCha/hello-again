@@ -7,10 +7,10 @@
     const swipe = window.HelloAgain.createSeriesSwipeController({
       refs,
       seriesShell,
-      frameSelector: ".iphone-frame",
-      bridgeName: "__iphoneSeriesBridgeInstalled",
-      originalHrefName: "iphoneOriginalHref",
-      defaultLastPanel: 5,
+      frameSelector: ".ipad-frame",
+      bridgeName: "__ipadSeriesBridgeInstalled",
+      originalHrefName: "ipadOriginalHref",
+      defaultLastPanel: 4,
       startPanel: 1,
     });
 

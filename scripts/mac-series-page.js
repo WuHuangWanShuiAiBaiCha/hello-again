@@ -1007,6 +1007,13 @@
       seriesShell.setMotionController(motion);
     }
 
+    const swipe = window.HelloAgain.createSeriesSwipeController?.({
+      refs,
+      seriesShell,
+      defaultLastPanel: window.HelloAgain.config.panelLast,
+      startPanel: initialPanel,
+    });
+
     refs.macSceneHitarea?.addEventListener("click", () => {
       window.open(
         `${window.HelloAgain.config.externalUrls.classicMac}?t=${Date.now()}`,
@@ -1043,6 +1050,8 @@
       },
       { passive: true }
     );
+
+    swipe?.bind();
 
     [refs.aquaPage, refs.seriesPageThree].forEach((scroller) => {
       scroller?.addEventListener(
