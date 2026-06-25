@@ -20,6 +20,7 @@
     const seriesFadeScrollRange = Math.max(window.innerHeight * 0.55, 320);
     let activeSeriesVideoToken = 0;
     const seriesVideoFadeOutPauseThreshold = 0.015;
+    const deferredArchiveShells = Array.from(document.querySelectorAll("[data-archive-panel]"));
 
     function getCurrentSeriesPanel() {
       if (!refs.seriesTrack) {
@@ -173,8 +174,66 @@
       window.setTimeout(attemptPlay, 800);
     }
 
+    async function loadDeferredArchivesForPanel(panelIndex) {
+      if (!deferredArchiveShells.length) {
+        return;
+      }
+
+      await Promise.all(
+        deferredArchiveShells.map(async (shell) => {
+          const targetPanel = Number(shell.dataset.archivePanel);
+          if (
+            !targetPanel ||
+            panelIndex < targetPanel ||
+            shell.dataset.archiveLoaded === "true" ||
+            shell.dataset.archiveLoading === "true"
+          ) {
+            return;
+          }
+
+          shell.dataset.archiveLoading = "true";
+          try {
+            const template = shell.querySelector("template[data-archive-template]");
+            let html = template?.innerHTML || "";
+
+            if (!html && shell.dataset.archiveFragment) {
+              const response = await fetch(shell.dataset.archiveFragment);
+              if (!response.ok) {
+                throw new Error(`Archive fragment failed: ${response.status}`);
+              }
+              html = await response.text();
+            }
+
+            if (!html) {
+              return;
+            }
+
+            const root = shell.shadowRoot || shell.attachShadow({ mode: "open" });
+            root.innerHTML = `
+              <style>
+                :host {
+                  display: block;
+                  width: 100%;
+                  min-height: 100vh;
+                  background: #000;
+                  color: #f5f5f7;
+                }
+              </style>
+              ${html}
+            `;
+            shell.dataset.archiveLoaded = "true";
+          } catch (error) {
+            console.warn("Archive panel failed to load", error);
+          } finally {
+            delete shell.dataset.archiveLoading;
+          }
+        })
+      );
+    }
+
     function syncSeriesMediaForPanel(panelIndex) {
       stopSeriesVideos();
+      loadDeferredArchivesForPanel(panelIndex);
 
       if (panelIndex === window.HelloAgain.config.panels.aqua) {
         resetSeriesVideoPage(refs.aquaPage);
@@ -266,6 +325,7 @@
     updateSeriesVideoFade(refs.aquaPage);
     updateSeriesVideoFade(refs.seriesPageThree);
     syncSeriesMediaForPanel(initialPanel);
+    loadDeferredArchivesForPanel(window.HelloAgain.config.panelLast);
 
     if (initialPanel === window.HelloAgain.config.panels.sequence) {
       imageSequence?.handlePanelEnter?.();
