@@ -1,0 +1,21 @@
+{
+  "name": "remotion-skill-sandbox",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "remotion studio src/index.ts --browser-executable=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"",
+    "render": "remotion render src/index.ts ProductBumper out/product-bumper.mp4 --browser-executable=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"",
+    "compositions": "remotion compositions src/index.ts --browser-executable=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\""
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.447"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.447",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3"
+  }
+}

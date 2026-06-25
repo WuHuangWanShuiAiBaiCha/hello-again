@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Probe</title>
+  <style>
+    html, body {
+      margin: 0;
+      background: #f2f1f6;
+    }
+
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      background: #f2f1f6;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <video id="video" muted playsinline preload="auto" src="./assets/videos/macbook-air-reveal.mp4"></video>
+  <script>
+    const video = document.getElementById("video");
+    const url = new URL(window.location.href);
+    const time = Number(url.searchParams.get("t") || "0");
+
+    video.addEventListener("loadedmetadata", () => {
+      video.currentTime = Math.max(0, Math.min(time, video.duration || time));
+    });
+
+    video.addEventListener("seeked", () => {
+      document.title = `ready:${video.currentTime.toFixed(2)}`;
+    });
+  </script>
+</body>
+</html>

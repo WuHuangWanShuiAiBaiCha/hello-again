@@ -1427,6 +1427,357 @@
   line-height: 1.36;
 }
 
+.imac-story-page {
+  min-height: 430vh;
+  padding-bottom: 140px;
+}
+
+.imac-sheet {
+  width: min(853px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 0 0 40px;
+  color: #111;
+  font-family: "Times New Roman", "Nimbus Roman No9 L", "Songti SC", serif;
+}
+
+.imac-sheet__nav {
+  margin-top: 8px;
+}
+
+.imac-sheet__nav-main {
+  display: flex;
+  border-top: 1px solid #d6d6d6;
+  background:
+    linear-gradient(to bottom, #fbfbfb 0%, #ededed 56%, #d9d9d9 100%);
+}
+
+.imac-sheet__nav-tab {
+  flex: 1 1 0;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #8d8d8d;
+  border-bottom: 1px solid #9d9d9d;
+  font-size: 12px;
+  line-height: 1;
+  background: transparent;
+}
+
+.imac-sheet__nav-tab--apple {
+  color: #2d69cf;
+  font-weight: 700;
+}
+
+.imac-sheet__nav-sub {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 3px 8px 5px;
+  border-bottom: 1px solid #9f9f9f;
+  font-family: "Helvetica Neue", "Arial Narrow", Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.imac-sheet__hero {
+  display: grid;
+  grid-template-columns: 0.84fr 1.16fr;
+  align-items: start;
+  gap: 8px;
+  padding: 18px 24px 6px;
+}
+
+.imac-sheet__hero-copy {
+  display: grid;
+  align-content: start;
+  gap: 22px;
+  padding-top: 22px;
+}
+
+.imac-sheet__title {
+  font-size: clamp(50px, 8vw, 82px);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+}
+
+.imac-sheet__lead,
+.imac-sheet__apple,
+.imac-sheet__duo-text,
+.imac-sheet__section-text,
+.imac-sheet__footer-title,
+.imac-sheet__footer-text,
+.imac-sheet__footer-links,
+.imac-sheet__footer-meta,
+.imac-sheet__footer-select,
+.imac-sheet__spec {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.imac-sheet__lead {
+  color: #656565;
+  font-size: 13px;
+  line-height: 1.46;
+}
+
+.imac-sheet__apple {
+  color: #2b5fc4;
+  font-size: 16px;
+  line-height: 1.08;
+}
+
+.imac-sheet__apple span {
+  display: block;
+  margin-top: 12px;
+  color: #333;
+  font-size: 12px;
+}
+
+.imac-sheet__hero-art {
+  position: relative;
+  min-height: 600px;
+}
+
+.imac-sheet__hero-image {
+  position: absolute;
+  inset: 18px 0 0 auto;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/images/imac-g3/hero-imac.png") right top / contain no-repeat;
+  z-index: 3;
+}
+
+.imac-sheet__color {
+  position: absolute;
+  z-index: 1;
+}
+
+.imac-sheet__color--lavender {
+  top: 28px;
+  right: 6px;
+  width: 150px;
+  height: 194px;
+  background: #d7b8eb;
+}
+
+.imac-sheet__color--lime {
+  right: 0;
+  bottom: 72px;
+  width: 120px;
+  height: 225px;
+  background: #d8f34f;
+}
+
+.imac-sheet__color--sky {
+  left: 22px;
+  bottom: 72px;
+  width: 118px;
+  height: 118px;
+  background: #a8daf7;
+}
+
+.imac-sheet__duo {
+  display: grid;
+  grid-template-columns: 0.84fr 0.5fr 1fr;
+  align-items: end;
+  gap: 16px;
+  padding: 10px 36px 18px;
+}
+
+.imac-sheet__detail {
+  min-height: 190px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.imac-sheet__detail--orange {
+  background-image: url("../assets/images/imac-g3/orange-detail.png");
+}
+
+.imac-sheet__detail--pink {
+  min-height: 238px;
+  background-image: url("../assets/images/imac-g3/pink-detail.png");
+}
+
+.imac-sheet__duo-copy {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+  padding-bottom: 12px;
+}
+
+.imac-sheet__duo-title,
+.imac-sheet__section-title {
+  font-size: clamp(34px, 5vw, 44px);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.imac-sheet__duo-text,
+.imac-sheet__section-text {
+  color: #383838;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.imac-sheet__colors {
+  display: grid;
+  grid-template-columns: 1.56fr 0.54fr;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 32px 18px;
+}
+
+.imac-sheet__colors-strip {
+  min-height: 116px;
+  background: url("../assets/images/imac-g3/colors-strip.png") left center / contain no-repeat;
+}
+
+.imac-sheet__colors-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.imac-sheet__internet {
+  display: grid;
+  grid-template-columns: 1.14fr 0.72fr;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 30px 8px;
+}
+
+.imac-sheet__internet-screen {
+  min-height: 176px;
+  background: url("../assets/images/imac-g3/internet-screen.png") left center / contain no-repeat;
+}
+
+.imac-sheet__internet-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.imac-sheet__system {
+  display: grid;
+  grid-template-columns: 0.56fr 1fr 0.84fr;
+  align-items: end;
+  gap: 18px;
+  padding: 12px 28px 24px;
+}
+
+.imac-sheet__system-copy {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 24px;
+}
+
+.imac-sheet__system-image {
+  min-height: 220px;
+  background: url("../assets/images/imac-g3/system-bottom.png") center bottom / contain no-repeat;
+}
+
+.imac-sheet__specs {
+  display: grid;
+  gap: 10px;
+  padding: 28px 28px 28px 38px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #d7ebff 0%, #c3def8 100%);
+  min-height: 172px;
+  align-content: center;
+}
+
+.imac-sheet__spec {
+  position: relative;
+  padding-left: 36px;
+  font-size: 13px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.imac-sheet__spec::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #7892b8;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.imac-sheet__footer-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 4px 142px 24px;
+  border: 1px solid #c1c1c1;
+}
+
+.imac-sheet__footer-panel {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 14px;
+  align-items: center;
+  min-height: 74px;
+  padding: 10px 18px;
+}
+
+.imac-sheet__footer-panel + .imac-sheet__footer-panel {
+  border-left: 1px solid #c1c1c1;
+}
+
+.imac-sheet__footer-icon {
+  min-height: 52px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.imac-sheet__footer-icon--quicktime {
+  background-image: url("../assets/images/imac-g3/quicktime-icon.png");
+}
+
+.imac-sheet__footer-icon--buy {
+  background-image: url("../assets/images/imac-g3/buy-bag.png");
+}
+
+.imac-sheet__footer-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.imac-sheet__footer-title {
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.imac-sheet__footer-text,
+.imac-sheet__footer-links,
+.imac-sheet__footer-meta,
+.imac-sheet__footer-select {
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.imac-sheet__footer-links {
+  color: #1d4cc5;
+  margin-bottom: 10px;
+}
+
+.imac-sheet__footer-meta {
+  margin-bottom: 8px;
+}
+
+.imac-sheet__footer-select {
+  width: 154px;
+  margin: 0 auto 12px;
+  padding: 2px 10px;
+  border: 1px solid #b6b6b6;
+  text-align: left;
+}
+
 
 .sequence-page {
   min-height: 360vh;
@@ -1715,24 +2066,116 @@
     min-height: auto;
   }
 
+  .imac-story-page {
+    min-height: auto;
+  }
+
   .cube-sheet {
     width: min(100%, calc(100% - 16px));
   }
 
+  .imac-sheet {
+    width: min(100%, calc(100% - 12px));
+  }
+
   .cube-sheet__nav-main,
   .cube-sheet__nav-sub,
-  .cube-sheet__featurebar {
+  .cube-sheet__featurebar,
+  .imac-sheet__nav-main,
+  .imac-sheet__nav-sub {
     overflow-x: auto;
   }
 
-  .cube-sheet__nav-tab {
+  .cube-sheet__nav-tab,
+  .imac-sheet__nav-tab {
     flex: 0 0 118px;
   }
 
-  .cube-sheet__nav-sub {
+  .cube-sheet__nav-sub,
+  .imac-sheet__nav-sub {
     justify-content: flex-start;
     gap: 18px;
     white-space: nowrap;
+  }
+
+  .imac-sheet__hero,
+  .imac-sheet__duo,
+  .imac-sheet__colors,
+  .imac-sheet__internet,
+  .imac-sheet__system,
+  .imac-sheet__footer-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .imac-sheet__hero {
+    padding: 18px 14px 10px;
+  }
+
+  .imac-sheet__hero-copy,
+  .imac-sheet__duo-copy,
+  .imac-sheet__colors-copy,
+  .imac-sheet__internet-copy,
+  .imac-sheet__system-copy {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .imac-sheet__hero-art {
+    min-height: 360px;
+  }
+
+  .imac-sheet__hero-image {
+    background-position: center top;
+  }
+
+  .imac-sheet__color--lavender {
+    width: 100px;
+    height: 132px;
+    right: 10px;
+  }
+
+  .imac-sheet__color--lime {
+    width: 92px;
+    height: 168px;
+    bottom: 48px;
+  }
+
+  .imac-sheet__color--sky {
+    width: 88px;
+    height: 88px;
+    left: 8px;
+    bottom: 52px;
+  }
+
+  .imac-sheet__duo,
+  .imac-sheet__colors,
+  .imac-sheet__internet,
+  .imac-sheet__system {
+    padding-left: 14px;
+    padding-right: 14px;
+    gap: 12px;
+  }
+
+  .imac-sheet__detail,
+  .imac-sheet__internet-screen,
+  .imac-sheet__system-image,
+  .imac-sheet__colors-strip {
+    min-height: 150px;
+    background-position: center center;
+  }
+
+  .imac-sheet__specs {
+    min-height: auto;
+    padding: 22px 18px;
+  }
+
+  .imac-sheet__footer-panels {
+    margin: 8px 14px 18px;
+  }
+
+  .imac-sheet__footer-panel + .imac-sheet__footer-panel {
+    border-left: 0;
+    border-top: 1px solid #c1c1c1;
   }
 
   .cube-sheet__hero {

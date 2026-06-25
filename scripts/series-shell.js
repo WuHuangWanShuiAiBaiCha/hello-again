@@ -4,7 +4,16 @@
   const { config, utils } = window.HelloAgain;
 
   window.HelloAgain.createSeriesShellController = function createSeriesShellController(refs) {
-    let activePanel = config.panels.sentinel;
+    function getInitialPanel() {
+      const rawValue = Number(refs.seriesShell?.dataset.initialPanel);
+      if (!Number.isFinite(rawValue)) {
+        return config.panels.mac;
+      }
+
+      return utils.clamp(Math.round(rawValue), config.panels.mac, config.panelLast);
+    }
+
+    let activePanel = getInitialPanel();
     let trackSettleTimer = 0;
     let motionController = null;
 
@@ -94,7 +103,7 @@
         page.scrollTop = 0;
       });
       setShellOpen(true);
-      scrollToPanel(config.panels.mac, "auto");
+      scrollToPanel(getInitialPanel(), "auto");
     }
 
     function settleTrackPosition() {
@@ -150,7 +159,8 @@
         return;
       }
 
-      refs.seriesTrack.scrollLeft = getPanelLeft(config.panels.mac);
+      activePanel = getInitialPanel();
+      refs.seriesTrack.scrollLeft = getPanelLeft(activePanel);
     }
 
     return {

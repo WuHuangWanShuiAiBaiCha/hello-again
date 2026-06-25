@@ -154,44 +154,6 @@
   transition: opacity 120ms linear;
 }
 
-.series-video-page__fade,
-.product-sequence__fade {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: clamp(280px, calc(31vh + 40px), 412px);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.series-video-page__fade--top,
-.product-sequence__fade--top {
-  top: 0;
-  background: linear-gradient(
-    180deg,
-    rgb(242, 241, 246) 0%,
-    rgba(242, 241, 246, 0.988) 22%,
-    rgba(242, 241, 246, 0.9) 42%,
-    rgba(242, 241, 246, 0.56) 70%,
-    rgba(242, 241, 246, 0.2) 88%,
-    rgba(242, 241, 246, 0) 100%
-  );
-}
-
-.series-video-page__fade--bottom,
-.product-sequence__fade--bottom {
-  bottom: 0;
-  background: linear-gradient(
-    0deg,
-    rgb(242, 241, 246) 0%,
-    rgba(242, 241, 246, 0.988) 22%,
-    rgba(242, 241, 246, 0.9) 42%,
-    rgba(242, 241, 246, 0.56) 70%,
-    rgba(242, 241, 246, 0.2) 88%,
-    rgba(242, 241, 246, 0) 100%
-  );
-}
-
 .sequence-page {
   min-height: 360vh;
   background: var(--device-page-bg);
