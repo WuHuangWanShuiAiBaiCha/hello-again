@@ -1430,6 +1430,7 @@
 .imac-story-page {
   min-height: 430vh;
   padding-bottom: 140px;
+  background: #fff;
 }
 
 .imac-sheet {
@@ -1437,6 +1438,7 @@
   margin: 0 auto;
   padding: 0 0 40px;
   color: #111;
+  background: #fff;
   font-family: "Times New Roman", "Nimbus Roman No9 L", "Songti SC", serif;
 }
 
@@ -1579,14 +1581,14 @@
 
 .imac-sheet__duo {
   display: grid;
-  grid-template-columns: 0.84fr 0.5fr 1fr;
+  grid-template-columns: 0.78fr 0.58fr 1fr;
   align-items: end;
-  gap: 16px;
-  padding: 10px 36px 18px;
+  gap: 18px;
+  padding: 6px 32px 18px;
 }
 
 .imac-sheet__detail {
-  min-height: 190px;
+  min-height: 216px;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1605,7 +1607,7 @@
   display: grid;
   gap: 12px;
   align-content: center;
-  padding-bottom: 12px;
+  padding-bottom: 16px;
 }
 
 .imac-sheet__duo-title,
@@ -1645,7 +1647,7 @@
   grid-template-columns: 1.14fr 0.72fr;
   align-items: center;
   gap: 24px;
-  padding: 18px 30px 8px;
+  padding: 22px 30px 12px;
 }
 
 .imac-sheet__internet-screen {
@@ -1663,17 +1665,17 @@
   grid-template-columns: 0.56fr 1fr 0.84fr;
   align-items: end;
   gap: 18px;
-  padding: 12px 28px 24px;
+  padding: 4px 28px 24px;
 }
 
 .imac-sheet__system-copy {
   display: grid;
   gap: 12px;
-  padding-bottom: 24px;
+  padding-bottom: 34px;
 }
 
 .imac-sheet__system-image {
-  min-height: 220px;
+  min-height: 246px;
   background: url("../assets/images/imac-g3/system-bottom.png") center bottom / contain no-repeat;
 }
 
